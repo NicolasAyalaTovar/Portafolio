@@ -1,1 +1,0 @@
-print("vas a caer Gege")
