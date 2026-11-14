@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Herramientas · Hexápoda</title>
+  <meta name="description" content="Calculadora de biomasa de insectos (Rogers et al., 1976) y otras herramientas para datos entomológicos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main>
+    <section class="heroe heroe-mini panal-bg">
+      <div class="wrap">
+        <span class="etiqueta">Datos con seis patas</span>
+        <h1>Herramientas</h1>
+        <p class="lead">Utilidades para analizar datos entomológicos en el aula, en campo o en tu tesis. ¡Vamos a crujir números, no insectos!</p>
+      </div>
+    </section>
+
+    <section id="biomasa">
+      <div class="wrap">
+        <div class="titulo-seccion">
+          <div>
+            <span class="etiqueta">Herramienta 01</span>
+            <h2>Calculadora de biomasa</h2>
+          </div>
+          <a class="btn oscuro chico" href="https://github.com/NicolasAyalaTovar/R-BiomassCalculator" target="_blank" rel="noopener">Versión en R (GitHub)</a>
+        </div>
+
+        <div class="calc">
+          <div class="tarjeta">
+            <h3>¿Cómo funciona?</h3>
+            <p>Estima la biomasa de los insectos a partir de su abundancia y su longitud corporal, usando la relación longitud–peso de Rogers et al. (1976), aplicada luego por Stork y Blackburn (1993).</p>
+            <div class="formula">b = n × (0.0305 × l<sup>2.62</sup>)</div>
+            <p class="small"><strong>n</strong>: abundancia (número de individuos)<br>
+              <strong>l</strong>: longitud corporal (mm)<br>
+              <strong>b</strong>: biomasa estimada (mg de peso seco)</p>
+
+            <h3 style="margin-top:20px">Cálculo rápido</h3>
+            <div class="campos">
+              <div><label for="n1">Abundancia (n)</label><input id="n1" type="number" min="0" step="1" value="5"></div>
+              <div><label for="l1">Longitud (mm)</label><input id="l1" type="number" min="0" step="0.1" value="6.5"></div>
+            </div>
+            <div class="resultado" aria-live="polite">
+              <div class="hex-icon">⚖️</div>
+              <div><div class="small muted">Biomasa estimada</div><div class="valor" id="r1">—</div></div>
+            </div>
+          </div>
+
+          <div class="tarjeta">
+            <h3>Varias especies</h3>
+            <p class="small muted">Edita la tabla directamente, o carga tus propios datos más abajo pegándolos o subiendo un archivo .csv.</p>
+            <div class="tabla-wrap">
+              <table>
+                <thead><tr><th>Especie</th><th class="num">n</th><th class="num">l (mm)</th><th class="num">Biomasa (mg)</th><th>Proporción</th><th><span class="sr-only">Quitar</span></th></tr></thead>
+                <tbody id="filas"></tbody>
+                <tfoot><tr><th>Total</th><th class="num" id="totN"></th><th></th><th class="num" id="totB"></th><th colspan="2"></th></tr></tfoot>
+              </table>
+            </div>
+            <div class="acciones-tabla">
+              <button class="btn chico" id="agregar">+ Agregar especie</button>
+              <button class="btn chico oscuro" id="descargar">Descargar resultados</button>
+              <button class="btn chico oscuro" id="ejemplo">Restaurar ejemplo</button>
+            </div>
+            <h3 style="margin-top:18px">Cargar mis datos</h3>
+            <div id="importar-biomasa"></div>
+          </div>
+        </div>
+
+        <p class="nota" style="margin-top:24px">📚 <strong>Referencias.</strong> Rogers, L. E., Hinds, W. T. y Buschbom, R. L. (1976). A general weight vs. length relationship for insects. <em>Annals of the Entomological Society of America</em>, 69: 387–389. · Stork, N. E. y Blackburn, T. M. (1993). Abundance, body size and biomass of arthropods in tropical forest. <em>Oikos</em>, 67: 483–489.</p>
+      </div>
+    </section>
+
+    <section class="seccion-alt" id="diversidad">
+      <div class="wrap">
+        <div class="titulo-seccion">
+          <div>
+            <span class="etiqueta">Herramienta 02</span>
+            <h2>Índices de diversidad: números de Hill</h2>
+          </div>
+          <p class="muted">Los números de Hill expresan la diversidad como un <strong>número efectivo de especies</strong>: cuántas especies igualmente abundantes harían falta para obtener esa misma diversidad. Así, todos se miden en “especies” y se pueden comparar entre sí.</p>
+        </div>
+
+        <div class="tarjeta">
+          <div class="formula"><sup>q</sup>D =( Σ p<sub>i</sub><sup>q</sup> )<sup>1/(1−q)</sup></div>
+          <p class="small muted" style="text-align:center;margin-top:-8px"><em>p<sub>i</sub></em> = abundancia de la especie <em>i</em> / abundancia total del sitio. El orden <em>q</em> define cuánto peso se da a las especies comunes.</p>
+          <div class="hill-q">
+            <div><div class="q">q = 0 · Riqueza</div><div class="f">⁰D = S</div><p class="small" style="margin:0">Cuenta todas las especies por igual, sin importar su abundancia. Muy sensible a las especies raras.</p></div>
+            <div><div class="q">q = 1 · Shannon</div><div class="f">¹D = exp(H′),&nbsp; H′ = −Σ p<sub>i</sub> ln p<sub>i</sub></div><p class="small" style="margin:0">Exponencial de la entropía de Shannon. Pondera cada especie según su abundancia: el número de especies “comunes”.</p></div>
+            <div><div class="q">q = 2 · Simpson</div><div class="f">²D = 1 / Σ p<sub>i</sub>²</div><p class="small" style="margin:0">Inverso del índice de Simpson. Da más peso a las especies dominantes: el número de especies “muy abundantes”.</p></div>
+          </div>
+          <p class="nota small">🐝 Siempre se cumple ⁰D ≥ ¹D ≥ ²D. Cuanto más rápido cae la diversidad al aumentar <em>q</em>, más desigual (dominada por pocas especies) es la comunidad. Si los tres valores son iguales, todas las especies tienen la misma abundancia.</p>
+
+          <h3 style="margin-top:22px">Resultados por sitio</h3>
+          <div class="tabla-wrap">
+            <table>
+              <thead><tr>
+                <th>Sitio</th><th class="num">Individuos (N)</th>
+                <th class="num">⁰D Riqueza</th><th class="num">¹D exp(H′)</th><th class="num">²D 1/Simpson</th>
+                <th class="num">H′</th><th class="num">Σp²</th>
+              </tr></thead>
+              <tbody id="hill-filas"></tbody>
+            </table>
+          </div>
+          <p class="small muted" id="hill-resumen" style="margin-top:8px"></p>
+          <div class="acciones-tabla">
+            <button class="btn chico oscuro" id="hill-descargar">Descargar resultados</button>
+          </div>
+
+          <h3 style="margin-top:18px">Cargar mis datos</h3>
+          <div id="importar-hill"></div>
+        </div>
+
+        <p class="nota" style="margin-top:24px">📚 <strong>Referencias.</strong> Hill, M. O. (1973). Diversity and evenness: a unifying notation and its consequences. <em>Ecology</em>, 54: 427–432. · Jost, L. (2006). Entropy and diversity. <em>Oikos</em>, 113: 363–375. · Chao, A., Gotelli, N. J., Hsieh, T. C., <em>et al.</em> (2014). Rarefaction and extrapolation with Hill numbers. <em>Ecological Monographs</em>, 84: 45–67.<br>
+        <span class="small muted">Esta herramienta calcula los valores observados de la muestra. Para comparar sitios con distinto esfuerzo de muestreo se recomienda rarefacción/extrapolación (p. ej., el paquete iNEXT de R).</span></p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="titulo-seccion"><div><span class="etiqueta">En construcción</span><h2>Próximas herramientas</h2></div></div>
+        <div class="grid grid-3">
+          <div class="tarjeta"><div class="hex-icon">📈</div><h3>Rarefacción y extrapolación</h3><p class="muted">Curvas de números de Hill comparables entre sitios con distinto esfuerzo de muestreo.</p></div>
+          <div class="tarjeta"><div class="hex-icon">🗺️</div><h3>Mapas de registros</h3><p class="muted">Visualiza registros de GBIF para Bogotá y Colombia.</p></div>
+          <div class="tarjeta"><div class="hex-icon">🔑</div><h3>Clave de órdenes</h3><p class="muted">Una clave dicotómica interactiva para identificar órdenes de insectos.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/layout.js"></script>
+  <script src="js/importar.js"></script>
+  <script src="js/biomasa.js"></script>
+  <script src="js/diversidad.js"></script>
+</body>
+</html>

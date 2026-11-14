@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entomofauna bogotana · Hexápoda</title>
+  <meta name="description" content="Insectos de Bogotá y la sabana, cada uno explicando un concepto de biología.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main>
+    <section class="heroe heroe-mini panal-bg">
+      <div class="wrap">
+        <span class="etiqueta">A 2.600 metros más cerca de los insectos</span>
+        <h1>Entomofauna bogotana</h1>
+        <p class="lead">Parques, humedales, huertas y potreros de la sabana están llenos de insectos. Cada ficha presenta una especie y el concepto biológico que nos ayuda a enseñar.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="filtros" id="filtros" role="group" aria-label="Filtrar por orden"></div>
+        <div class="grid grid-3" id="especies"></div>
+        <p class="nota" style="margin-top:28px">💡 <strong>Para docentes:</strong> usa cada ficha como punto de partida de una clase. Pide a tus estudiantes que busquen la especie en su barrio o colegio y registren sus observaciones en <a href="https://colombia.inaturalist.org/" target="_blank" rel="noopener">iNaturalist Colombia</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/layout.js"></script>
+  <script src="js/datos.js"></script>
+  <script>
+    const contenedor = document.getElementById("especies");
+    const filtros = document.getElementById("filtros");
+    const ordenes = ["Todos", ...new Set(ESPECIES.map(e => e.orden))];
+
+    function pintar(orden) {
+      const lista = orden === "Todos" ? ESPECIES : ESPECIES.filter(e => e.orden === orden);
+      contenedor.innerHTML = lista.map(e => `
+        <article class="tarjeta ficha">
+          <div class="ficha-top">
+            <div class="hex-icon">${e.emoji}</div>
+            <div>
+              <h3 style="margin:0">${e.nombre}</h3>
+              <p class="nombre-cientifico">${e.cientifico}</p>
+            </div>
+          </div>
+          <div class="chips"><span class="chip">${e.orden}</span></div>
+          <p style="margin:0">${e.descripcion}</p>
+          <p class="small muted" style="margin:0">📍 ${e.habitat}</p>
+          <div class="concepto"><strong>Concepto: ${e.concepto}.</strong> ${e.conceptoTexto}</div>
+        </article>`).join("");
+      filtros.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b.dataset.orden === orden));
+    }
+
+    filtros.innerHTML = ordenes.map(o => `<button class="filtro" data-orden="${o}">${o}</button>`).join("");
+    filtros.addEventListener("click", ev => { if (ev.target.dataset.orden) pintar(ev.target.dataset.orden); });
+    pintar("Todos");
+  </script>
+</body>
+</html>

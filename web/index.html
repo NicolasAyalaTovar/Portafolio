@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hexápoda · Entomología para todos</title>
+  <meta name="description" content="Recurso didáctico para aprender biología a través de los insectos: noticias de entomología en Colombia, entomofauna bogotana, herramientas y juegos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main>
+    <section class="heroe panal-bg">
+      <div class="wrap">
+        <div>
+          <span class="etiqueta">Biología a seis patas</span>
+          <h1>Aprende biología <em>a través de los insectos</em></h1>
+          <p class="lead">Metamorfosis, polinización, evolución, ecología… Los insectos son la puerta de entrada perfecta para entender la vida. Un espacio didáctico hecho desde Bogotá.</p>
+          <div class="acciones">
+            <a class="btn" href="entomofauna.html">Explorar la entomofauna</a>
+            <a class="btn oscuro" href="herramientas.html" style="box-shadow:none;--b-bg:#3a2e22">Calculadora de biomasa</a>
+          </div>
+        </div>
+        <div class="racimo" aria-hidden="true">
+          <div>🐝</div><div>🦋</div><div>🪲</div>
+          <div>🐞</div><div></div><div>🌼</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="titulo-seccion">
+          <div>
+            <span class="etiqueta">Actualidad</span>
+            <h2>Noticias de entomología en Colombia</h2>
+          </div>
+          <p class="muted">Descubrimientos y hallazgos recientes de la entomología colombiana, con enlace a la fuente original.</p>
+        </div>
+        <div class="grid grid-3" id="noticias"></div>
+      </div>
+    </section>
+
+    <section class="seccion-alt">
+      <div class="wrap">
+        <div class="titulo-seccion">
+          <div>
+            <span class="etiqueta">El panal</span>
+            <h2>Explora el sitio</h2>
+          </div>
+        </div>
+        <div class="grid secciones-home">
+          <a class="tarjeta seccion-link" href="entomofauna.html">
+            <div class="hex-icon">🦋</div>
+            <h3>Entomofauna bogotana</h3>
+            <p>Los insectos que nos rodean en parques, humedales y huertas, cada uno explicando un concepto biológico.</p>
+          </a>
+          <a class="tarjeta seccion-link" href="herramientas.html">
+            <div class="hex-icon">📊</div>
+            <h3>Herramientas</h3>
+            <p>Calculadora de biomasa y otras utilidades para el análisis de datos entomológicos.</p>
+          </a>
+          <a class="tarjeta seccion-link" href="juegos.html">
+            <div class="hex-icon">🎮</div>
+            <h3>Juegos</h3>
+            <p>Retos para que niñas, niños y curiosos de todas las edades aprendan jugando.</p>
+          </a>
+          <a class="tarjeta seccion-link" href="portafolio.html">
+            <div class="hex-icon">🔬</div>
+            <h3>Portafolio</h3>
+            <p>Docencia, entomología y análisis de datos: mis proyectos y trayectoria.</p>
+          </a>
+          <a class="tarjeta seccion-link" href="tienda.html">
+            <div class="hex-icon">🍯</div>
+            <h3>Tienda</h3>
+            <p>Pronto: productos derivados del trabajo de las abejas.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/layout.js"></script>
+  <script src="js/datos.js"></script>
+  <script>
+    const fmt = f => new Date(f + "T12:00:00").toLocaleDateString("es-CO", { day: "numeric", month: "long", year: "numeric" });
+    document.getElementById("noticias").innerHTML = NOTICIAS.map(n => `
+      <article class="tarjeta noticia">
+        <span class="meta">${n.etiqueta}${n.fecha ? " · " + fmt(n.fecha) : ""}</span>
+        <h3>${n.titulo}</h3>
+        <p>${n.resumen}</p>
+        <a class="fuente" href="${n.url}" target="_blank" rel="noopener">Leer en ${n.fuente} →</a>
+      </article>`).join("");
+  </script>
+</body>
+</html>

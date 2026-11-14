@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portafolio · Hexápoda</title>
+  <meta name="description" content="Portafolio de Nicolás Ayala Tovar: docente, entomólogo y analista de datos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main>
+    <section class="heroe heroe-mini panal-bg">
+      <div class="wrap perfil">
+        <!-- Reemplaza este hexágono por tu foto: <img class="foto-hex" src="img/foto.jpg" alt="Nicolás Ayala Tovar"> -->
+        <div class="foto-hex" aria-hidden="true">NA</div>
+        <div>
+          <span class="etiqueta">Portafolio</span>
+          <h1>Nicolás Ayala Tovar</h1>
+          <div class="roles">
+            <span class="chip" style="font-size:.9rem;padding:5px 18px">Docente</span>
+            <span class="chip" style="font-size:.9rem;padding:5px 18px">Entomólogo</span>
+            <span class="chip" style="font-size:.9rem;padding:5px 18px">Analista de datos</span>
+          </div>
+          <p class="lead">Uno los insectos, la enseñanza y los datos para que más personas entiendan —y cuiden— la biodiversidad.</p>
+          <div class="acciones">
+            <a class="btn" href="https://github.com/NicolasAyalaTovar" target="_blank" rel="noopener">Ver GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="titulo-seccion"><div><span class="etiqueta">Lo que hago</span><h2>Áreas de trabajo</h2></div></div>
+        <div class="grid grid-3">
+          <div class="tarjeta"><div class="hex-icon">🎓</div><h3>Docencia</h3><p class="muted">Diseño de clases y materiales que usan a los insectos para explicar conceptos de biología.</p></div>
+          <div class="tarjeta"><div class="hex-icon">🪲</div><h3>Entomología</h3><p class="muted">Muestreo, identificación y ecología de insectos, con énfasis en la entomofauna andina.</p></div>
+          <div class="tarjeta"><div class="hex-icon">📊</div><h3>Análisis de datos</h3><p class="muted">Estadística y programación en R y Python aplicadas a datos biológicos.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion-alt">
+      <div class="wrap">
+        <div class="titulo-seccion"><div><span class="etiqueta">Proyectos</span><h2>Proyectos destacados</h2></div></div>
+        <div class="grid grid-2">
+          <article class="tarjeta proyecto">
+            <img src="img/biomass-calculator.png" alt="Logo de la calculadora de biomasa: un escarabajo junto a una calculadora">
+            <span class="meta">R · Tesis de pregrado</span>
+            <h3>Biomass Calculator</h3>
+            <p class="muted">Script en R para estimar la biomasa de insectos a partir de su abundancia y longitud, con la fórmula de Rogers et al. (1976). Usado en mi tesis de pregrado y ahora disponible como herramienta web.</p>
+            <div class="acciones-tabla">
+              <a class="btn chico" href="herramientas.html#biomasa">Probar en línea</a>
+              <a class="btn chico oscuro" href="https://github.com/NicolasAyalaTovar/R-BiomassCalculator" target="_blank" rel="noopener">Código</a>
+            </div>
+          </article>
+          <article class="tarjeta proyecto">
+            <span class="meta">Educación · Web</span>
+            <h3>Hexápoda</h3>
+            <p class="muted">Este sitio: un recurso didáctico abierto para enseñar biología con insectos, con fichas de la entomofauna bogotana, herramientas y juegos.</p>
+            <!-- Copia este bloque <article> para añadir más proyectos -->
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/layout.js"></script>
+</body>
+</html>

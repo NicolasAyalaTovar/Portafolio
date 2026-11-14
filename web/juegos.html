@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Juegos · Hexápoda</title>
+  <meta name="description" content="Juegos para aprender entomología: retos para niñas, niños y curiosos de todas las edades.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main>
+    <section class="heroe heroe-mini panal-bg">
+      <div class="wrap">
+        <span class="etiqueta">Aprender jugando</span>
+        <h1>Juegos entomológicos</h1>
+        <p class="lead">Retos para niñas, niños y curiosos de todas las edades. Cada respuesta correcta llena una celda del panal.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="tarjeta juego" id="juego">
+          <span class="etiqueta">Juego 01 · ¿Es un insecto?</span>
+          <div class="marcador" id="marcador" aria-hidden="true"></div>
+          <div class="emoji-grande" id="emoji"></div>
+          <p class="pregunta" id="pregunta"></p>
+          <div class="opciones" id="opciones"></div>
+          <p class="explicacion muted" id="explicacion" aria-live="polite"></p>
+          <button class="btn oscuro" id="siguiente" hidden>Siguiente →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion-alt">
+      <div class="wrap">
+        <div class="titulo-seccion"><div><span class="etiqueta">Próximamente</span><h2>Más juegos en camino</h2></div></div>
+        <div class="grid grid-3">
+          <div class="tarjeta"><div class="hex-icon">🧩</div><h3>Arma el ciclo de vida</h3><p class="muted">Ordena huevo, larva, pupa y adulto de distintos insectos.</p></div>
+          <div class="tarjeta"><div class="hex-icon">🌸</div><h3>La ruta del polen</h3><p class="muted">Guía a una abeja de flor en flor y descubre la polinización.</p></div>
+          <div class="tarjeta"><div class="hex-icon">🔎</div><h3>Detective de humedal</h3><p class="muted">Encuentra los bioindicadores escondidos en un humedal bogotano.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/layout.js"></script>
+  <script src="js/juego.js"></script>
+</body>
+</html>
