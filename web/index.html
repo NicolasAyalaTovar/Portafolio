@@ -34,6 +34,7 @@
         <div class="acciones">
           <a class="btn" href="entomofauna.html">Explorar entomofauna</a>
         </div>
+        <div id="buscador"></div>
         <nav class="collage" id="collage" aria-label="Algunos insectos de Bogotá"></nav>
       </div>
     </section>
@@ -68,7 +69,7 @@
         </div>
         <div class="grid grid-2">
           <article class="tarjeta herramienta">
-            <div class="hex-icon" aria-hidden="true">⚖️</div>
+            <div class="hex-icon" aria-hidden="true">🧮</div>
             <h3>Calculadora de biomasa</h3>
             <p class="muted">Estima la biomasa de los insectos a partir de su abundancia y longitud corporal con la fórmula de Rogers et al. (1976).</p>
             <div class="formula formula-chica">b = n × (0.0305 × l<sup>2.62</sup>)</div>
@@ -103,7 +104,10 @@
   <script src="js/datos.js"></script>
   <script src="js/especies.js"></script>
   <script src="js/productos.js"></script>
+  <script src="js/buscador.js"></script>
   <script>
+    Buscador.crear(document.getElementById("buscador"));
+
     // ---------- Collage de hexágonos ----------
     (function () {
       const slug = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
@@ -114,7 +118,7 @@
       const lista = ELEGIDAS.map(c => ESPECIES.find(e => e.cientifico === c)).filter(Boolean);
       document.getElementById("collage").innerHTML = lista.map(e => `
         <a class="celda" href="entomofauna.html#${slug(e.cientifico)}" title="${e.nombre} (${e.cientifico})">
-          <img src="${encodeURI(e.foto)}" alt="${e.nombre}, ${e.cientifico}" loading="lazy" decoding="async">
+          <img src="${encodeURI(e.foto)}" alt="${e.nombre}, ${e.cientifico}" decoding="async">
         </a>`).join("");
     })();
 

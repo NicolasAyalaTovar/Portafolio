@@ -120,7 +120,7 @@ p { margin: 0 0 1em; }
 }
 .tema-btn:hover { background: var(--abeja-2); }
 
-@media (max-width: 1100px) {
+@media (max-width: 1240px) {
   .menu-btn { display: inline-block; }
   .nav {
     display: none; position: absolute; top: 68px; left: 0; right: 0;
@@ -508,3 +508,100 @@ figure.foto-hex { margin: 0; padding: 6px; }
 .publicacion p { margin: 0; }
 .publicacion .acciones-tabla { margin-top: auto; padding-top: 8px; margin-bottom: 0; }
 .site-footer .legal { display: flex; justify-content: space-between; gap: 8px 20px; flex-wrap: wrap; }
+
+/* ---------- Resaltar la foto de cada lámina ---------- */
+.lamina { transition: transform .25s, box-shadow .25s; }
+.lamina .foto-especie { transition: background .25s, filter .25s; }
+.lamina .foto-especie img { transition: transform .45s; }
+.lamina:hover, .lamina:focus-within { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(60, 40, 0, .22); }
+.lamina:hover .foto-especie, .lamina:focus-within .foto-especie {
+  background: var(--polen); filter: drop-shadow(0 0 10px rgba(255, 210, 63, .55));
+}
+.lamina:hover .foto-especie img, .lamina:focus-within .foto-especie img { transform: scale(1.1); }
+
+/* ---------- Para docentes ---------- */
+.docentes h2 { font-size: 1.4rem; margin-bottom: 6px; }
+.docentes h3 { font-size: 1.05rem; margin: 14px 0 6px; }
+.bibliografia { margin: 0; padding-left: 20px; }
+.bibliografia li { margin-bottom: 8px; }
+
+/* ---------- Buscador ---------- */
+.buscador { position: relative; max-width: 560px; margin: 26px auto 0; text-align: left; z-index: 5; }
+.buscador form { position: relative; }
+.buscador-ico { position: absolute; left: 26px; top: 50%; transform: translateY(-50%); pointer-events: none; z-index: 1; }
+.buscador input {
+  width: 100%; font: inherit; font-size: 1.02rem; padding: 14px 32px 14px 56px; border: 0;
+  background: var(--cera); color: var(--abeja); clip-path: var(--hex-btn); border-radius: 0;
+}
+.buscador input:focus { outline: none; background: #fff; box-shadow: inset 0 0 0 3px var(--miel); }
+.buscador-resultados {
+  position: absolute; left: 0; right: 0; top: calc(100% + 8px); margin: 0; padding: 6px; list-style: none;
+  background: var(--surface); border: 2px solid var(--miel); border-radius: var(--radius); box-shadow: var(--shadow);
+  max-height: 60vh; overflow-y: auto;
+}
+.buscador-resultados a { display: grid; grid-template-columns: auto 1fr; column-gap: 10px; padding: 8px 10px; border-radius: 8px; text-decoration: none; color: var(--text); }
+.buscador-resultados a strong { grid-column: 2; }
+.buscador-resultados a .small { grid-column: 2; }
+.buscador-resultados .buscador-tipo {
+  grid-row: span 2; align-self: center; font-size: .7rem; font-weight: 800; text-transform: uppercase; letter-spacing: .5px;
+  background: var(--abeja); color: var(--polen); padding: 3px 12px; clip-path: var(--hex-btn);
+  min-width: 104px; text-align: center;
+}
+.buscador-resultados li.activo a, .buscador-resultados a:hover { background: var(--surface-2); }
+.buscador-vacio { padding: 10px; color: var(--text-muted); }
+
+/* ---------- Niveles de juegos ---------- */
+.niveles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 26px; }
+.nivel {
+  display: flex; align-items: center; gap: 12px; text-align: left; cursor: pointer;
+  font: inherit; color: var(--text); background: var(--surface); border: 2px solid var(--border);
+  border-radius: var(--radius); padding: 12px 16px; transition: border-color .2s, background .2s;
+}
+.nivel strong { display: block; font-family: var(--font-title); font-size: 1.2rem; }
+.nivel .small { color: var(--text-muted); }
+.nivel .hex-icon { width: 48px; height: 54px; font-size: 1.4rem; background: var(--surface-2); }
+.nivel:hover { border-color: var(--miel); }
+.nivel[aria-selected="true"] { border-color: var(--miel); background: var(--surface-2); }
+.nivel[aria-selected="true"] .hex-icon { background: var(--miel); }
+.proximos { margin: 30px 0 14px; font-size: 1.3rem; }
+@media (max-width: 640px) {
+  .niveles { grid-template-columns: 1fr; }
+}
+
+/* ---------- Proyectos ---------- */
+.proyecto-articulo h2 { margin-bottom: 10px; }
+.proyecto-intro { display: grid; grid-template-columns: 1.3fr 1fr; gap: 36px; align-items: center; }
+.foto-proyecto { width: min(100%, 360px); margin: 0 auto; }
+.foto-proyecto.sin-foto { display: grid; place-items: center; }
+.foto-proyecto.sin-foto::after { content: "🏨🐝"; font-size: 3.4rem; }
+@media (max-width: 760px) { .proyecto-intro { grid-template-columns: 1fr; } }
+.lista-materiales { margin: 0; padding-left: 20px; }
+.lista-materiales li { margin-bottom: 6px; }
+.pasos { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 16px; }
+.pasos li { display: flex; gap: 16px; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; }
+.pasos h3 { margin: 4px 0 4px; }
+.pasos p { margin: 0; }
+.paso-num {
+  flex: none; width: 48px; height: 54px; display: grid; place-items: center; clip-path: var(--hex-v);
+  background: var(--miel); color: var(--abeja); font-family: var(--font-title); font-weight: 800; font-size: 1.4rem;
+}
+
+/* ---------- Portafolio: nombre a la izquierda, foto a la derecha ---------- */
+.heroe-mini .wrap.perfil {
+  display: grid; grid-template-columns: 1fr auto; grid-template-areas: "nombre foto" "resto foto";
+  gap: 0 40px; align-items: center; text-align: left; justify-items: stretch;
+}
+.perfil-nombre { grid-area: nombre; align-self: end; }
+.perfil .foto-hex { grid-area: foto; width: clamp(200px, 24vw, 280px); }
+.perfil-resto { grid-area: resto; align-self: start; }
+.perfil .roles { justify-content: flex-start; }
+.perfil .roles .chip { font-size: .9rem; padding: 5px 18px; }
+.redes { flex-wrap: wrap; }
+@media (max-width: 700px) {
+  .heroe-mini .wrap.perfil { grid-template-columns: 1fr auto; grid-template-areas: "nombre foto" "resto resto"; gap: 0 16px; text-align: left; justify-items: stretch; }
+  .perfil .foto-hex { width: clamp(100px, 32vw, 150px); align-self: center; }
+  .perfil h1 { font-size: clamp(1.7rem, 7vw, 2.2rem); }
+  .perfil .roles { justify-content: flex-start; }
+  .perfil .roles .chip { font-size: .75rem; padding: 3px 12px; }
+  .redes .btn { padding: 10px 22px; font-size: .9rem; }
+}

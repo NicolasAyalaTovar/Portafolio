@@ -17,31 +17,61 @@
       <div class="wrap">
         <span class="etiqueta">Aprender jugando</span>
         <h1>Juegos entomológicos</h1>
-        <p class="lead">Retos para niñas, niños y curiosos de todas las edades. Cada respuesta correcta llena una celda del panal.</p>
+        <p class="lead">Retos para aprender entomología en primaria, bachillerato y pregrado. Elige tu nivel: cada respuesta correcta llena una celda del panal.</p>
       </div>
     </section>
 
-    <section>
+    <section aria-labelledby="titulo-niveles">
       <div class="wrap">
-        <div class="tarjeta juego" id="juego">
-          <span class="etiqueta">Juego 01 · ¿Es un insecto?</span>
-          <div class="marcador" id="marcador" aria-hidden="true"></div>
-          <div class="emoji-grande" id="emoji"></div>
-          <p class="pregunta" id="pregunta"></p>
-          <div class="opciones" id="opciones"></div>
-          <p class="explicacion muted" id="explicacion" aria-live="polite"></p>
-          <button class="btn oscuro" id="siguiente" hidden>Siguiente →</button>
+        <h2 id="titulo-niveles" class="sr-only">Elige tu nivel</h2>
+        <div class="niveles" role="tablist" aria-label="Nivel educativo">
+          <button class="nivel" role="tab" id="tab-primaria" aria-controls="primaria" aria-selected="true">
+            <span class="hex-icon" aria-hidden="true">🎒</span><span><strong>Primaria</strong><span class="small">6 a 11 años</span></span>
+          </button>
+          <button class="nivel" role="tab" id="tab-bachillerato" aria-controls="bachillerato" aria-selected="false">
+            <span class="hex-icon" aria-hidden="true">🔬</span><span><strong>Bachillerato</strong><span class="small">12 a 17 años</span></span>
+          </button>
+          <button class="nivel" role="tab" id="tab-pregrado" aria-controls="pregrado" aria-selected="false">
+            <span class="hex-icon" aria-hidden="true">🎓</span><span><strong>Pregrado</strong><span class="small">Universidad</span></span>
+          </button>
         </div>
-      </div>
-    </section>
 
-    <section class="seccion-alt">
-      <div class="wrap">
-        <div class="titulo-seccion"><div><span class="etiqueta">Próximamente</span><h2>Más juegos en camino</h2></div></div>
-        <div class="grid grid-3">
-          <div class="tarjeta"><div class="hex-icon">🧩</div><h3>Arma el ciclo de vida</h3><p class="muted">Ordena huevo, larva, pupa y adulto de distintos insectos.</p></div>
-          <div class="tarjeta"><div class="hex-icon">🌸</div><h3>La ruta del polen</h3><p class="muted">Guía a una abeja de flor en flor y descubre la polinización.</p></div>
-          <div class="tarjeta"><div class="hex-icon">🔎</div><h3>Detective de humedal</h3><p class="muted">Encuentra los bioindicadores escondidos en un humedal bogotano.</p></div>
+        <!-- ===== PRIMARIA ===== -->
+        <div class="panel-nivel" role="tabpanel" id="primaria" aria-labelledby="tab-primaria">
+          <div class="tarjeta juego" id="juego">
+            <span class="etiqueta">Primaria · Juego 01 · ¿Es un insecto?</span>
+            <div class="marcador" id="marcador" aria-hidden="true"></div>
+            <div class="emoji-grande" id="emoji"></div>
+            <p class="pregunta" id="pregunta"></p>
+            <div class="opciones" id="opciones"></div>
+            <p class="explicacion muted" id="explicacion" aria-live="polite"></p>
+            <button class="btn oscuro" id="siguiente" hidden>Siguiente →</button>
+          </div>
+          <h3 class="proximos">Próximamente en primaria</h3>
+          <div class="grid grid-3">
+            <div class="tarjeta"><div class="hex-icon">🧩</div><h3>Arma el ciclo de vida</h3><p class="muted">Ordena huevo, larva, pupa y adulto de distintos insectos.</p></div>
+            <div class="tarjeta"><div class="hex-icon">🌸</div><h3>La ruta del polen</h3><p class="muted">Guía a una abeja de flor en flor y descubre la polinización.</p></div>
+          </div>
+        </div>
+
+        <!-- ===== BACHILLERATO ===== -->
+        <div class="panel-nivel" role="tabpanel" id="bachillerato" aria-labelledby="tab-bachillerato" hidden>
+          <h3 class="proximos">Próximamente en bachillerato</h3>
+          <div class="grid grid-3">
+            <div class="tarjeta"><div class="hex-icon">🔎</div><h3>Detective de humedal</h3><p class="muted">Encuentra los bioindicadores escondidos en un humedal bogotano.</p></div>
+            <div class="tarjeta"><div class="hex-icon">🗝️</div><h3>¿De qué orden soy?</h3><p class="muted">Identifica órdenes de insectos con una clave dicotómica ilustrada.</p></div>
+            <div class="tarjeta"><div class="hex-icon">🔄</div><h3>Metamorfosis al límite</h3><p class="muted">Clasifica especies en holometábolas, hemimetábolas y ametábolas.</p></div>
+          </div>
+        </div>
+
+        <!-- ===== PREGRADO ===== -->
+        <div class="panel-nivel" role="tabpanel" id="pregrado" aria-labelledby="tab-pregrado" hidden>
+          <h3 class="proximos">Próximamente en pregrado</h3>
+          <div class="grid grid-3">
+            <div class="tarjeta"><div class="hex-icon">🧬</div><h3>Reto taxonómico</h3><p class="muted">Identifica familias de insectos a partir de caracteres morfológicos.</p></div>
+            <div class="tarjeta"><div class="hex-icon">📈</div><h3>¿Qué comunidad es más diversa?</h3><p class="muted">Interpreta números de Hill y perfiles de diversidad con datos reales de muestreo.</p></div>
+            <div class="tarjeta"><div class="hex-icon">🌎</div><h3>Ecología en acción</h3><p class="muted">Resuelve casos de control biológico, invasiones y servicios ecosistémicos.</p></div>
+          </div>
         </div>
       </div>
     </section>
@@ -49,5 +79,30 @@
 
   <script src="js/layout.js"></script>
   <script src="js/juego.js"></script>
+  <script>
+    // Pestañas de nivel (se recuerdan en la dirección: juegos.html#bachillerato)
+    (function () {
+      const tabs = [...document.querySelectorAll(".nivel")];
+      function mostrar(id, enfocar) {
+        if (!document.getElementById(id)) id = "primaria";
+        tabs.forEach(t => {
+          const sel = t.getAttribute("aria-controls") === id;
+          t.setAttribute("aria-selected", sel);
+          t.tabIndex = sel ? 0 : -1;
+          document.getElementById(t.getAttribute("aria-controls")).hidden = !sel;
+          if (sel && enfocar) t.focus();
+        });
+      }
+      tabs.forEach((t, i) => {
+        t.addEventListener("click", () => { history.replaceState(null, "", "#" + t.getAttribute("aria-controls")); mostrar(t.getAttribute("aria-controls")); });
+        t.addEventListener("keydown", ev => {
+          const d = ev.key === "ArrowRight" ? 1 : ev.key === "ArrowLeft" ? -1 : 0;
+          if (d) { const n = tabs[(i + d + tabs.length) % tabs.length]; n.click(); n.focus(); }
+        });
+      });
+      mostrar(location.hash.slice(1));
+      addEventListener("hashchange", () => mostrar(location.hash.slice(1)));
+    })();
+  </script>
 </body>
 </html>

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Entomofauna bogotana: insectos de Bogotá con fotos · La Colmena</title>
-  <meta name="description" content="Álbum de insectos de Bogotá: abejorros, mariposas, escarabajos, libélulas, moscas y más. Fichas con fotografía, hábitat, alimentación y tipo de metamorfosis de 32 especies de la sabana y los cerros orientales.">
+  <meta name="description" content="Álbum de insectos de Bogotá: abejorros, mariposas, escarabajos, libélulas, moscas y más. Fichas con fotografía, hábitat, alimentación y tipo de metamorfosis de más de 40 especies de la sabana, los humedales y los cerros orientales.">
   <meta name="keywords" content="insectos de Bogotá, entomofauna bogotana, mariposas de Bogotá, abejorros, Bombus atratus, humedales de Bogotá, cerros orientales, entomología Colombia, metamorfosis, educación ambiental">
   <meta name="author" content="Nicolás Ayala Tovar">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -15,7 +15,7 @@
   <meta property="og:site_name" content="La Colmena">
   <meta property="og:locale" content="es_CO">
   <meta property="og:title" content="Entomofauna bogotana: el álbum de los insectos de Bogotá">
-  <meta property="og:description" content="32 especies de insectos de Bogotá con fotografía, hábitat, alimentación y metamorfosis.">
+  <meta property="og:description" content="Más de 40 especies de insectos de Bogotá con fotografía, hábitat, alimentación y metamorfosis.">
   <meta property="og:url" content="https://lacolmena.site/entomofauna.html">
   <meta property="og:image" content="https://lacolmena.site/img/Bombus%20atratus.jpeg">
   <meta property="og:image:alt" content="Abejorro común (Bombus atratus) sobre una flor">
@@ -53,9 +53,9 @@
     <section class="heroe heroe-mini panal-bg">
       <div class="wrap">
         <nav class="migas small" aria-label="Ruta de navegación"><a href="index.html">Inicio</a> › <span aria-current="page">Entomofauna bogotana</span></nav>
-        <span class="etiqueta">A 2.600 metros más cerca de los insectos</span>
+        <span class="etiqueta">La ciudad donde hay espacio para todos</span>
         <h1>Entomofauna bogotana</h1>
-        <p class="lead">El álbum de los insectos de Bogotá. Parques, humedales, cerros orientales, cultivos y hasta nuestras casas están llenos de abejas, mariposas, escarabajos, libélulas y moscas. Colecciona las <span id="total-especies">32</span> láminas y descubre dónde viven, qué comen y cómo crecen.</p>
+        <p class="lead">El álbum de los insectos de Bogotá. Parques, humedales, cerros orientales, cultivos y hasta nuestras casas están llenos de abejas, mariposas, escarabajos, chinches, libélulas y moscas. Colecciona las <span id="total-especies">47</span> láminas y descubre dónde viven, qué comen y cómo crecen.</p>
       </div>
     </section>
 
@@ -73,7 +73,15 @@
     <section aria-label="Fichas de especies">
       <div class="wrap">
         <div class="album" id="especies"></div>
-        <p class="nota" style="margin-top:28px"><strong>Para docentes:</strong> usa cada lámina como punto de partida de una clase. Pide a tus estudiantes que busquen la especie en su barrio o colegio y registren sus observaciones en <a href="https://colombia.inaturalist.org/" target="_blank" rel="noopener">iNaturalist Colombia</a>.</p>
+        <aside class="nota docentes" style="margin-top:28px" aria-labelledby="titulo-docentes">
+          <h2 id="titulo-docentes">Para docentes</h2>
+          <p>Usa cada lámina como punto de partida de una clase. Pide a tus estudiantes que busquen la especie en su barrio o colegio y registren sus observaciones en <a href="https://colombia.inaturalist.org/" target="_blank" rel="noopener">iNaturalist Colombia</a>.</p>
+          <h3>Para ampliar</h3>
+          <ul class="bibliografia">
+            <li>Jardín Botánico de Bogotá José Celestino Mutis. <a href="https://jbb.gov.co/nosotros/publicaciones/insectos-del-arbolado-urbano-de-bogota/" target="_blank" rel="noopener"><em>Insectos del arbolado urbano de Bogotá</em></a>.</li>
+            <li>Alcaldía de Bogotá, Secretaría de Cultura, Recreación y Deporte, y Empresa de Acueducto y Alcantarillado de Bogotá. (2019). <em>Vecinos inesperados: Relatos de la fauna silvestre en Bogotá: Guía de campo</em> (A. Ospina, Redacción literaria). Alcaldía de Bogotá.</li>
+          </ul>
+        </aside>
       </div>
     </section>
   </main>
@@ -163,7 +171,7 @@
         "itemListElement": ESPECIES.map((e, i) => ({
           "@type": "ListItem", "position": i + 1,
           "url": "https://lacolmena.site/entomofauna.html#" + slug(e.cientifico),
-          "item": { "@type": "Taxon", "name": e.cientifico, "alternateName": e.nombre, "taxonRank": e.cientifico.endsWith("sp.") ? "genus" : "species",
+          "item": { "@type": "Taxon", "name": e.cientifico, "alternateName": e.nombre, "taxonRank": e.cientifico.endsWith("sp.") ? "genus" : /idae$/.test(e.cientifico) ? "family" : "species",
                     "description": e.descripcion, "image": "https://lacolmena.site/" + encodeURI(e.foto) }
         }))
       });

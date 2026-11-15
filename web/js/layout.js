@@ -6,6 +6,7 @@
     { href: "entomofauna.html", texto: "Entomofauna bogotana" },
     { href: "herramientas.html", texto: "Herramientas" },
     { href: "juegos.html", texto: "Juegos" },
+    { href: "proyectos.html", texto: "Proyectos" },
     { href: "portafolio.html", texto: "Portafolio" },
     { href: "tienda.html", texto: "Tienda" }
   ];
@@ -52,6 +53,9 @@
         <li><a href="https://lacolmena.site">lacolmena.site</a></li>
         <li><a href="https://github.com/NicolasAyalaTovar" target="_blank" rel="noopener">GitHub</a></li>
         <li><a href="https://www.linkedin.com/in/nicolas-ayala-tovar-%F0%9F%90%9D-5289b5133/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.researchgate.net/profile/Nicolas-Tovar-8" target="_blank" rel="noopener">ResearchGate</a></li>
+        <li><a href="https://www.instagram.com/profesor_aronnax14/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="mailto:nicolas.ayalat@urosario.edu.co">Correo</a></li>
       </ul></div>
       <div class="legal">
         <span>© ${new Date().getFullYear()} Nicolás Ayala Tovar. Contenido educativo de libre consulta.</span>
