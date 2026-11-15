@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tienda · Hexápoda</title>
+  <title>Tienda · La Colmena</title>
   <meta name="description" content="Próximamente: productos derivados del trabajo de las abejas.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 </head>
 <body>
   <main>
@@ -22,19 +23,14 @@
 
     <section>
       <div class="wrap">
-        <div class="grid grid-3">
-          <article class="tarjeta producto"><div class="hex-icon">🍯</div><h3>Miel</h3><p>Néctar transformado por las enzimas de las obreras y deshidratado con el aleteo de toda la colonia.</p><button class="btn chico" disabled>Próximamente</button></article>
-          <article class="tarjeta producto"><div class="hex-icon">🌼</div><h3>Polen</h3><p>Las bolitas que las abejas cargan en sus patas traseras: la proteína de la colmena.</p><button class="btn chico" disabled>Próximamente</button></article>
-          <article class="tarjeta producto"><div class="hex-icon">🛡️</div><h3>Propóleo</h3><p>Resinas vegetales que las abejas usan para sellar y proteger su hogar.</p><button class="btn chico" disabled>Próximamente</button></article>
-          <article class="tarjeta producto"><div class="hex-icon">🕯️</div><h3>Velas de cera</h3><p>Cera producida por glándulas del abdomen de las obreras, la misma que forma los hexágonos del panal.</p><button class="btn chico" disabled>Próximamente</button></article>
-          <article class="tarjeta producto"><div class="hex-icon">🧼</div><h3>Cosmética natural</h3><p>Jabones y bálsamos con miel, cera y propóleo.</p><button class="btn chico" disabled>Próximamente</button></article>
-          <article class="tarjeta producto"><div class="hex-icon">📦</div><h3>Kits didácticos</h3><p>Material para aprender sobre abejas en casa o en el aula.</p><button class="btn chico" disabled>Próximamente</button></article>
-        </div>
+        <div class="grid grid-3" id="productos"></div>
         <p class="nota" style="margin-top:28px">🐝 <strong>¿Por qué hexágonos?</strong> El hexágono es la forma que permite cubrir una superficie usando la menor cantidad de cera posible. Por eso todo este sitio está construido con ellos.</p>
       </div>
     </section>
   </main>
 
   <script src="js/layout.js"></script>
+  <script src="js/productos.js"></script>
+  <script>pintarProductos(document.getElementById("productos"), PRODUCTOS);</script>
 </body>
 </html>

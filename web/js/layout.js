@@ -31,7 +31,7 @@
   header.className = "site-header";
   header.innerHTML = `
     <div class="wrap">
-      <a class="marca" href="index.html">${logo}<div><strong>Hexápoda</strong><span>Entomología para todos</span></div></a>
+      <a class="marca" href="index.html">${logo}<div><strong>La Colmena</strong><span>Entomología para todos</span></div></a>
       <button class="menu-btn" aria-expanded="false" aria-controls="nav-principal">Menú</button>
       <nav class="nav" id="nav-principal" aria-label="Principal">${enlaces}</nav>
       <button class="tema-btn" title="Cambiar tema claro/oscuro" aria-label="Cambiar tema claro u oscuro">◐</button>
@@ -44,14 +44,19 @@
   footer.innerHTML = `
     <div class="wrap">
       <div>
-        <strong style="font-family:var(--font-title);font-size:1.3rem;color:#fff7e3">Hexápoda</strong>
+        <strong style="font-family:var(--font-title);font-size:1.3rem;color:#fff7e3">La Colmena</strong>
         <p>Un recurso didáctico para aprender biología a través de los insectos, hecho en Bogotá por Nicolás Ayala Tovar: docente, entomólogo y analista de datos.</p>
       </div>
       <div><strong style="color:#fff7e3">Secciones</strong><ul>${PAGINAS.map(p => `<li><a href="${p.href}">${p.texto}</a></li>`).join("")}</ul></div>
       <div><strong style="color:#fff7e3">En la red</strong><ul>
+        <li><a href="https://lacolmena.site">lacolmena.site</a></li>
         <li><a href="https://github.com/NicolasAyalaTovar" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/nicolas-ayala-tovar-%F0%9F%90%9D-5289b5133/" target="_blank" rel="noopener">LinkedIn</a></li>
       </ul></div>
-      <p class="legal">© ${new Date().getFullYear()} Nicolás Ayala Tovar. Contenido educativo de libre consulta.</p>
+      <div class="legal">
+        <span>© ${new Date().getFullYear()} Nicolás Ayala Tovar. Contenido educativo de libre consulta.</span>
+        <nav aria-label="Información legal"><a href="privacidad.html">Política de privacidad</a> · <a href="terminos.html">Términos y condiciones</a></nav>
+      </div>
     </div>`;
   document.body.append(footer);
 

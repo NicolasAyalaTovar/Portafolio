@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Portafolio · Hexápoda</title>
+  <title>Portafolio · La Colmena</title>
   <meta name="description" content="Portafolio de Nicolás Ayala Tovar: docente, entomólogo y analista de datos.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 </head>
 <body>
   <main>
     <section class="heroe heroe-mini panal-bg">
       <div class="wrap perfil">
-        <!-- Reemplaza este hexágono por tu foto: <img class="foto-hex" src="img/foto.jpg" alt="Nicolás Ayala Tovar"> -->
-        <div class="foto-hex" aria-hidden="true">NA</div>
+        <figure class="foto-hex"><img src="img/Foto%20portafolio.png" alt="Retrato de Nicolás Ayala Tovar" width="928" height="1120"></figure>
         <div>
           <span class="etiqueta">Portafolio</span>
           <h1>Nicolás Ayala Tovar</h1>
@@ -26,24 +26,66 @@
           </div>
           <p class="lead">Uno los insectos, la enseñanza y los datos para que más personas entiendan —y cuiden— la biodiversidad.</p>
           <div class="acciones">
-            <a class="btn" href="https://github.com/NicolasAyalaTovar" target="_blank" rel="noopener">Ver GitHub</a>
+            <a class="btn" href="https://github.com/NicolasAyalaTovar" target="_blank" rel="noopener me">GitHub</a>
+            <a class="btn" href="https://www.linkedin.com/in/nicolas-ayala-tovar-%F0%9F%90%9D-5289b5133/" target="_blank" rel="noopener me">LinkedIn</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section>
+    <section aria-labelledby="titulo-publicaciones">
       <div class="wrap">
-        <div class="titulo-seccion"><div><span class="etiqueta">Lo que hago</span><h2>Áreas de trabajo</h2></div></div>
-        <div class="grid grid-3">
-          <div class="tarjeta"><div class="hex-icon">🎓</div><h3>Docencia</h3><p class="muted">Diseño de clases y materiales que usan a los insectos para explicar conceptos de biología.</p></div>
-          <div class="tarjeta"><div class="hex-icon">🪲</div><h3>Entomología</h3><p class="muted">Muestreo, identificación y ecología de insectos, con énfasis en la entomofauna andina.</p></div>
-          <div class="tarjeta"><div class="hex-icon">📊</div><h3>Análisis de datos</h3><p class="muted">Estadística y programación en R y Python aplicadas a datos biológicos.</p></div>
+        <div class="titulo-seccion"><div><span class="etiqueta">Investigación</span><h2 id="titulo-publicaciones">Publicaciones</h2></div></div>
+        <div class="grid grid-2">
+          <article class="tarjeta publicacion">
+            <span class="meta">Acta Biológica Colombiana · 2026</span>
+            <h3>Nuevo registro de localidad para <em>Glenus vestitus</em> (Staphylinidae) en Colombia</h3>
+            <p class="small muted">Nicolás Ayala-Tovar, Ingri Cano-Plazas</p>
+            <div class="acciones-tabla">
+              <a class="btn chico" href="https://revistas.unal.edu.co/index.php/actabiol/article/view/117637" target="_blank" rel="noopener">Leer artículo</a>
+              <a class="btn chico oscuro" href="https://doi.org/10.15446/abc.v31n1.117637" target="_blank" rel="noopener">DOI</a>
+            </div>
+          </article>
+          <article class="tarjeta publicacion">
+            <span class="meta">Revista Científica de Astrobiología · 2026</span>
+            <h3>Ojos alienígenas en la Tierra: lo que la visión de los insectos puede enseñar a la astrobiología</h3>
+            <p class="small muted">Nicolás Ayala-Tovar</p>
+            <div class="acciones-tabla">
+              <a class="btn chico" href="https://revistadeastrobiologia.com/index.php/aspast/es/article/view/21" target="_blank" rel="noopener">Leer artículo</a>
+              <a class="btn chico oscuro" href="https://doi.org/10.69976/aspast.v3n1.4" target="_blank" rel="noopener">DOI</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="seccion-alt">
+    <section class="seccion-alt" aria-labelledby="titulo-divulgacion">
+      <div class="wrap">
+        <div class="titulo-seccion"><div><span class="etiqueta">Divulgación</span><h2 id="titulo-divulgacion">Publicaciones divulgativas</h2></div></div>
+        <div class="grid grid-2">
+          <article class="tarjeta publicacion">
+            <span class="meta">Oriolus · 2026</span>
+            <h3>Dos mundos un mismo escarabajo</h3>
+            <p class="small muted">Nicolás Ayala</p>
+            <div class="acciones-tabla">
+              <a class="btn chico" href="https://oriolus.utn.ac.cr/index.php/revista/article/view/26" target="_blank" rel="noopener">Leer artículo</a>
+              <a class="btn chico oscuro" href="https://doi.org/10.47633/oriolus1.2-26" target="_blank" rel="noopener">DOI</a>
+            </div>
+          </article>
+          <article class="tarjeta publicacion">
+            <span class="meta">Oriolus · 2026</span>
+            <h3>Origami en la naturaleza: el secreto de los escarabajos errantes para conquistar el aire y la tierra</h3>
+            <p class="small muted">Nicolás Ayala</p>
+            <div class="acciones-tabla">
+              <a class="btn chico" href="https://oriolus.utn.ac.cr/index.php/revista/article/view/16" target="_blank" rel="noopener">Leer artículo</a>
+              <a class="btn chico oscuro" href="https://doi.org/10.47633/oriolus1.1-16" target="_blank" rel="noopener">DOI</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
       <div class="wrap">
         <div class="titulo-seccion"><div><span class="etiqueta">Proyectos</span><h2>Proyectos destacados</h2></div></div>
         <div class="grid grid-2">
@@ -59,7 +101,7 @@
           </article>
           <article class="tarjeta proyecto">
             <span class="meta">Educación · Web</span>
-            <h3>Hexápoda</h3>
+            <h3>La Colmena</h3>
             <p class="muted">Este sitio: un recurso didáctico abierto para enseñar biología con insectos, con fichas de la entomofauna bogotana, herramientas y juegos.</p>
             <!-- Copia este bloque <article> para añadir más proyectos -->
           </article>

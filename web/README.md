@@ -1,4 +1,6 @@
-# Hexápoda — Entomología para todos
+# La Colmena — Entomología para todos
+
+Dominio: **lacolmena.site**
 
 Sitio web didáctico de Nicolás Ayala Tovar. HTML, CSS y JavaScript puros: sin dependencias ni compilación.
 
@@ -6,14 +8,19 @@ Sitio web didáctico de Nicolás Ayala Tovar. HTML, CSS y JavaScript puros: sin 
 | Archivo | Contenido |
 |---|---|
 | `index.html` | Inicio + noticias de entomología en Colombia |
-| `entomofauna.html` | Fichas de insectos de Bogotá, cada una con un concepto biológico |
+| `entomofauna.html` | Fichas de insectos de Bogotá con fotografía (fotos en `img/`, ruta en `js/datos.js`) |
 | `herramientas.html` | Calculadora de biomasa (versión web de `R/Biomass calculator`) y números de Hill (q0, q1, q2) |
 | `juegos.html` | Juego "¿Es un insecto?" y próximos juegos |
 | `portafolio.html` | Perfil y proyectos |
 | `tienda.html` | Productos de la colmena (próximamente) |
+| `privacidad.html`, `terminos.html` | Páginas legales (vacías; solo enlazadas desde el pie de página) |
 
 ## Cómo editar
-- **Noticias y especies:** `js/datos.js` (arreglos `NOTICIAS` y `ESPECIES`).
+- **Noticias:** `js/datos.js` (arreglo `NOTICIAS`).
+- **Especies y leyenda:** `js/especies.js`. Deja la foto en `img/` y añade un bloque con su ruta en `foto`.
+- **Collage del inicio:** lista `ELEGIDAS` en `index.html`.
+- **Productos:** `js/productos.js`. Los que tengan `masVendido: true` aparecen en el inicio.
+- **SEO:** `robots.txt` y `sitemap.xml` (actualiza `lastmod` cuando cambies una página).
 - **Menú y pie de página:** `js/layout.js` (arreglo `PAGINAS`).
 - **Colores y formas:** variables al inicio de `css/styles.css` (`--miel`, `--abeja`, `--hex-btn`…).
 - **Preguntas del juego:** `js/juego.js` (arreglo `PREGUNTAS`).

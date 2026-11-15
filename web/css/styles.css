@@ -1,5 +1,5 @@
 /* =========================================================
-   Hexápoda — sistema de diseño inspirado en las abejas
+   La Colmena — sistema de diseño inspirado en las abejas
    Paleta: miel, polen, cera, negro de abeja y ala translúcida
    ========================================================= */
 
@@ -376,3 +376,135 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 .barra.q2 { background: var(--abeja-2); }
 :root[data-theme="dark"] .barra.q2 { background: var(--polen); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .barra.q2 { background: var(--polen); } }
+
+/* ---------- Fotografía de especie en hexágono ---------- */
+.foto-especie {
+  margin: auto auto 0; width: min(100%, 250px); aspect-ratio: 1 / 1.1547;  /* auto arriba: alinea las fotos al fondo */
+  clip-path: var(--hex-v); background: var(--miel); padding: 6px;   /* borde miel */
+}
+.foto-especie img {
+  width: 100%; height: 100%; object-fit: cover; clip-path: var(--hex-v);
+  transition: transform .4s;
+}
+.ficha:hover .foto-especie img { transform: scale(1.06); }
+
+/* ---------- Migas de pan ---------- */
+.migas { margin-bottom: 12px; color: #d9c9a6; }
+.migas a { color: var(--polen); }
+
+/* ---------- Leyenda del álbum ---------- */
+.leyenda-wrap { padding: 32px 0 8px; }
+.leyenda-cabeza { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
+.leyenda-cabeza h2 { margin: 0; font-size: 1.6rem; }
+.leyenda-cabeza p { margin: 0; }
+.leyenda { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.leyenda-grupo { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+.leyenda-grupo h3 { font-size: 1rem; margin: 0 0 8px; text-transform: uppercase; letter-spacing: 1px; color: var(--miel-osc); font-family: var(--font-body); font-weight: 800; }
+:root[data-theme="dark"] .leyenda-grupo h3 { color: var(--polen); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .leyenda-grupo h3 { color: var(--polen); } }
+.leyenda-grupo ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.leyenda-item {
+  display: flex; align-items: center; gap: 10px; width: 100%; text-align: left;
+  font: inherit; font-size: .93rem; color: var(--text); background: none; border: 0;
+  padding: 4px 8px; border-radius: 8px; cursor: pointer;
+}
+.leyenda-item:hover { background: var(--surface-2); }
+.leyenda-item[aria-pressed="true"] { background: var(--miel); color: var(--abeja); font-weight: 800; }
+.filtro-estado { min-height: 1.5em; margin: 12px 0 0; font-weight: 700; }
+.filtro-estado .limpiar { margin-left: 8px; font: inherit; font-weight: 800; border: 0; cursor: pointer; padding: 4px 16px; background: var(--abeja); color: var(--polen); clip-path: var(--hex-btn); }
+
+/* Íconos de la leyenda y de las láminas */
+.ico { display: inline-grid; place-items: center; width: 30px; height: 30px; font-size: 1.05rem; line-height: 1; flex: none; }
+.ico-hex {
+  clip-path: var(--hex-v); background: var(--abeja); color: var(--polen);
+  font-size: .78rem; font-weight: 800; font-family: var(--font-body); width: 28px; height: 32px;
+}
+
+/* ---------- Láminas del álbum ---------- */
+.album { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 22px; }
+.lamina { display: flex; flex-direction: column; gap: 4px; padding: 18px 20px 0 26px; scroll-margin-top: 90px; }
+.lamina[hidden] { display: none; }
+.lamina.resaltada { outline: 3px solid var(--miel); outline-offset: 3px; }
+.lamina-cabeza { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+.lamina-num { font-family: var(--font-title); font-weight: 800; font-size: 1.5rem; color: var(--miel); letter-spacing: 1px; }
+.lamina-orden { width: 44px; height: 50px; font-size: 1.3rem; }
+.lamina-nombre { font-size: 1.3rem; margin: 0; }
+.lamina .nombre-cientifico { font-style: italic; color: var(--text-muted); margin: 0; }
+.lamina-taxo { margin: 0 0 6px; font-weight: 700; color: var(--miel-osc); text-transform: uppercase; letter-spacing: .8px; font-size: .75rem; }
+:root[data-theme="dark"] .lamina-taxo { color: var(--polen); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .lamina-taxo { color: var(--polen); } }
+.lamina-desc { margin: 0; font-size: .97rem; }
+.lamina-nota { margin: 4px 0 0; font-style: italic; }
+.lamina .foto-especie { margin: auto auto 0; padding-top: 6px; width: min(100%, 230px); }
+.lamina-iconos {
+  display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap;
+  margin: 14px -20px 0 -26px; padding: 8px 16px 8px 22px;
+  background: var(--abeja); border-top: 3px solid var(--miel);
+}
+.lamina-iconos > div { display: flex; align-items: center; gap: 2px; }
+.lamina-iconos .ico-hex { background: var(--miel); color: var(--abeja); }
+
+/* ---------- Inicio: héroe con collage de panal ---------- */
+.heroe-inicio { padding: 64px 0 72px; }
+.heroe-inicio .wrap { display: block; text-align: center; }
+.heroe-inicio h1 { max-width: 18ch; margin-left: auto; margin-right: auto; }
+.heroe-inicio .acciones { justify-content: center; }
+
+.collage {
+  /* Panal: filas con un número par de celdas (--n) para que encajen entre sí */
+  --w: clamp(84px, 11vw, 136px); --h: calc(var(--w) * .866); --g: 6px; --n: 6;
+  display: flex; flex-wrap: wrap; justify-content: flex-start; row-gap: var(--g);
+  box-sizing: border-box;
+  width: calc(var(--n) * (var(--w) * .75 + var(--g)) + var(--w) * .25 - var(--g) + 1px);
+  margin: 44px auto 0; padding: 0 0 calc(var(--h) / 2) calc(var(--w) * .25 - var(--g));
+}
+@media (max-width: 560px) { .collage { --n: 4; } }
+.collage .celda {
+  width: var(--w); height: var(--h); flex: none;
+  margin-left: calc(var(--w) * -.25 + var(--g));
+  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+  background: var(--miel); padding: 4px; display: block;
+  transition: transform .25s, background .25s;
+}
+.collage .celda:nth-child(even) { transform: translateY(calc(50% + var(--g) / 2)); }
+.collage .celda img {
+  width: 100%; height: 100%; object-fit: cover;
+  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+}
+.collage .celda:hover, .collage .celda:focus-visible { background: var(--polen); outline: none; }
+.collage .celda:hover img, .collage .celda:focus-visible img { transform: scale(1.08); }
+.collage .celda img { transition: transform .3s; }
+
+/* ---------- Carrusel de noticias ---------- */
+.carrusel-controles { display: flex; gap: 8px; }
+.carrusel-pista {
+  display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory;
+  scroll-behavior: smooth; padding: 4px 2px 12px; scrollbar-width: none;
+}
+.carrusel-pista::-webkit-scrollbar { display: none; }
+.carrusel-pista:focus-visible { outline: 3px solid var(--miel); outline-offset: 4px; border-radius: var(--radius); }
+.diapositiva { flex: 0 0 100%; scroll-snap-align: start; }
+@media (min-width: 680px) { .diapositiva { flex-basis: calc((100% - 20px) / 2); } }
+@media (min-width: 1040px) { .diapositiva { flex-basis: calc((100% - 40px) / 3); } }
+.carrusel-puntos { display: flex; justify-content: center; gap: 8px; margin-top: 8px; }
+.carrusel-puntos button {
+  width: 18px; height: 20px; border: 0; padding: 0; cursor: pointer;
+  clip-path: var(--hex-v); background: var(--border);
+}
+.carrusel-puntos button[aria-selected="true"] { background: var(--miel); }
+
+/* ---------- Herramientas en inicio ---------- */
+.herramienta { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+.herramienta h3, .herramienta p { margin: 0; }
+.herramienta .btn { margin-top: auto; }
+.formula-chica { font-size: 1.1rem; padding: 10px 18px; margin: 4px 0; align-self: stretch; }
+.precio { font-family: var(--font-title); font-size: 1.3rem; font-weight: 800; margin: 0; }
+
+/* ---------- Portafolio: foto y publicaciones ---------- */
+figure.foto-hex { margin: 0; padding: 6px; }
+.foto-hex img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; clip-path: var(--hex-v); }
+.publicacion { display: flex; flex-direction: column; gap: 6px; }
+.publicacion h3 { margin: 0; font-size: 1.15rem; }
+.publicacion p { margin: 0; }
+.publicacion .acciones-tabla { margin-top: auto; padding-top: 8px; margin-bottom: 0; }
+.site-footer .legal { display: flex; justify-content: space-between; gap: 8px 20px; flex-wrap: wrap; }

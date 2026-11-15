@@ -1,98 +1,188 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-CO">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hexápoda · Entomología para todos</title>
-  <meta name="description" content="Recurso didáctico para aprender biología a través de los insectos: noticias de entomología en Colombia, entomofauna bogotana, herramientas y juegos.">
+  <title>La Colmena · Entomología para todos</title>
+  <meta name="description" content="Descubre el maravilloso mundo de los insectos que te rodean: insectos de Bogotá, noticias de entomología en Colombia, herramientas de análisis de datos y productos de la colmena.">
+  <meta name="author" content="Nicolás Ayala Tovar">
+  <link rel="canonical" href="https://lacolmena.site/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="La Colmena">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:title" content="La Colmena · Entomología para todos">
+  <meta property="og:description" content="Descubre el maravilloso mundo de los insectos que te rodean.">
+  <meta property="og:url" content="https://lacolmena.site/">
+  <meta property="og:image" content="https://lacolmena.site/img/Bombus%20atratus.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "WebSite", "name": "La Colmena", "alternateName": "La Colmena · Entomología para todos",
+    "url": "https://lacolmena.site/", "inLanguage": "es-CO", "author": { "@type": "Person", "name": "Nicolás Ayala Tovar" } }
+  </script>
 </head>
 <body>
   <main>
-    <section class="heroe panal-bg">
+    <section class="heroe heroe-inicio panal-bg">
       <div class="wrap">
-        <div>
-          <span class="etiqueta">Biología a seis patas</span>
-          <h1>Aprende biología <em>a través de los insectos</em></h1>
-          <p class="lead">Metamorfosis, polinización, evolución, ecología… Los insectos son la puerta de entrada perfecta para entender la vida. Un espacio didáctico hecho desde Bogotá.</p>
-          <div class="acciones">
-            <a class="btn" href="entomofauna.html">Explorar la entomofauna</a>
-            <a class="btn oscuro" href="herramientas.html" style="box-shadow:none;--b-bg:#3a2e22">Calculadora de biomasa</a>
-          </div>
+        <span class="etiqueta">Entomología para todos</span>
+        <h1>Descubre el maravilloso mundo de <em>los insectos que te rodean</em></h1>
+        <div class="acciones">
+          <a class="btn" href="entomofauna.html">Explorar entomofauna</a>
         </div>
-        <div class="racimo" aria-hidden="true">
-          <div>🐝</div><div>🦋</div><div>🪲</div>
-          <div>🐞</div><div></div><div>🌼</div>
-        </div>
+        <nav class="collage" id="collage" aria-label="Algunos insectos de Bogotá"></nav>
       </div>
     </section>
 
-    <section>
+    <section aria-labelledby="titulo-noticias">
       <div class="wrap">
         <div class="titulo-seccion">
           <div>
             <span class="etiqueta">Actualidad</span>
-            <h2>Noticias de entomología en Colombia</h2>
+            <h2 id="titulo-noticias">Noticias de entomología en Colombia</h2>
           </div>
-          <p class="muted">Descubrimientos y hallazgos recientes de la entomología colombiana, con enlace a la fuente original.</p>
+          <div class="carrusel-controles">
+            <button class="btn chico oscuro" data-dir="-1" aria-label="Noticia anterior">←</button>
+            <button class="btn chico oscuro" data-dir="1" aria-label="Noticia siguiente">→</button>
+          </div>
         </div>
-        <div class="grid grid-3" id="noticias"></div>
+        <div class="carrusel" id="carrusel" aria-roledescription="carrusel">
+          <div class="carrusel-pista" id="noticias" tabindex="0" aria-live="polite"></div>
+          <div class="carrusel-puntos" id="puntos" role="tablist" aria-label="Elegir noticia"></div>
+        </div>
       </div>
     </section>
 
-    <section class="seccion-alt">
+    <section class="seccion-alt" aria-labelledby="titulo-herramientas">
       <div class="wrap">
         <div class="titulo-seccion">
           <div>
             <span class="etiqueta">El panal</span>
-            <h2>Explora el sitio</h2>
+            <h2 id="titulo-herramientas">Herramientas para tus datos</h2>
           </div>
+          <p class="muted">Calcula en línea, sin instalar nada. Pega tus datos o sube un archivo .csv.</p>
         </div>
-        <div class="grid secciones-home">
-          <a class="tarjeta seccion-link" href="entomofauna.html">
-            <div class="hex-icon">🦋</div>
-            <h3>Entomofauna bogotana</h3>
-            <p>Los insectos que nos rodean en parques, humedales y huertas, cada uno explicando un concepto biológico.</p>
-          </a>
-          <a class="tarjeta seccion-link" href="herramientas.html">
-            <div class="hex-icon">📊</div>
-            <h3>Herramientas</h3>
-            <p>Calculadora de biomasa y otras utilidades para el análisis de datos entomológicos.</p>
-          </a>
-          <a class="tarjeta seccion-link" href="juegos.html">
-            <div class="hex-icon">🎮</div>
-            <h3>Juegos</h3>
-            <p>Retos para que niñas, niños y curiosos de todas las edades aprendan jugando.</p>
-          </a>
-          <a class="tarjeta seccion-link" href="portafolio.html">
-            <div class="hex-icon">🔬</div>
-            <h3>Portafolio</h3>
-            <p>Docencia, entomología y análisis de datos: mis proyectos y trayectoria.</p>
-          </a>
-          <a class="tarjeta seccion-link" href="tienda.html">
-            <div class="hex-icon">🍯</div>
-            <h3>Tienda</h3>
-            <p>Pronto: productos derivados del trabajo de las abejas.</p>
-          </a>
+        <div class="grid grid-2">
+          <article class="tarjeta herramienta">
+            <div class="hex-icon" aria-hidden="true">⚖️</div>
+            <h3>Calculadora de biomasa</h3>
+            <p class="muted">Estima la biomasa de los insectos a partir de su abundancia y longitud corporal con la fórmula de Rogers et al. (1976).</p>
+            <div class="formula formula-chica">b = n × (0.0305 × l<sup>2.62</sup>)</div>
+            <a class="btn" href="herramientas.html#biomasa">Calcular biomasa</a>
+          </article>
+          <article class="tarjeta herramienta">
+            <div class="hex-icon" aria-hidden="true">📈</div>
+            <h3>Índices de diversidad</h3>
+            <p class="muted">Números de Hill por sitio: riqueza (q0), exponencial de Shannon (q1) e inverso de Simpson (q2).</p>
+            <div class="formula formula-chica"><sup>q</sup>D = ( Σ p<sub>i</sub><sup>q</sup> )<sup>1/(1−q)</sup></div>
+            <a class="btn" href="herramientas.html#diversidad">Calcular diversidad</a>
+          </article>
         </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="titulo-tienda">
+      <div class="wrap">
+        <div class="titulo-seccion">
+          <div>
+            <span class="etiqueta">Tienda</span>
+            <h2 id="titulo-tienda">Lo más vendido de la colmena</h2>
+          </div>
+          <a class="btn oscuro chico" href="tienda.html">Ver toda la tienda</a>
+        </div>
+        <div class="grid grid-3" id="mas-vendidos"></div>
       </div>
     </section>
   </main>
 
   <script src="js/layout.js"></script>
   <script src="js/datos.js"></script>
+  <script src="js/especies.js"></script>
+  <script src="js/productos.js"></script>
   <script>
-    const fmt = f => new Date(f + "T12:00:00").toLocaleDateString("es-CO", { day: "numeric", month: "long", year: "numeric" });
-    document.getElementById("noticias").innerHTML = NOTICIAS.map(n => `
-      <article class="tarjeta noticia">
-        <span class="meta">${n.etiqueta}${n.fecha ? " · " + fmt(n.fecha) : ""}</span>
-        <h3>${n.titulo}</h3>
-        <p>${n.resumen}</p>
-        <a class="fuente" href="${n.url}" target="_blank" rel="noopener">Leer en ${n.fuente} →</a>
-      </article>`).join("");
+    // ---------- Collage de hexágonos ----------
+    (function () {
+      const slug = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+      // Elige qué especies aparecen (por nombre científico). Cambia esta lista cuando quieras.
+      const ELEGIDAS = ["Bombus atratus", "Papilio polyxenes americus", "Cycloneda sanguinea", "Rhionaeschna marchali",
+        "Agesander ruficornis", "Vanessa carye", "Syrphus sp.", "Bombus rubicundus", "Harmonia axyridis",
+        "Dione glycera", "Mesamphiagrion laterale", "Ascalapha odorata"];
+      const lista = ELEGIDAS.map(c => ESPECIES.find(e => e.cientifico === c)).filter(Boolean);
+      document.getElementById("collage").innerHTML = lista.map(e => `
+        <a class="celda" href="entomofauna.html#${slug(e.cientifico)}" title="${e.nombre} (${e.cientifico})">
+          <img src="${encodeURI(e.foto)}" alt="${e.nombre}, ${e.cientifico}" loading="lazy" decoding="async">
+        </a>`).join("");
+    })();
+
+    // ---------- Carrusel de noticias ----------
+    (function () {
+      const fmt = f => new Date(f + "T12:00:00").toLocaleDateString("es-CO", { day: "numeric", month: "long", year: "numeric" });
+      const pista = document.getElementById("noticias");
+      const puntos = document.getElementById("puntos");
+      pista.innerHTML = NOTICIAS.map((n, i) => `
+        <article class="tarjeta noticia diapositiva" aria-roledescription="diapositiva" aria-label="${i + 1} de ${NOTICIAS.length}">
+          <span class="meta">${n.etiqueta}${n.fecha ? " · " + fmt(n.fecha) : ""}</span>
+          <h3>${n.titulo}</h3>
+          <p>${n.resumen}</p>
+          <a class="fuente" href="${n.url}" target="_blank" rel="noopener">Leer en ${n.fuente} →</a>
+        </article>`).join("");
+      const slides = [...pista.children];
+      const pos = i => slides[i].offsetLeft - slides[0].offsetLeft;            // desplazamiento de cada noticia
+      const maxScroll = () => pista.scrollWidth - pista.clientWidth;
+      // Última posición alcanzable (cuando se ven varias noticias a la vez, el final llega antes)
+      const ultimo = () => { const i = slides.findIndex((_, j) => pos(j) >= maxScroll() - 8); return i < 0 ? slides.length - 1 : i; };
+      let idx = 0;
+
+      function pintarPuntos() {
+        puntos.innerHTML = Array.from({ length: ultimo() + 1 }, (_, i) =>
+          `<button role="tab" aria-label="Ir a la posición ${i + 1}" data-i="${i}" aria-selected="${i === idx}"></button>`).join("");
+      }
+      function ir(i) {
+        idx = Math.max(0, Math.min(i, ultimo()));
+        animando = Date.now() + 1000;
+        pista.scrollTo({ left: pos(idx), behavior: "smooth" });
+        puntos.querySelectorAll("button").forEach((b, j) => b.setAttribute("aria-selected", j === idx));
+      }
+      // Avanza o retrocede; al llegar a un extremo, da la vuelta
+      const paso = dir => ir(idx + dir > ultimo() ? 0 : idx + dir < 0 ? ultimo() : idx + dir);
+
+      // Si la persona desliza con el dedo o el trackpad, actualizar la posición al terminar
+      let animando = 0, t;
+      function alTerminar() {
+        if (Date.now() < animando) return;                 // ignorar mientras se mueve por un botón
+        const cerca = slides.reduce((m, _, j) => Math.abs(pos(j) - pista.scrollLeft) < Math.abs(pos(m) - pista.scrollLeft) ? j : m, 0);
+        idx = pista.scrollLeft >= maxScroll() - 8 ? ultimo() : Math.min(cerca, ultimo());
+        puntos.querySelectorAll("button").forEach((b, j) => b.setAttribute("aria-selected", j === idx));
+      }
+      if ("onscrollend" in window) pista.addEventListener("scrollend", alTerminar);
+      else pista.addEventListener("scroll", () => { clearTimeout(t); t = setTimeout(alTerminar, 200); });
+      addEventListener("resize", () => { idx = Math.min(idx, ultimo()); pintarPuntos(); });
+
+      puntos.addEventListener("click", ev => { if (ev.target.dataset.i) ir(+ev.target.dataset.i); });
+      document.querySelectorAll(".carrusel-controles button").forEach(b =>
+        b.addEventListener("click", () => paso(+b.dataset.dir)));
+      pista.addEventListener("keydown", ev => {
+        if (ev.key === "ArrowRight") { ev.preventDefault(); paso(1); }
+        if (ev.key === "ArrowLeft") { ev.preventDefault(); paso(-1); }
+      });
+      pintarPuntos();
+
+      // Avance automático cada 7 s (se pausa al pasar el mouse o al enfocar)
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        let pausa = false;
+        const carrusel = document.getElementById("carrusel");
+        ["mouseenter", "focusin", "touchstart"].forEach(e => carrusel.addEventListener(e, () => pausa = true, { passive: true }));
+        ["mouseleave", "focusout"].forEach(e => carrusel.addEventListener(e, () => pausa = false));
+        setInterval(() => { if (!pausa && !document.hidden) paso(1); }, 7000);
+      }
+    })();
+
+    // ---------- Lo más vendido ----------
+    pintarProductos(document.getElementById("mas-vendidos"), PRODUCTOS.filter(p => p.masVendido));
   </script>
 </body>
 </html>

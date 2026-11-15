@@ -1,63 +1,177 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-CO">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Entomofauna bogotana · Hexápoda</title>
-  <meta name="description" content="Insectos de Bogotá y la sabana, cada uno explicando un concepto de biología.">
+  <title>Entomofauna bogotana: insectos de Bogotá con fotos · La Colmena</title>
+  <meta name="description" content="Álbum de insectos de Bogotá: abejorros, mariposas, escarabajos, libélulas, moscas y más. Fichas con fotografía, hábitat, alimentación y tipo de metamorfosis de 32 especies de la sabana y los cerros orientales.">
+  <meta name="keywords" content="insectos de Bogotá, entomofauna bogotana, mariposas de Bogotá, abejorros, Bombus atratus, humedales de Bogotá, cerros orientales, entomología Colombia, metamorfosis, educación ambiental">
+  <meta name="author" content="Nicolás Ayala Tovar">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://lacolmena.site/entomofauna.html">
+
+  <!-- Vista previa al compartir en redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="La Colmena">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:title" content="Entomofauna bogotana: el álbum de los insectos de Bogotá">
+  <meta property="og:description" content="32 especies de insectos de Bogotá con fotografía, hábitat, alimentación y metamorfosis.">
+  <meta property="og:url" content="https://lacolmena.site/entomofauna.html">
+  <meta property="og:image" content="https://lacolmena.site/img/Bombus%20atratus.jpeg">
+  <meta property="og:image:alt" content="Abejorro común (Bombus atratus) sobre una flor">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Entomofauna bogotana",
+    "description": "Álbum de insectos de Bogotá con fotografía, hábitat, alimentación y tipo de metamorfosis.",
+    "url": "https://lacolmena.site/entomofauna.html",
+    "inLanguage": "es-CO",
+    "about": { "@type": "Thing", "name": "Insectos de Bogotá, Colombia" },
+    "isPartOf": { "@type": "WebSite", "name": "La Colmena", "url": "https://lacolmena.site/" },
+    "author": { "@type": "Person", "name": "Nicolás Ayala Tovar" },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://lacolmena.site/" },
+        { "@type": "ListItem", "position": 2, "name": "Entomofauna bogotana", "item": "https://lacolmena.site/entomofauna.html" }
+      ]
+    }
+  }
+  </script>
 </head>
 <body>
   <main>
     <section class="heroe heroe-mini panal-bg">
       <div class="wrap">
+        <nav class="migas small" aria-label="Ruta de navegación"><a href="index.html">Inicio</a> › <span aria-current="page">Entomofauna bogotana</span></nav>
         <span class="etiqueta">A 2.600 metros más cerca de los insectos</span>
         <h1>Entomofauna bogotana</h1>
-        <p class="lead">Parques, humedales, huertas y potreros de la sabana están llenos de insectos. Cada ficha presenta una especie y el concepto biológico que nos ayuda a enseñar.</p>
+        <p class="lead">El álbum de los insectos de Bogotá. Parques, humedales, cerros orientales, cultivos y hasta nuestras casas están llenos de abejas, mariposas, escarabajos, libélulas y moscas. Colecciona las <span id="total-especies">32</span> láminas y descubre dónde viven, qué comen y cómo crecen.</p>
       </div>
     </section>
 
-    <section>
+    <section class="leyenda-wrap" aria-labelledby="titulo-leyenda">
       <div class="wrap">
-        <div class="filtros" id="filtros" role="group" aria-label="Filtrar por orden"></div>
-        <div class="grid grid-3" id="especies"></div>
-        <p class="nota" style="margin-top:28px">💡 <strong>Para docentes:</strong> usa cada ficha como punto de partida de una clase. Pide a tus estudiantes que busquen la especie en su barrio o colegio y registren sus observaciones en <a href="https://colombia.inaturalist.org/" target="_blank" rel="noopener">iNaturalist Colombia</a>.</p>
+        <div class="leyenda-cabeza">
+          <h2 id="titulo-leyenda">Leyenda</h2>
+          <p class="small muted">Toca un símbolo para ver solo esas especies.</p>
+        </div>
+        <div class="leyenda" id="leyenda"></div>
+        <p class="filtro-estado small" id="filtro-estado" role="status"></p>
+      </div>
+    </section>
+
+    <section aria-label="Fichas de especies">
+      <div class="wrap">
+        <div class="album" id="especies"></div>
+        <p class="nota" style="margin-top:28px"><strong>Para docentes:</strong> usa cada lámina como punto de partida de una clase. Pide a tus estudiantes que busquen la especie en su barrio o colegio y registren sus observaciones en <a href="https://colombia.inaturalist.org/" target="_blank" rel="noopener">iNaturalist Colombia</a>.</p>
       </div>
     </section>
   </main>
 
   <script src="js/layout.js"></script>
-  <script src="js/datos.js"></script>
+  <script src="js/especies.js"></script>
   <script>
-    const contenedor = document.getElementById("especies");
-    const filtros = document.getElementById("filtros");
-    const ordenes = ["Todos", ...new Set(ESPECIES.map(e => e.orden))];
+    (function () {
+      const L = LEYENDA;
+      const slug = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+      const icono = (emoji, texto) => `<span class="ico" title="${texto}" role="img" aria-label="${texto}">${emoji}</span>`;
+      const hexDes = d => `<span class="ico ico-hex" title="${L.desarrollo[d].nombre}: ${L.desarrollo[d].desc}" role="img" aria-label="${L.desarrollo[d].nombre}">${L.desarrollo[d].simbolo}</span>`;
+      document.getElementById("total-especies").textContent = ESPECIES.length;
 
-    function pintar(orden) {
-      const lista = orden === "Todos" ? ESPECIES : ESPECIES.filter(e => e.orden === orden);
-      contenedor.innerHTML = lista.map(e => `
-        <article class="tarjeta ficha">
-          <div class="ficha-top">
-            <div class="hex-icon">${e.emoji}</div>
-            <div>
-              <h3 style="margin:0">${e.nombre}</h3>
-              <p class="nombre-cientifico">${e.cientifico}</p>
-            </div>
-          </div>
-          <div class="chips"><span class="chip">${e.orden}</span></div>
-          <p style="margin:0">${e.descripcion}</p>
-          <p class="small muted" style="margin:0">📍 ${e.habitat}</p>
-          <div class="concepto"><strong>Concepto: ${e.concepto}.</strong> ${e.conceptoTexto}</div>
-        </article>`).join("");
-      filtros.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b.dataset.orden === orden));
-    }
+      // ---------- Leyenda (también funciona como filtro) ----------
+      const ordenesPresentes = [...new Set(ESPECIES.map(e => e.orden))];
+      const grupo = (titulo, tipo, items) => `
+        <div class="leyenda-grupo">
+          <h3>${titulo}</h3>
+          <ul>${items.map(([clave, simbolo, nombre, desc, hex]) => `
+            <li><button class="leyenda-item" data-tipo="${tipo}" data-clave="${clave}" aria-pressed="false" title="${desc || nombre}">
+              <span class="ico${hex ? " ico-hex" : ""}" aria-hidden="true">${simbolo}</span><span>${nombre}</span>
+            </button></li>`).join("")}
+          </ul>
+        </div>`;
+      document.getElementById("leyenda").innerHTML =
+        grupo("Orden", "orden", ordenesPresentes.map(o => [o, L.ordenes[o].emoji, o, L.ordenes[o].comun])) +
+        grupo("Hábitat", "habitats", Object.entries(L.habitats).map(([k, v]) => [k, v.emoji, v.nombre])) +
+        grupo("Alimentación", "dieta", Object.entries(L.dietas).map(([k, v]) => [k, v.emoji, v.nombre, v.desc])) +
+        grupo("Desarrollo", "desarrollo", Object.entries(L.desarrollo).map(([k, v]) => [k, v.simbolo, v.nombre, v.desc, true]));
 
-    filtros.innerHTML = ordenes.map(o => `<button class="filtro" data-orden="${o}">${o}</button>`).join("");
-    filtros.addEventListener("click", ev => { if (ev.target.dataset.orden) pintar(ev.target.dataset.orden); });
-    pintar("Todos");
+      // ---------- Láminas del álbum ----------
+      const contenedor = document.getElementById("especies");
+      contenedor.innerHTML = ESPECIES.map((e, i) => {
+        const o = L.ordenes[e.orden];
+        const num = String(i + 1).padStart(2, "0");
+        return `
+        <article class="tarjeta lamina" id="${slug(e.cientifico)}" data-i="${i}" itemscope itemtype="https://schema.org/Taxon">
+          <header class="lamina-cabeza">
+            <span class="lamina-num" aria-label="Lámina ${num}">#${num}</span>
+            <span class="hex-icon lamina-orden" title="${e.orden} (${o.comun})" role="img" aria-label="Orden ${e.orden}">${o.emoji}</span>
+          </header>
+          <h2 class="lamina-nombre" itemprop="alternateName">${e.nombre}</h2>
+          <p class="nombre-cientifico" itemprop="name">${e.cientifico}</p>
+          <p class="lamina-taxo small"><span itemprop="parentTaxon">${e.orden}</span> · ${e.familia}</p>
+          <p class="lamina-desc" itemprop="description">${e.descripcion}</p>
+          ${e.dietaNota ? `<p class="small muted lamina-nota">${e.dietaNota}</p>` : ""}
+          <figure class="foto-especie">
+            <img src="${encodeURI(e.foto)}" alt="Fotografía de ${e.nombre} (${e.cientifico}), insecto de Bogotá" loading="${i < 3 ? "eager" : "lazy"}" decoding="async" itemprop="image">
+          </figure>
+          <footer class="lamina-iconos">
+            <div><span class="sr-only">Hábitat:</span>${e.habitats.map(h => icono(L.habitats[h].emoji, L.habitats[h].nombre)).join("")}</div>
+            <div><span class="sr-only">Alimentación:</span>${e.dieta.map(d => icono(L.dietas[d].emoji, L.dietas[d].nombre)).join("")}</div>
+            <div><span class="sr-only">Desarrollo:</span>${hexDes(e.desarrollo)}</div>
+          </footer>
+        </article>`;
+      }).join("");
+
+      // ---------- Filtro ----------
+      const estado = document.getElementById("filtro-estado");
+      let activo = null;
+      function filtrar(tipo, clave) {
+        activo = activo && activo.tipo === tipo && activo.clave === clave ? null : { tipo, clave };
+        let visibles = 0;
+        contenedor.querySelectorAll(".lamina").forEach(card => {
+          const e = ESPECIES[card.dataset.i];
+          const v = !activo || [].concat(e[activo.tipo]).includes(activo.clave);
+          card.hidden = !v; if (v) visibles++;
+        });
+        document.querySelectorAll(".leyenda-item").forEach(b =>
+          b.setAttribute("aria-pressed", !!activo && b.dataset.tipo === activo.tipo && b.dataset.clave === activo.clave));
+        estado.innerHTML = activo
+          ? `Mostrando ${visibles} de ${ESPECIES.length} especies. <button class="limpiar" type="button">Ver todas</button>`
+          : "";
+      }
+      document.getElementById("leyenda").addEventListener("click", ev => {
+        const b = ev.target.closest(".leyenda-item"); if (b) filtrar(b.dataset.tipo, b.dataset.clave);
+      });
+      estado.addEventListener("click", ev => { if (ev.target.matches(".limpiar")) filtrar(activo.tipo, activo.clave); });
+
+      // ---------- Datos estructurados (lista de especies) ----------
+      const ld = document.createElement("script");
+      ld.type = "application/ld+json";
+      ld.textContent = JSON.stringify({
+        "@context": "https://schema.org", "@type": "ItemList", "name": "Insectos de Bogotá",
+        "numberOfItems": ESPECIES.length,
+        "itemListElement": ESPECIES.map((e, i) => ({
+          "@type": "ListItem", "position": i + 1,
+          "url": "https://lacolmena.site/entomofauna.html#" + slug(e.cientifico),
+          "item": { "@type": "Taxon", "name": e.cientifico, "alternateName": e.nombre, "taxonRank": e.cientifico.endsWith("sp.") ? "genus" : "species",
+                    "description": e.descripcion, "image": "https://lacolmena.site/" + encodeURI(e.foto) }
+        }))
+      });
+      document.head.appendChild(ld);
+
+      // Si se llega con #especie, resaltar la lámina
+      if (location.hash) document.querySelector(location.hash)?.classList.add("resaltada");
+    })();
   </script>
 </body>
 </html>
