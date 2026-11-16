@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Entomofauna bogotana: insectos de Bogotá con fotos · La Colmena</title>
-  <meta name="description" content="Álbum de insectos de Bogotá: abejorros, mariposas, escarabajos, libélulas, moscas y más. Fichas con fotografía, hábitat, alimentación y tipo de metamorfosis de más de 40 especies de la sabana, los humedales y los cerros orientales.">
+  <meta name="description" content="Álbum de insectos de Bogotá: abejorros, mariposas, escarabajos, libélulas, moscas y más. Fichas con fotografía, hábitat, alimentación, metamorfosis y estado de conservación de más de 50 especies de la sabana, los humedales y los cerros orientales.">
   <meta name="keywords" content="insectos de Bogotá, entomofauna bogotana, mariposas de Bogotá, abejorros, Bombus atratus, humedales de Bogotá, cerros orientales, entomología Colombia, metamorfosis, educación ambiental">
   <meta name="author" content="Nicolás Ayala Tovar">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -15,7 +15,7 @@
   <meta property="og:site_name" content="La Colmena">
   <meta property="og:locale" content="es_CO">
   <meta property="og:title" content="Entomofauna bogotana: el álbum de los insectos de Bogotá">
-  <meta property="og:description" content="Más de 40 especies de insectos de Bogotá con fotografía, hábitat, alimentación y metamorfosis.">
+  <meta property="og:description" content="Más de 50 especies de insectos de Bogotá con fotografía, hábitat, alimentación y metamorfosis.">
   <meta property="og:url" content="https://lacolmena.site/entomofauna.html">
   <meta property="og:image" content="https://lacolmena.site/img/Bombus%20atratus.jpeg">
   <meta property="og:image:alt" content="Abejorro común (Bombus atratus) sobre una flor">
@@ -55,7 +55,7 @@
         <nav class="migas small" aria-label="Ruta de navegación"><a href="index.html">Inicio</a> › <span aria-current="page">Entomofauna bogotana</span></nav>
         <span class="etiqueta">La ciudad donde hay espacio para todos</span>
         <h1>Entomofauna bogotana</h1>
-        <p class="lead">El álbum de los insectos de Bogotá. Parques, humedales, cerros orientales, cultivos y hasta nuestras casas están llenos de abejas, mariposas, escarabajos, chinches, libélulas y moscas. Colecciona las <span id="total-especies">47</span> láminas y descubre dónde viven, qué comen y cómo crecen.</p>
+        <p class="lead">El álbum de los insectos de Bogotá. Parques, humedales, cerros orientales, cultivos y hasta nuestras casas están llenos de abejas, mariposas, escarabajos, chinches, libélulas y moscas. Colecciona las <span id="total-especies">55</span> láminas y descubre dónde viven, qué comen y cómo crecen.</p>
       </div>
     </section>
 
@@ -76,12 +76,19 @@
         <aside class="nota docentes" style="margin-top:28px" aria-labelledby="titulo-docentes">
           <h2 id="titulo-docentes">Para docentes</h2>
           <p>Usa cada lámina como punto de partida de una clase. Pide a tus estudiantes que busquen la especie en su barrio o colegio y registren sus observaciones en <a href="https://colombia.inaturalist.org/" target="_blank" rel="noopener">iNaturalist Colombia</a>.</p>
-          <h3>Para ampliar</h3>
-          <ul class="bibliografia">
-            <li>Jardín Botánico de Bogotá José Celestino Mutis. <a href="https://jbb.gov.co/nosotros/publicaciones/insectos-del-arbolado-urbano-de-bogota/" target="_blank" rel="noopener"><em>Insectos del arbolado urbano de Bogotá</em></a>.</li>
-            <li>Alcaldía de Bogotá, Secretaría de Cultura, Recreación y Deporte, y Empresa de Acueducto y Alcantarillado de Bogotá. (2019). <em>Vecinos inesperados: Relatos de la fauna silvestre en Bogotá: Guía de campo</em> (A. Ospina, Redacción literaria). Alcaldía de Bogotá.</li>
-          </ul>
         </aside>
+      </div>
+    </section>
+
+    <section class="referencias" aria-labelledby="titulo-referencias">
+      <div class="wrap">
+        <h2 id="titulo-referencias">Referencias</h2>
+        <ul class="lista-referencias">
+          <li>Alcaldía de Bogotá, Secretaría de Cultura, Recreación y Deporte, y Empresa de Acueducto y Alcantarillado de Bogotá. (2019). <em>Vecinos inesperados: Relatos de la fauna silvestre en Bogotá: Guía de campo</em> (A. Ospina, Redacción literaria). Alcaldía de Bogotá.</li>
+          <li>Andrade Correa, M. G., &amp; Amat García, G. D. (2000). <em>Guía preliminar de insectos de Santafé de Bogotá y sus alrededores</em>. Departamento Técnico Administrativo del Medio Ambiente (DAMA) &amp; Alcaldía Mayor de Bogotá.</li>
+          <li>Jaramillo, J. (s.f.). <a href="https://es.scribd.com/document/830133663/Guia-de-Artropodos-Noroccidente-Sabana-Bogota" target="_blank" rel="noopener"><em>Guía de artrópodos de la zona nororiental de la Sabana de Bogotá</em></a>.</li>
+          <li>Jardín Botánico de Bogotá José Celestino Mutis. <a href="https://jbb.gov.co/nosotros/publicaciones/insectos-del-arbolado-urbano-de-bogota/" target="_blank" rel="noopener"><em>Insectos del arbolado urbano de Bogotá</em></a>.</li>
+        </ul>
       </div>
     </section>
   </main>
@@ -93,6 +100,7 @@
       const L = LEYENDA;
       const slug = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
       const icono = (emoji, texto) => `<span class="ico" title="${texto}" role="img" aria-label="${texto}">${emoji}</span>`;
+      const hexCons = c => `<span class="ico ico-hex ico-cons" style="--c:${L.conservacion[c].color}" title="Estado de conservación: ${L.conservacion[c].nombre}" role="img" aria-label="Estado de conservación: ${L.conservacion[c].nombre}">${c}</span>`;
       const hexDes = d => `<span class="ico ico-hex" title="${L.desarrollo[d].nombre}: ${L.desarrollo[d].desc}" role="img" aria-label="${L.desarrollo[d].nombre}">${L.desarrollo[d].simbolo}</span>`;
       document.getElementById("total-especies").textContent = ESPECIES.length;
 
@@ -101,17 +109,22 @@
       const grupo = (titulo, tipo, items) => `
         <div class="leyenda-grupo">
           <h3>${titulo}</h3>
-          <ul>${items.map(([clave, simbolo, nombre, desc, hex]) => `
+          <ul>${items.map(([clave, simbolo, nombre, desc, hex, color]) => `
             <li><button class="leyenda-item" data-tipo="${tipo}" data-clave="${clave}" aria-pressed="false" title="${desc || nombre}">
-              <span class="ico${hex ? " ico-hex" : ""}" aria-hidden="true">${simbolo}</span><span>${nombre}</span>
+              <span class="ico${hex ? " ico-hex" : ""}${color ? " ico-cons" : ""}"${color ? ` style="--c:${color}"` : ""} aria-hidden="true">${simbolo}</span><span>${nombre}</span>
             </button></li>`).join("")}
           </ul>
         </div>`;
+      // Tres columnas: Orden (la más larga) | Hábitat + Desarrollo | Alimentación + Conservación
       document.getElementById("leyenda").innerHTML =
         grupo("Orden", "orden", ordenesPresentes.map(o => [o, L.ordenes[o].emoji, o, L.ordenes[o].comun])) +
-        grupo("Hábitat", "habitats", Object.entries(L.habitats).map(([k, v]) => [k, v.emoji, v.nombre])) +
-        grupo("Alimentación", "dieta", Object.entries(L.dietas).map(([k, v]) => [k, v.emoji, v.nombre, v.desc])) +
-        grupo("Desarrollo", "desarrollo", Object.entries(L.desarrollo).map(([k, v]) => [k, v.simbolo, v.nombre, v.desc, true]));
+        `<div class="leyenda-col">` +
+          grupo("Hábitat", "habitats", Object.entries(L.habitats).map(([k, v]) => [k, v.emoji, v.nombre])) +
+          grupo("Desarrollo", "desarrollo", Object.entries(L.desarrollo).map(([k, v]) => [k, v.simbolo, v.nombre, v.desc, true])) +
+        `</div><div class="leyenda-col">` +
+          grupo("Alimentación", "dieta", Object.entries(L.dietas).map(([k, v]) => [k, v.emoji, v.nombre, v.desc])) +
+          grupo("Estado de conservación", "conservacion", Object.entries(L.conservacion).map(([k, v]) => [k, k, v.nombre, v.desc, true, v.color])) +
+        `</div>`;
 
       // ---------- Láminas del álbum ----------
       const contenedor = document.getElementById("especies");
@@ -135,7 +148,7 @@
           <footer class="lamina-iconos">
             <div><span class="sr-only">Hábitat:</span>${e.habitats.map(h => icono(L.habitats[h].emoji, L.habitats[h].nombre)).join("")}</div>
             <div><span class="sr-only">Alimentación:</span>${e.dieta.map(d => icono(L.dietas[d].emoji, L.dietas[d].nombre)).join("")}</div>
-            <div><span class="sr-only">Desarrollo:</span>${hexDes(e.desarrollo)}</div>
+            <div><span class="sr-only">Desarrollo:</span>${hexDes(e.desarrollo)}${hexCons(e.conservacion)}</div>
           </footer>
         </article>`;
       }).join("");

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clave dicotómica interactiva de órdenes de insectos · La Colmena</title>
+  <meta name="description" content="Identifica el orden de un insecto adulto paso a paso con una clave dicotómica interactiva, y descubre el origen griego del nombre de cada orden.">
+  <meta name="author" content="Nicolás Ayala Tovar">
+  <link rel="canonical" href="https://lacolmena.site/clave.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="La Colmena">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:title" content="Clave dicotómica interactiva de órdenes de insectos">
+  <meta property="og:description" content="Responde preguntas sencillas sobre alas, patas y boca, y descubre a qué orden pertenece tu insecto.">
+  <meta property="og:url" content="https://lacolmena.site/clave.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <main>
+    <section class="heroe heroe-mini panal-bg">
+      <div class="wrap">
+        <nav class="migas small" aria-label="Ruta de navegación"><a href="index.html">Inicio</a> › <span aria-current="page">Clave dicotómica</span></nav>
+        <span class="etiqueta">¿Quién es este insecto?</span>
+        <h1>Clave dicotómica</h1>
+        <p class="lead">Observa tu insecto con calma (una lupa ayuda) y elige, en cada paso, la descripción que más se le parece. En pocos pasos sabrás a qué orden pertenece.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="titulo-clave">
+      <div class="wrap clave-wrap">
+        <div class="tarjeta clave" id="clave">
+          <h2 id="titulo-clave" class="sr-only">Clave interactiva</h2>
+          <div id="clave-cuerpo" aria-live="polite"></div>
+        </div>
+        <aside class="tarjeta clave-lado" aria-labelledby="titulo-ruta">
+          <h3 id="titulo-ruta">Tu camino</h3>
+          <ol class="clave-ruta" id="clave-ruta"></ol>
+          <div class="acciones-tabla">
+            <button type="button" class="btn chico oscuro" id="clave-atras">← Atrás</button>
+            <button type="button" class="btn chico" id="clave-reiniciar">Empezar de nuevo</button>
+          </div>
+          <p class="small muted">Esta clave sirve para <strong>insectos adultos</strong> de los órdenes más comunes en Bogotá. Las larvas y ninfas pueden verse muy distintas a sus padres.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="seccion-alt" aria-labelledby="titulo-diccionario">
+      <div class="wrap">
+        <div class="titulo-seccion">
+          <div>
+            <span class="etiqueta">Etimología</span>
+            <h2 id="titulo-diccionario">Diccionario de raíces griegas y latinas</h2>
+          </div>
+          <p class="muted">Casi todos los órdenes terminan en <em>-ptera</em>, “alas”: sus nombres describen cómo son las alas de cada grupo. Conocer estas raíces ayuda a recordarlos.</p>
+        </div>
+        <div class="tabla-wrap">
+          <table class="diccionario">
+            <thead><tr><th>Raíz</th><th>Lengua</th><th>Significado</th><th>Aparece en</th></tr></thead>
+            <tbody>
+              <tr><td><strong>a-, an-</strong> <span class="griego">ἀ-</span></td><td>Griego</td><td>sin, que no tiene</td><td>Siphon<em>a</em>ptera, Phthir<em>a</em>ptera</td></tr>
+              <tr><td><strong>derma</strong> <span class="griego">δέρμα</span></td><td>Griego</td><td>piel, cuero</td><td>Dermaptera</td></tr>
+              <tr><td><strong>di-</strong> <span class="griego">δι-</span></td><td>Griego</td><td>dos</td><td>Diptera</td></tr>
+              <tr><td><strong>entomon</strong> <span class="griego">ἔντομον</span></td><td>Griego</td><td>insecto; literalmente “cortado en partes”, por su cuerpo segmentado</td><td>Zygentoma, entomología</td></tr>
+              <tr><td><strong>hemi-</strong> <span class="griego">ἡμι-</span></td><td>Griego</td><td>mitad</td><td>Hemiptera</td></tr>
+              <tr><td><strong>hymen</strong> <span class="griego">ὑμήν</span></td><td>Griego</td><td>membrana</td><td>Hymenoptera</td></tr>
+              <tr><td><strong>insectum</strong></td><td>Latín</td><td>“cortado en partes”; traducción latina de <em>entomon</em></td><td>insecto</td></tr>
+              <tr><td><strong>koleos</strong> <span class="griego">κολεός</span></td><td>Griego</td><td>estuche, vaina</td><td>Coleoptera</td></tr>
+              <tr><td><strong>lepis</strong> <span class="griego">λεπίς</span></td><td>Griego</td><td>escama</td><td>Lepidoptera</td></tr>
+              <tr><td><strong>logos</strong> <span class="griego">λόγος</span></td><td>Griego</td><td>estudio, tratado</td><td>entomología</td></tr>
+              <tr><td><strong>neuron</strong> <span class="griego">νεῦρον</span></td><td>Griego</td><td>nervio; aquí, las venas de las alas</td><td>Neuroptera</td></tr>
+              <tr><td><strong>odous, odontos</strong> <span class="griego">ὀδούς</span></td><td>Griego</td><td>diente, por sus fuertes mandíbulas</td><td>Odonata</td></tr>
+              <tr><td><strong>orthos</strong> <span class="griego">ὀρθός</span></td><td>Griego</td><td>recto</td><td>Orthoptera</td></tr>
+              <tr><td><strong>phtheir</strong> <span class="griego">φθείρ</span></td><td>Griego</td><td>piojo</td><td>Phthiraptera</td></tr>
+              <tr><td><strong>pteron</strong> <span class="griego">πτερόν</span></td><td>Griego</td><td>ala</td><td>casi todos los órdenes (-ptera)</td></tr>
+              <tr><td><strong>siphon</strong> <span class="griego">σίφων</span></td><td>Griego</td><td>tubo, por su boca para chupar</td><td>Siphonaptera</td></tr>
+              <tr><td><strong>thysanos</strong> <span class="griego">θύσανος</span></td><td>Griego</td><td>fleco</td><td>Thysanoptera</td></tr>
+              <tr><td><strong>zygon</strong> <span class="griego">ζυγόν</span></td><td>Griego</td><td>yugo, unión</td><td>Zygentoma</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="referencias" aria-labelledby="titulo-referencias">
+      <div class="wrap">
+        <h2 id="titulo-referencias">Referencias</h2>
+        <ul class="lista-referencias">
+          <li>Grimaldi, D., &amp; Engel, M. S. (2005). <em>Evolution of the insects</em>. Cambridge University Press.</li>
+          <li>Triplehorn, C. A., &amp; Johnson, N. F. (2005). <em>Borror and DeLong’s introduction to the study of insects</em> (7.ª ed.). Thomson Brooks/Cole.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/layout.js"></script>
+  <script src="js/especies.js"></script>
+  <script src="js/clave.js"></script>
+</body>
+</html>

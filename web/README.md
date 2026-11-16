@@ -10,7 +10,8 @@ Sitio web didáctico de Nicolás Ayala Tovar. HTML, CSS y JavaScript puros: sin 
 | `index.html` | Inicio + noticias de entomología en Colombia |
 | `entomofauna.html` | Fichas de insectos de Bogotá con fotografía (fotos en `img/`, ruta en `js/datos.js`) |
 | `herramientas.html` | Calculadora de biomasa (versión web de `R/Biomass calculator`) y números de Hill (q0, q1, q2) |
-| `proyectos.html` | Proyectos (hotel para abejas e insectos). Foto esperada: `img/Hotel para insectos.jpg` |
+| `clave.html` | Clave dicotómica interactiva de órdenes y diccionario etimológico (`js/clave.js`: `PASOS` y `ORDENES`) |
+| `proyectos.html` | Proyectos (hotel para abejas e insectos, con tres fotos `img/Hotel para insectos*.jpg`) |
 | `juegos.html` | Juego "¿Es un insecto?" y próximos juegos |
 | `portafolio.html` | Perfil y proyectos |
 | `tienda.html` | Productos de la colmena (próximamente) |
@@ -19,7 +20,7 @@ Sitio web didáctico de Nicolás Ayala Tovar. HTML, CSS y JavaScript puros: sin 
 ## Cómo editar
 - **Noticias:** `js/datos.js` (arreglo `NOTICIAS`).
 - **Especies y leyenda:** `js/especies.js`. Deja la foto en `img/` y añade un bloque con su ruta en `foto`.
-- **Buscador del inicio:** `js/buscador.js` (las especies y productos se agregan solos; las demás entradas en `PAGINAS_BUSCABLES`).
+- **Buscador (en el encabezado de todas las páginas):** `js/buscador.js`, lo crea `layout.js` (las especies y productos se agregan solos; las demás entradas en `PAGINAS_BUSCABLES`).
 - **Juegos por nivel:** paneles `#primaria`, `#bachillerato` y `#pregrado` en `juegos.html`.
 - **Collage del inicio:** lista `ELEGIDAS` en `index.html`.
 - **Productos:** `js/productos.js`. Los que tengan `masVendido: true` aparecen en el inicio.
@@ -27,6 +28,8 @@ Sitio web didáctico de Nicolás Ayala Tovar. HTML, CSS y JavaScript puros: sin 
 - **Menú y pie de página:** `js/layout.js` (arreglo `PAGINAS`).
 - **Colores y formas:** variables al inicio de `css/styles.css` (`--miel`, `--abeja`, `--hex-btn`…).
 - **Preguntas del juego:** `js/juego.js` (arreglo `PREGUNTAS`).
+- **Juego del ciclo de vida:** `js/ciclo.js` (arreglo `ETAPAS`, en orden correcto).
+- **Referencias:** sección `<section class="referencias">` con `<ul class="lista-referencias">` al final de cada página (formato APA, orden alfabético).
 - **Carga de datos (pegar / subir .csv):** componente común en `js/importar.js`; cada herramienta define sus columnas y su ejemplo (`js/biomasa.js`, `js/diversidad.js`).
 
 ## Verlo en tu computador

@@ -5,6 +5,7 @@
     { href: "index.html", texto: "Inicio" },
     { href: "entomofauna.html", texto: "Entomofauna bogotana" },
     { href: "herramientas.html", texto: "Herramientas" },
+    { href: "clave.html", texto: "Clave dicotómica" },
     { href: "juegos.html", texto: "Juegos" },
     { href: "proyectos.html", texto: "Proyectos" },
     { href: "portafolio.html", texto: "Portafolio" },
@@ -33,6 +34,7 @@
   header.innerHTML = `
     <div class="wrap">
       <a class="marca" href="index.html">${logo}<div><strong>La Colmena</strong><span>Entomología para todos</span></div></a>
+      <div class="buscador-header" id="buscador"></div>
       <button class="menu-btn" aria-expanded="false" aria-controls="nav-principal">Menú</button>
       <nav class="nav" id="nav-principal" aria-label="Principal">${enlaces}</nav>
       <button class="tema-btn" title="Cambiar tema claro/oscuro" aria-label="Cambiar tema claro u oscuro">◐</button>
@@ -50,7 +52,6 @@
       </div>
       <div><strong style="color:#fff7e3">Secciones</strong><ul>${PAGINAS.map(p => `<li><a href="${p.href}">${p.texto}</a></li>`).join("")}</ul></div>
       <div><strong style="color:#fff7e3">En la red</strong><ul>
-        <li><a href="https://lacolmena.site">lacolmena.site</a></li>
         <li><a href="https://github.com/NicolasAyalaTovar" target="_blank" rel="noopener">GitHub</a></li>
         <li><a href="https://www.linkedin.com/in/nicolas-ayala-tovar-%F0%9F%90%9D-5289b5133/" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><a href="https://www.researchgate.net/profile/Nicolas-Tovar-8" target="_blank" rel="noopener">ResearchGate</a></li>
@@ -64,12 +65,28 @@
     </div>`;
   document.body.append(footer);
 
-  // Menú móvil
+  // Buscador del encabezado: carga los datos que la página no haya cargado ya
+  addEventListener("DOMContentLoaded", () => {
+    const falta = [["ESPECIES", "especies.js"], ["PRODUCTOS", "productos.js"], ["Buscador", "buscador.js"]]
+      .filter(([g]) => !window[g]).map(([, f]) => f);
+    const cargar = f => new Promise(ok => {
+      const sc = document.createElement("script"); sc.src = "js/" + f; sc.onload = sc.onerror = ok; document.head.append(sc);
+    });
+    falta.reduce((p, f) => p.then(() => cargar(f)), Promise.resolve())
+      .then(() => window.Buscador && Buscador.crear(header.querySelector("#buscador")));
+  });
+
+  // Menú desplegable
   const btn = header.querySelector(".menu-btn");
   const nav = header.querySelector(".nav");
   btn.addEventListener("click", () => {
     const abierto = nav.classList.toggle("abierto");
     btn.setAttribute("aria-expanded", abierto);
+  });
+  document.addEventListener("click", ev => {
+    if (nav.classList.contains("abierto") && !nav.contains(ev.target) && ev.target !== btn) {
+      nav.classList.remove("abierto"); btn.setAttribute("aria-expanded", false);
+    }
   });
 
   // Tema claro / oscuro (se recuerda en este navegador)

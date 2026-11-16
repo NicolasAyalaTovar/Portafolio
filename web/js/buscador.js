@@ -2,7 +2,7 @@
    Buscador del sitio (funciona sin servidor)
    Busca en especies, herramientas, juegos, proyectos, publicaciones
    y productos. Para añadir una entrada fija, edita PAGINAS_BUSCABLES.
-   Uso: Buscador.crear(elementoContenedor)
+   Lo crea layout.js en el encabezado de todas las páginas.
    ========================================================= */
 window.Buscador = (function () {
   const norm = s => String(s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
@@ -13,6 +13,9 @@ window.Buscador = (function () {
     { titulo: "Entomofauna bogotana", detalle: "Álbum de insectos de Bogotá", url: "entomofauna.html", tipo: "Página", extra: "especies fichas laminas album" },
     { titulo: "Calculadora de biomasa", detalle: "Herramienta · Rogers et al. (1976)", url: "herramientas.html#biomasa", tipo: "Herramienta", extra: "peso longitud abundancia" },
     { titulo: "Índices de diversidad (números de Hill)", detalle: "Herramienta · riqueza, Shannon, Simpson", url: "herramientas.html#diversidad", tipo: "Herramienta", extra: "q0 q1 q2 diversidad hill shannon simpson riqueza" },
+    { titulo: "Clave dicotómica de órdenes", detalle: "Herramienta · identifica el orden de un insecto", url: "clave.html", tipo: "Herramienta", extra: "identificar identificacion ordenes llave" },
+    { titulo: "Diccionario de raíces griegas y latinas", detalle: "Etimología de los nombres de los órdenes", url: "clave.html#titulo-diccionario", tipo: "Página", extra: "etimologia griego latin pteron ala" },
+    { titulo: "Arma el ciclo de vida", detalle: "Juego · nivel primaria · metamorfosis de la mariposa", url: "juegos.html#primaria", tipo: "Juego", extra: "huevo oruga larva pupa crisalida mariposa metamorfosis holometabolo" },
     { titulo: "¿Es un insecto?", detalle: "Juego · nivel primaria", url: "juegos.html#primaria", tipo: "Juego", extra: "niños ninos patas arañas" },
     { titulo: "Juegos para bachillerato", detalle: "Juegos · nivel bachillerato", url: "juegos.html#bachillerato", tipo: "Juego" },
     { titulo: "Juegos para pregrado", detalle: "Juegos · nivel pregrado", url: "juegos.html#pregrado", tipo: "Juego" },
@@ -54,8 +57,7 @@ window.Buscador = (function () {
     raiz.innerHTML = `
       <form role="search" onsubmit="return false">
         <label for="q" class="sr-only">Buscar en La Colmena</label>
-        <span class="buscador-ico" aria-hidden="true">🔍</span>
-        <input id="q" type="search" autocomplete="off" placeholder="Busca un insecto, una herramienta o un juego…"
+        <input id="q" type="search" autocomplete="off" placeholder="Buscar en La Colmena…"
                role="combobox" aria-expanded="false" aria-controls="q-resultados" aria-autocomplete="list">
       </form>
       <ul class="buscador-resultados" id="q-resultados" role="listbox" hidden></ul>`;

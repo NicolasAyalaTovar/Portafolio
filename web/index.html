@@ -31,10 +31,6 @@
       <div class="wrap">
         <span class="etiqueta">Entomología para todos</span>
         <h1>Descubre el maravilloso mundo de <em>los insectos que te rodean</em></h1>
-        <div class="acciones">
-          <a class="btn" href="entomofauna.html">Explorar entomofauna</a>
-        </div>
-        <div id="buscador"></div>
         <nav class="collage" id="collage" aria-label="Algunos insectos de Bogotá"></nav>
       </div>
     </section>
@@ -104,10 +100,7 @@
   <script src="js/datos.js"></script>
   <script src="js/especies.js"></script>
   <script src="js/productos.js"></script>
-  <script src="js/buscador.js"></script>
   <script>
-    Buscador.crear(document.getElementById("buscador"));
-
     // ---------- Collage de hexágonos ----------
     (function () {
       const slug = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
