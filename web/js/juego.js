@@ -43,7 +43,7 @@
       else if (x === b) x.classList.add("incorrecta");
     });
     $("marcador").children[i].className = ok ? "ok" : "mal";
-    $("explicacion").innerHTML = `<strong>${ok ? "¡Correcto! 🎉" : "¡Casi!"}</strong> ${p.por}`;
+    $("explicacion").innerHTML = `<strong>${ok ? "¡Correcto!" : "¡Casi!"}</strong> ${p.por}`;
     $("siguiente").hidden = false;
     $("siguiente").textContent = i < orden.length - 1 ? "Siguiente →" : "Ver resultado";
   });

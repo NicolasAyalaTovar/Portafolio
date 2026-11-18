@@ -81,6 +81,7 @@ p { margin: 0 0 1em; }
 .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 16px; }
 .muted { color: var(--text-muted); }
 .small { font-size: .9rem; }
+[hidden] { display: none !important; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 
 /* ---------- Franja de abeja (bandas negro/amarillo) ---------- */
@@ -201,6 +202,9 @@ section { padding: 64px 0; }
 .grid { display: grid; gap: 20px; }
 .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
 .grid-3 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 960px) { .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .grid-4 { grid-template-columns: 1fr; } }
 
 .tarjeta {
   background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
@@ -698,3 +702,74 @@ figure.foto-hex { margin: 0; padding: 6px; }
 .galeria-proyecto figure { margin: 0; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
 .galeria-proyecto img { display: block; width: 100%; aspect-ratio: 4 / 4.4; object-fit: cover; }
 .galeria-proyecto figcaption { padding: 12px 16px 16px; font-size: .95rem; }
+.clave-foto { margin: 8px auto 16px; text-align: center; width: min(100%, 280px); }
+.clave-foto figcaption { margin-top: 6px; }
+.clave-nota { margin: 0 0 14px; line-height: 1.55; }
+
+/* ---------- Juego: la ruta del polen ---------- */
+.juego-polen { margin-top: 26px; max-width: 820px; }
+.polen-instruccion { margin: -12px auto 14px; max-width: 60ch; }
+.polen-marcador { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px; margin-bottom: 12px; font-size: .95rem; }
+.polen-marcador strong { color: var(--miel-osc); }
+:root[data-theme="dark"] .polen-marcador strong { color: var(--polen); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .polen-marcador strong { color: var(--polen); } }
+.polen-jardin {
+  position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden;
+  background: #8fbf6a url("../img/Fondo%20juego%203.jpg") center / cover no-repeat;
+  border: 3px solid var(--hoja);
+}
+@media (max-width: 560px) { .polen-jardin { aspect-ratio: 4 / 5; } }
+.polen-flor, .polen-colmena, .polen-abeja { position: absolute; transform: translate(-50%, -50%); }
+.polen-flor {
+  width: clamp(48px, 9vw, 70px); aspect-ratio: 1 / 1.1; clip-path: var(--hex-v); border: 0; cursor: pointer;
+  background: rgba(255, 247, 227, .85); display: grid; place-items: center; transition: background .25s, transform .2s;
+}
+.polen-flor:hover, .polen-flor:focus-visible { background: var(--polen); transform: translate(-50%, -50%) scale(1.08); outline: none; }
+.polen-emoji { font-size: clamp(1.6rem, 4vw, 2.3rem); line-height: 1; }
+.polen-sello {
+  position: absolute; bottom: 8%; right: 50%; transform: translateX(50%); font-size: .7rem; font-weight: 800;
+  background: var(--hoja); color: #fff; border-radius: 999px; padding: 0 6px; display: none;
+}
+.polen-flor.polinizada { background: #fff; }
+.polen-flor.polinizada .polen-sello { display: block; }
+.polen-colmena { font-size: 1.8rem; }
+.polen-abeja {
+  font-size: clamp(1.7rem, 4vw, 2.3rem); z-index: 2; pointer-events: none; line-height: 1;
+  transform: translate(-5%, -95%);
+  transition: left .6s ease-in-out, top .6s ease-in-out; filter: drop-shadow(0 3px 3px rgba(0,0,0,.35));
+}
+.polen-abeja.sin-transicion { transition: none; }
+.polen-carga { position: absolute; width: 12px; height: 12px; border-radius: 50%; right: -4px; bottom: 0; border: 2px solid #fff; }
+.polen-acciones { justify-content: center; }
+
+/* ---------- Carrusel de proyectos (inicio) ---------- */
+.proyecto-diapositiva { padding-top: 0; overflow: hidden; }
+.proyecto-diapositiva img { display: block; width: calc(100% + 48px); margin: 0 -24px 10px; aspect-ratio: 16 / 10; object-fit: cover; }
+.carrusel-controles[hidden], .carrusel-puntos[hidden] { display: none; }
+
+/* ---------- Juego: detective del humedal ---------- */
+.juego-humedal { max-width: 900px; }
+.humedal-contexto { margin: -14px auto 12px; max-width: 60ch; }
+.humedal-instruccion { margin: 6px auto 14px; max-width: 60ch; }
+.humedal-muestra { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; text-align: left; }
+.humedal-bicho {
+  position: relative; display: flex; flex-direction: column; gap: 4px; align-items: center; justify-content: center;
+  min-height: 150px; padding: 14px; font: inherit; color: var(--text); cursor: pointer;
+  background: linear-gradient(160deg, #6f8f5a22, #3f6f8a33), var(--surface-2);
+  border: 2px dashed var(--border); border-radius: var(--radius); transition: border-color .2s, transform .2s;
+}
+.humedal-bicho:hover, .humedal-bicho:focus-visible { border-color: var(--miel); transform: translateY(-2px); outline: none; }
+.humedal-lupa {
+  display: grid; place-items: center; width: 48px; height: 54px; clip-path: var(--hex-v);
+  background: var(--abeja); color: var(--polen); font-weight: 800; font-size: 1.4rem;
+}
+.humedal-bicho.revisado { align-items: flex-start; justify-content: flex-start; cursor: default; border-style: solid; transform: none;
+  /* el color del borde va de rojo (tolerante, 1) a verde (sensible, 10) */
+  border-color: hsl(calc((var(--s) - 1) * 13), 60%, 45%); }
+.humedal-bicho.revisado strong { padding-right: 44px; }
+.humedal-puntaje {
+  position: absolute; top: 10px; right: 10px; display: grid; place-items: center; width: 34px; height: 38px; clip-path: var(--hex-v);
+  background: hsl(calc((var(--s) - 1) * 13), 60%, 40%); color: #fff; font-weight: 800;
+}
+.humedal-dato { color: var(--text-muted); }
+.humedal-indice { margin: 14px 0 10px; }

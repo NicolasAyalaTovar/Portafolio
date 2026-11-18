@@ -46,3 +46,15 @@ window.NOTICIAS = [
   }
 ];
 
+
+/* Proyectos que se muestran en el carrusel del inicio (los detalles están en proyectos.html).
+   Campos: titulo, resumen, foto, url, etiqueta */
+window.PROYECTOS = [
+  {
+    titulo: "Hotel para abejas e insectos",
+    resumen: "Construye un refugio para abejas solitarias, mariquitas y crisopas con botellas, latas, cajas y cañas que iban a la basura.",
+    foto: "img/Hotel para insectos.jpg",
+    url: "proyectos.html#hotel-insectos",
+    etiqueta: "Proyecto 01 · Material reutilizado"
+  }
+];

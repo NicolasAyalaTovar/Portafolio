@@ -9,9 +9,10 @@
     { href: "juegos.html", texto: "Juegos" },
     { href: "proyectos.html", texto: "Proyectos" },
     { href: "portafolio.html", texto: "Portafolio" },
-    { href: "tienda.html", texto: "Tienda" }
+    { href: "tienda.html", texto: "Tienda", oculta: true }   // oculta por ahora: quita "oculta" para mostrarla
   ];
 
+  const VISIBLES = PAGINAS.filter(p => !p.oculta);
   const actual = (location.pathname.split("/").pop() || "index.html").toLowerCase();
 
   const logo = `
@@ -25,7 +26,7 @@
       <path d="M20 1 39 12v22L20 45 1 34V12z" fill="none" stroke="#ffd23f" stroke-width="1.5"/>
     </svg>`;
 
-  const enlaces = PAGINAS.map(p =>
+  const enlaces = VISIBLES.map(p =>
     `<a href="${p.href}"${p.href === actual ? ' aria-current="page"' : ""}>${p.texto}</a>`
   ).join("");
 
@@ -50,7 +51,7 @@
         <strong style="font-family:var(--font-title);font-size:1.3rem;color:#fff7e3">La Colmena</strong>
         <p>Un recurso didáctico para aprender biología a través de los insectos, hecho en Bogotá por Nicolás Ayala Tovar: docente, entomólogo y analista de datos.</p>
       </div>
-      <div><strong style="color:#fff7e3">Secciones</strong><ul>${PAGINAS.map(p => `<li><a href="${p.href}">${p.texto}</a></li>`).join("")}</ul></div>
+      <div><strong style="color:#fff7e3">Secciones</strong><ul>${VISIBLES.map(p => `<li><a href="${p.href}">${p.texto}</a></li>`).join("")}</ul></div>
       <div><strong style="color:#fff7e3">En la red</strong><ul>
         <li><a href="https://github.com/NicolasAyalaTovar" target="_blank" rel="noopener">GitHub</a></li>
         <li><a href="https://www.linkedin.com/in/nicolas-ayala-tovar-%F0%9F%90%9D-5289b5133/" target="_blank" rel="noopener">LinkedIn</a></li>

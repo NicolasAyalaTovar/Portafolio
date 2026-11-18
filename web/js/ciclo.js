@@ -82,7 +82,7 @@
     if (fallo < 0) {
       terminado = true; pintar();
       huecos.forEach(h => h.classList.add("correcta"));
-      explicacion.innerHTML = `<strong>¡Muy bien! 🎉</strong> Así es la <strong>metamorfosis completa</strong>. Los insectos que la tienen se llaman <em>holometábolos</em>.
+      explicacion.innerHTML = `<strong>¡Muy bien!</strong> Así es la <strong>metamorfosis completa</strong>. Los insectos que la tienen se llaman <em>holometábolos</em>.
         <ol class="ciclo-resumen">${ETAPAS.map(e => `<li><strong>${e.nombre}:</strong> ${e.por}</li>`).join("")}</ol>`;
     } else {
       const a = porId(puestos[fallo]);

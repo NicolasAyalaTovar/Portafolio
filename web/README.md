@@ -29,6 +29,10 @@ Sitio web didáctico de Nicolás Ayala Tovar. HTML, CSS y JavaScript puros: sin 
 - **Colores y formas:** variables al inicio de `css/styles.css` (`--miel`, `--abeja`, `--hex-btn`…).
 - **Preguntas del juego:** `js/juego.js` (arreglo `PREGUNTAS`).
 - **Juego del ciclo de vida:** `js/ciclo.js` (arreglo `ETAPAS`, en orden correcto).
+- **La ruta del polen:** `js/polen.js` (`TIPOS` de flor, `SITIOS` del jardín y `POR_TIPO`). Fondo: `img/Fondo juego 3.jpg`.
+- **Detective del humedal:** `js/humedal.js` (`FAMILIAS` con puntajes BMWP/Col y `CASOS`).
+- **Proyectos del inicio:** arreglo `PROYECTOS` en `js/datos.js` (carrusel).
+- **Tienda oculta:** en `js/layout.js` la página tiene `oculta: true`; en `js/buscador.js`, `TIENDA_VISIBLE`. Para mostrarla de nuevo, cambia ambos y vuelve a añadirla al sitemap.
 - **Referencias:** sección `<section class="referencias">` con `<ul class="lista-referencias">` al final de cada página (formato APA, orden alfabético).
 - **Carga de datos (pegar / subir .csv):** componente común en `js/importar.js`; cada herramienta define sus columnas y su ejemplo (`js/biomasa.js`, `js/diversidad.js`).
 

@@ -48,17 +48,14 @@
             <button class="btn oscuro" id="siguiente" hidden>Siguiente →</button>
           </div>
           <div class="tarjeta juego juego-ciclo" id="ciclo"></div>
-          <h3 class="proximos">Próximamente en primaria</h3>
-          <div class="grid grid-3">
-            <div class="tarjeta"><div class="hex-icon">🌸</div><h3>La ruta del polen</h3><p class="muted">Guía a una abeja de flor en flor y descubre la polinización.</p></div>
-          </div>
+          <div class="tarjeta juego juego-polen" id="polen"></div>
         </div>
 
         <!-- ===== BACHILLERATO ===== -->
         <div class="panel-nivel" role="tabpanel" id="bachillerato" aria-labelledby="tab-bachillerato" hidden>
+          <div class="tarjeta juego juego-humedal" id="humedal"></div>
           <h3 class="proximos">Próximamente en bachillerato</h3>
-          <div class="grid grid-3">
-            <div class="tarjeta"><div class="hex-icon">🔎</div><h3>Detective de humedal</h3><p class="muted">Encuentra los bioindicadores escondidos en un humedal bogotano.</p></div>
+          <div class="grid grid-2">
             <div class="tarjeta"><div class="hex-icon">🗝️</div><h3>¿De qué orden soy?</h3><p class="muted">Identifica órdenes de insectos con una clave dicotómica ilustrada.</p></div>
             <div class="tarjeta"><div class="hex-icon">🔄</div><h3>Metamorfosis al límite</h3><p class="muted">Clasifica especies en holometábolas, hemimetábolas y ametábolas.</p></div>
           </div>
@@ -75,11 +72,21 @@
         </div>
       </div>
     </section>
+    <section class="referencias" aria-labelledby="titulo-referencias">
+      <div class="wrap">
+        <h2 id="titulo-referencias">Referencias</h2>
+        <ul class="lista-referencias">
+          <li>Roldán Pérez, G. (2003). <em>Bioindicación de la calidad del agua en Colombia: Propuesta para el uso del método BMWP/Col</em>. Editorial Universidad de Antioquia.</li>
+        </ul>
+      </div>
+    </section>
   </main>
 
   <script src="js/layout.js"></script>
   <script src="js/juego.js"></script>
   <script src="js/ciclo.js"></script>
+  <script src="js/polen.js"></script>
+  <script src="js/humedal.js"></script>
   <script>
     // Pestañas de nivel (se recuerdan en la dirección: juegos.html#bachillerato)
     (function () {

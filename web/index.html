@@ -47,9 +47,9 @@
             <button class="btn chico oscuro" data-dir="1" aria-label="Noticia siguiente">→</button>
           </div>
         </div>
-        <div class="carrusel" id="carrusel" aria-roledescription="carrusel">
+        <div class="carrusel" aria-roledescription="carrusel">
           <div class="carrusel-pista" id="noticias" tabindex="0" aria-live="polite"></div>
-          <div class="carrusel-puntos" id="puntos" role="tablist" aria-label="Elegir noticia"></div>
+          <div class="carrusel-puntos" role="tablist" aria-label="Elegir noticia"></div>
         </div>
       </div>
     </section>
@@ -82,16 +82,48 @@
       </div>
     </section>
 
-    <section aria-labelledby="titulo-tienda">
+    <section aria-labelledby="titulo-aprender">
       <div class="wrap">
         <div class="titulo-seccion">
           <div>
-            <span class="etiqueta">Tienda</span>
-            <h2 id="titulo-tienda">Lo más vendido de la colmena</h2>
+            <span class="etiqueta">Aprende</span>
+            <h2 id="titulo-aprender">Identifica y juega</h2>
           </div>
-          <a class="btn oscuro chico" href="tienda.html">Ver toda la tienda</a>
+          <p class="muted">Descubre a qué orden pertenece un insecto y pon a prueba lo que sabes, desde primaria hasta la universidad.</p>
         </div>
-        <div class="grid grid-3" id="mas-vendidos"></div>
+        <div class="grid grid-2">
+          <article class="tarjeta herramienta">
+            <div class="hex-icon" aria-hidden="true">🔑</div>
+            <h3>Clave dicotómica</h3>
+            <p class="muted">Responde preguntas sencillas sobre las alas, las patas y la boca, y llega paso a paso al orden de tu insecto. Incluye un diccionario de raíces griegas y latinas.</p>
+            <a class="btn" href="clave.html">Usar la clave</a>
+          </article>
+          <article class="tarjeta herramienta">
+            <div class="hex-icon" aria-hidden="true">🎮</div>
+            <h3>Juegos entomológicos</h3>
+            <p class="muted">¿Es un insecto?, arma el ciclo de vida, la ruta del polen y el detective del humedal: retos para primaria, bachillerato y pregrado.</p>
+            <a class="btn" href="juegos.html">Ir a los juegos</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion-alt" aria-labelledby="titulo-proyectos">
+      <div class="wrap">
+        <div class="titulo-seccion">
+          <div>
+            <span class="etiqueta">Manos a la obra</span>
+            <h2 id="titulo-proyectos">Proyectos</h2>
+          </div>
+          <div class="carrusel-controles">
+            <button class="btn chico oscuro" data-dir="-1" aria-label="Proyecto anterior">←</button>
+            <button class="btn chico oscuro" data-dir="1" aria-label="Proyecto siguiente">→</button>
+          </div>
+        </div>
+        <div class="carrusel" aria-roledescription="carrusel">
+          <div class="carrusel-pista" id="proyectos" tabindex="0" aria-live="polite"></div>
+          <div class="carrusel-puntos" role="tablist" aria-label="Elegir proyecto"></div>
+        </div>
       </div>
     </section>
   </main>
@@ -99,7 +131,6 @@
   <script src="js/layout.js"></script>
   <script src="js/datos.js"></script>
   <script src="js/especies.js"></script>
-  <script src="js/productos.js"></script>
   <script>
     // ---------- Collage de hexágonos ----------
     (function () {
@@ -115,71 +146,82 @@
         </a>`).join("");
     })();
 
-    // ---------- Carrusel de noticias ----------
-    (function () {
-      const fmt = f => new Date(f + "T12:00:00").toLocaleDateString("es-CO", { day: "numeric", month: "long", year: "numeric" });
-      const pista = document.getElementById("noticias");
-      const puntos = document.getElementById("puntos");
-      pista.innerHTML = NOTICIAS.map((n, i) => `
-        <article class="tarjeta noticia diapositiva" aria-roledescription="diapositiva" aria-label="${i + 1} de ${NOTICIAS.length}">
-          <span class="meta">${n.etiqueta}${n.fecha ? " · " + fmt(n.fecha) : ""}</span>
-          <h3>${n.titulo}</h3>
-          <p>${n.resumen}</p>
-          <a class="fuente" href="${n.url}" target="_blank" rel="noopener">Leer en ${n.fuente} →</a>
-        </article>`).join("");
+    // ---------- Carruseles (noticias y proyectos) ----------
+    // Cada sección tiene sus botones ← →, una pista desplazable y puntos.
+    function carrusel(seccion, html, autoplay) {
+      const pista = seccion.querySelector(".carrusel-pista");
+      const puntos = seccion.querySelector(".carrusel-puntos");
+      const controles = seccion.querySelector(".carrusel-controles");
+      pista.innerHTML = html.join("");
       const slides = [...pista.children];
-      const pos = i => slides[i].offsetLeft - slides[0].offsetLeft;            // desplazamiento de cada noticia
+      const pos = i => slides[i].offsetLeft - slides[0].offsetLeft;
       const maxScroll = () => pista.scrollWidth - pista.clientWidth;
-      // Última posición alcanzable (cuando se ven varias noticias a la vez, el final llega antes)
+      // Última posición alcanzable (cuando se ven varias tarjetas a la vez, el final llega antes)
       const ultimo = () => { const i = slides.findIndex((_, j) => pos(j) >= maxScroll() - 8); return i < 0 ? slides.length - 1 : i; };
-      let idx = 0;
+      let idx = 0, animando = 0, t;
 
       function pintarPuntos() {
-        puntos.innerHTML = Array.from({ length: ultimo() + 1 }, (_, i) =>
+        const n = ultimo() + 1;
+        controles.hidden = puntos.hidden = n < 2;      // con una sola posición no hacen falta
+        puntos.innerHTML = Array.from({ length: n }, (_, i) =>
           `<button role="tab" aria-label="Ir a la posición ${i + 1}" data-i="${i}" aria-selected="${i === idx}"></button>`).join("");
       }
+      const marcar = () => puntos.querySelectorAll("button").forEach((b, j) => b.setAttribute("aria-selected", j === idx));
       function ir(i) {
         idx = Math.max(0, Math.min(i, ultimo()));
         animando = Date.now() + 1000;
         pista.scrollTo({ left: pos(idx), behavior: "smooth" });
-        puntos.querySelectorAll("button").forEach((b, j) => b.setAttribute("aria-selected", j === idx));
+        marcar();
       }
       // Avanza o retrocede; al llegar a un extremo, da la vuelta
       const paso = dir => ir(idx + dir > ultimo() ? 0 : idx + dir < 0 ? ultimo() : idx + dir);
 
       // Si la persona desliza con el dedo o el trackpad, actualizar la posición al terminar
-      let animando = 0, t;
       function alTerminar() {
-        if (Date.now() < animando) return;                 // ignorar mientras se mueve por un botón
+        if (Date.now() < animando) return;
         const cerca = slides.reduce((m, _, j) => Math.abs(pos(j) - pista.scrollLeft) < Math.abs(pos(m) - pista.scrollLeft) ? j : m, 0);
         idx = pista.scrollLeft >= maxScroll() - 8 ? ultimo() : Math.min(cerca, ultimo());
-        puntos.querySelectorAll("button").forEach((b, j) => b.setAttribute("aria-selected", j === idx));
+        marcar();
       }
       if ("onscrollend" in window) pista.addEventListener("scrollend", alTerminar);
       else pista.addEventListener("scroll", () => { clearTimeout(t); t = setTimeout(alTerminar, 200); });
       addEventListener("resize", () => { idx = Math.min(idx, ultimo()); pintarPuntos(); });
 
       puntos.addEventListener("click", ev => { if (ev.target.dataset.i) ir(+ev.target.dataset.i); });
-      document.querySelectorAll(".carrusel-controles button").forEach(b =>
-        b.addEventListener("click", () => paso(+b.dataset.dir)));
+      controles.querySelectorAll("button").forEach(b => b.addEventListener("click", () => paso(+b.dataset.dir)));
       pista.addEventListener("keydown", ev => {
         if (ev.key === "ArrowRight") { ev.preventDefault(); paso(1); }
         if (ev.key === "ArrowLeft") { ev.preventDefault(); paso(-1); }
       });
       pintarPuntos();
 
-      // Avance automático cada 7 s (se pausa al pasar el mouse o al enfocar)
-      if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      // Avance automático (se pausa al pasar el mouse o al enfocar)
+      if (autoplay && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
         let pausa = false;
-        const carrusel = document.getElementById("carrusel");
-        ["mouseenter", "focusin", "touchstart"].forEach(e => carrusel.addEventListener(e, () => pausa = true, { passive: true }));
-        ["mouseleave", "focusout"].forEach(e => carrusel.addEventListener(e, () => pausa = false));
-        setInterval(() => { if (!pausa && !document.hidden) paso(1); }, 7000);
+        const caja = seccion.querySelector(".carrusel");
+        ["mouseenter", "focusin", "touchstart"].forEach(e => caja.addEventListener(e, () => pausa = true, { passive: true }));
+        ["mouseleave", "focusout"].forEach(e => caja.addEventListener(e, () => pausa = false));
+        setInterval(() => { if (!pausa && !document.hidden && ultimo() > 0) paso(1); }, autoplay);
       }
-    })();
+    }
 
-    // ---------- Lo más vendido ----------
-    pintarProductos(document.getElementById("mas-vendidos"), PRODUCTOS.filter(p => p.masVendido));
+    const fmt = f => new Date(f + "T12:00:00").toLocaleDateString("es-CO", { day: "numeric", month: "long", year: "numeric" });
+    carrusel(document.getElementById("noticias").closest("section"), NOTICIAS.map((n, i) => `
+        <article class="tarjeta noticia diapositiva" aria-roledescription="diapositiva" aria-label="${i + 1} de ${NOTICIAS.length}">
+          <span class="meta">${n.etiqueta}${n.fecha ? " · " + fmt(n.fecha) : ""}</span>
+          <h3>${n.titulo}</h3>
+          <p>${n.resumen}</p>
+          <a class="fuente" href="${n.url}" target="_blank" rel="noopener">Leer en ${n.fuente} →</a>
+        </article>`), 7000);
+
+    carrusel(document.getElementById("proyectos").closest("section"), PROYECTOS.map((p, i) => `
+        <article class="tarjeta noticia proyecto-diapositiva diapositiva" aria-roledescription="diapositiva" aria-label="${i + 1} de ${PROYECTOS.length}">
+          <img src="${encodeURI(p.foto)}" alt="${p.titulo}" loading="lazy" decoding="async">
+          <span class="meta">${p.etiqueta}</span>
+          <h3>${p.titulo}</h3>
+          <p>${p.resumen}</p>
+          <a class="fuente" href="${p.url}">Ver el proyecto →</a>
+        </article>`), 9000);
   </script>
 </body>
 </html>

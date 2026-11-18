@@ -16,16 +16,18 @@ window.Buscador = (function () {
     { titulo: "Clave dicotómica de órdenes", detalle: "Herramienta · identifica el orden de un insecto", url: "clave.html", tipo: "Herramienta", extra: "identificar identificacion ordenes llave" },
     { titulo: "Diccionario de raíces griegas y latinas", detalle: "Etimología de los nombres de los órdenes", url: "clave.html#titulo-diccionario", tipo: "Página", extra: "etimologia griego latin pteron ala" },
     { titulo: "Arma el ciclo de vida", detalle: "Juego · nivel primaria · metamorfosis de la mariposa", url: "juegos.html#primaria", tipo: "Juego", extra: "huevo oruga larva pupa crisalida mariposa metamorfosis holometabolo" },
+    { titulo: "La ruta del polen", detalle: "Juego · nivel primaria · polinización", url: "juegos.html#primaria", tipo: "Juego", extra: "abeja flores polinizacion polen nectar constancia floral" },
     { titulo: "¿Es un insecto?", detalle: "Juego · nivel primaria", url: "juegos.html#primaria", tipo: "Juego", extra: "niños ninos patas arañas" },
     { titulo: "Juegos para bachillerato", detalle: "Juegos · nivel bachillerato", url: "juegos.html#bachillerato", tipo: "Juego" },
     { titulo: "Juegos para pregrado", detalle: "Juegos · nivel pregrado", url: "juegos.html#pregrado", tipo: "Juego" },
+    { titulo: "Detective del humedal", detalle: "Juego · nivel bachillerato · bioindicadores", url: "juegos.html#bachillerato", tipo: "Juego", extra: "humedal bioindicadores calidad agua macroinvertebrados" },
     { titulo: "Hotel para abejas e insectos", detalle: "Proyecto con materiales reutilizables", url: "proyectos.html#hotel-insectos", tipo: "Proyecto", extra: "reciclaje reutilizar escuela colegio polinizadores" },
     { titulo: "Portafolio de Nicolás Ayala Tovar", detalle: "Publicaciones y proyectos", url: "portafolio.html", tipo: "Página", extra: "docente entomologo investigador contacto" },
     { titulo: "Nuevo registro de Glenus vestitus (Staphylinidae)", detalle: "Publicación · Acta Biológica Colombiana", url: "portafolio.html#titulo-publicaciones", tipo: "Publicación" },
     { titulo: "Ojos alienígenas en la Tierra", detalle: "Publicación · visión de los insectos y astrobiología", url: "portafolio.html#titulo-publicaciones", tipo: "Publicación" },
     { titulo: "Dos mundos un mismo escarabajo", detalle: "Divulgación · Oriolus", url: "portafolio.html#titulo-divulgacion", tipo: "Publicación" },
     { titulo: "Origami en la naturaleza", detalle: "Divulgación · escarabajos errantes · Oriolus", url: "portafolio.html#titulo-divulgacion", tipo: "Publicación" },
-    { titulo: "Tienda", detalle: "Productos de la colmena", url: "tienda.html", tipo: "Página", extra: "comprar miel" }
+    // { titulo: "Tienda", detalle: "Productos de la colmena", url: "tienda.html", tipo: "Página", extra: "comprar miel" }  (tienda oculta por ahora)
   ];
 
   function indice() {
@@ -34,7 +36,8 @@ window.Buscador = (function () {
       titulo: e.nombre, detalle: `${e.cientifico} · ${e.orden}`, url: "entomofauna.html#" + slug(e.cientifico), tipo: "Especie",
       extra: [e.cientifico, e.familia, e.orden, (window.LEYENDA?.ordenes[e.orden]?.comun) || ""].join(" ")
     }));
-    (window.PRODUCTOS || []).forEach(p => items.push({ titulo: p.nombre, detalle: "Tienda", url: "tienda.html", tipo: "Producto", extra: p.descripcion }));
+    const TIENDA_VISIBLE = false;   // cambia a true cuando la tienda vuelva al menú
+    if (TIENDA_VISIBLE) (window.PRODUCTOS || []).forEach(p => items.push({ titulo: p.nombre, detalle: "Tienda", url: "tienda.html", tipo: "Producto", extra: p.descripcion }));
     // Se guarda el texto con espacios al inicio de cada palabra para buscar solo desde el comienzo de las palabras
     const palabrasDe = t => " " + norm(t).replace(/[^a-z0-9]+/g, " ");
     return items.map(it => ({ ...it, _t: palabrasDe(it.titulo), _todo: palabrasDe([it.titulo, it.detalle, it.extra].join(" ")) }));
