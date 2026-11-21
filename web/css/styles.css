@@ -86,8 +86,8 @@ p { margin: 0 0 1em; }
 
 /* ---------- Franja de abeja (bandas negro/amarillo) ---------- */
 .franja {
-  height: 8px;
-  background: repeating-linear-gradient(90deg, var(--abeja) 0 28px, var(--miel) 28px 56px);
+  height: 4px;
+  background: repeating-linear-gradient(90deg, var(--abeja) 0 22px, var(--miel) 22px 44px);
 }
 
 /* ---------- Encabezado ---------- */
@@ -98,7 +98,7 @@ p { margin: 0 0 1em; }
 }
 .site-header .wrap { display: flex; align-items: center; gap: 16px; min-height: 68px; }
 .marca { display: flex; align-items: center; gap: 10px; color: var(--cera); text-decoration: none; }
-.marca svg { width: 40px; height: 40px; flex: none; }
+.marca img { width: 44px; height: 44px; flex: none; display: block; }
 .marca strong { font-family: var(--font-title); font-size: 1.35rem; letter-spacing: .3px; }
 .marca span { display: block; white-space: nowrap; font-size: .72rem; color: var(--polen); text-transform: uppercase; letter-spacing: 1.5px; }
 
@@ -459,7 +459,7 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 
 .collage {
   /* Panal: filas con un número par de celdas (--n) para que encajen entre sí */
-  --w: clamp(84px, 11vw, 136px); --h: calc(var(--w) * .866); --g: 6px; --n: 6;
+  --w: clamp(84px, 11vw, 136px); --h: calc(var(--w) * .866); --g: 6px; --n: 8;
   display: flex; flex-wrap: wrap; justify-content: flex-start; row-gap: var(--g);
   box-sizing: border-box;
   width: calc(var(--n) * (var(--w) * .75 + var(--g)) + var(--w) * .25 - var(--g) + 1px);
@@ -567,7 +567,7 @@ figure.foto-hex { margin: 0; padding: 6px; }
 .buscador-vacio { padding: 10px; color: var(--text-muted); }
 
 /* ---------- Niveles de juegos ---------- */
-.niveles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 26px; }
+.niveles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 26px; }
 .nivel {
   display: flex; align-items: center; gap: 12px; text-align: left; cursor: pointer;
   font: inherit; color: var(--text); background: var(--surface); border: 2px solid var(--border);
@@ -773,3 +773,187 @@ figure.foto-hex { margin: 0; padding: 6px; }
 }
 .humedal-dato { color: var(--text-muted); }
 .humedal-indice { margin: 14px 0 10px; }
+
+/* ---------- Carrusel selector (juegos y proyectos) ---------- */
+.selector-barra { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; }
+.selector-zona { padding-bottom: 0; }
+.selector-zona .selector-barra { margin-bottom: 0; }
+.selector-pista {
+  position: relative; flex: 1; min-width: 0; display: flex; gap: 14px; overflow-x: auto;
+  scroll-snap-type: x mandatory; scrollbar-width: none; padding: 6px 4px 10px;
+}
+.selector-pista::-webkit-scrollbar { display: none; }
+.selector-flecha { flex: none; }
+.selector-item {
+  flex: 0 0 min(270px, 80%); scroll-snap-align: start; display: flex; gap: 12px; align-items: center;
+  text-align: left; font: inherit; color: var(--text); cursor: pointer;
+  background: var(--surface); border: 2px solid var(--border); border-radius: var(--radius); padding: 12px 14px;
+  transition: border-color .2s, background .2s, box-shadow .2s;
+}
+.selector-item:hover { border-color: var(--miel); }
+.selector-item:focus-visible { outline: 3px solid var(--miel); outline-offset: 2px; }
+.selector-item[aria-selected="true"] { border-color: var(--miel); background: var(--surface-2); box-shadow: var(--shadow); }
+.selector-hex {
+  flex: none; width: 46px; height: 53px; clip-path: var(--hex-v); background: var(--surface-2);
+  display: grid; place-items: center; font-family: var(--font-title); font-weight: 800; color: var(--text);
+}
+.selector-item[aria-selected="true"] .selector-hex { background: var(--miel); color: var(--abeja); }
+.selector-texto { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.selector-texto strong { font-family: var(--font-title); font-size: 1.08rem; line-height: 1.2; }
+.selector-texto .small { color: var(--text-muted); line-height: 1.35; }
+.selector-etiqueta { font-size: .72rem; font-weight: 800; letter-spacing: .8px; text-transform: uppercase; color: var(--miel-osc); }
+:root[data-theme="dark"] .selector-etiqueta { color: var(--polen); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .selector-etiqueta { color: var(--polen); } }
+.selector-item.con-foto { flex-basis: min(340px, 82%); flex-direction: column; align-items: stretch; padding: 0 0 14px; overflow: hidden; }
+.selector-item.con-foto img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.selector-item.con-foto .selector-texto { padding: 4px 16px 0; }
+@media (max-width: 560px) { .selector-flecha { display: none; } }
+
+/* ---------- Juego: ¿De qué orden soy? ---------- */
+.orden-foto { width: min(100%, 240px); margin: 0 auto 18px; }
+.orden-opciones { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 480px) { .orden-opciones { grid-template-columns: 1fr; } }
+.orden-opciones .btn { flex-direction: column; gap: 0; line-height: 1.2; }
+.orden-opciones .btn .small { font-weight: 400; opacity: .85; }
+.orden-rasgo { display: block; margin: 8px 0; }
+
+/* ---------- Proyecto: fichas de plantas ---------- */
+.planta { padding-bottom: 18px; }
+.planta-origen {
+  font-size: .72rem; font-weight: 800; letter-spacing: .6px; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 999px; background: var(--surface-2); color: var(--text);
+}
+.planta-origen.nativa { background: var(--hoja); color: #fff; }
+.planta-atrae { margin: 6px 0 0; }
+.planta-pie { text-align: center; margin-top: 10px; font-weight: 700; color: var(--text-muted); }
+
+/* ---------- Bloque desplegable (diccionario de la clave) ---------- */
+.desplegable { margin-top: 8px; }
+.desplegable > summary {
+  display: inline-flex; align-items: center; gap: 10px; cursor: pointer; list-style: none;
+  font-weight: 800; padding: 10px 26px; background: var(--miel); color: var(--abeja); clip-path: var(--hex-btn);
+}
+.desplegable > summary::-webkit-details-marker { display: none; }
+.desplegable > summary::after { content: "▾"; transition: transform .2s; }
+.desplegable[open] > summary::after { transform: rotate(180deg); }
+.desplegable > summary:hover { background: var(--polen); }
+.desplegable > summary:focus-visible { outline: 3px solid var(--abeja); outline-offset: 2px; }
+.desplegable[open] > .tabla-wrap { margin-top: 16px; }
+
+/* ---------- Íconos propios de los órdenes ---------- */
+.emoji-img { width: 1.5em; height: 1.5em; object-fit: contain; display: block; }
+.lamina-orden .emoji-img { width: 34px; height: 34px; }
+.clave-resultado .hex-icon .emoji-img { width: 70%; height: 70%; }
+
+/* ---------- Rarefacción y extrapolación ---------- */
+.raref-q { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 8px; }
+.raref-figura { margin: 0; }
+.raref-figura svg { width: 100%; height: auto; display: block; }
+.raref-ejes text { font-size: 12px; fill: var(--text-muted); font-family: inherit; }
+.raref-titulo-eje { font-weight: 700; fill: var(--text) !important; }
+.raref-grid { stroke: var(--border); stroke-width: 1; }
+.raref-eje { stroke: var(--text-muted); stroke-width: 1.2; }
+.raref-linea { fill: none; stroke: var(--c); stroke-width: 2.6; stroke-linejoin: round; }
+.raref-linea.extra { stroke-dasharray: 6 5; }
+.raref-punto { fill: var(--c); stroke: var(--surface); stroke-width: 2; }
+.raref-leyenda, .evo-leyenda { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 6px 0 4px; }
+.raref-leyenda span, .evo-leyenda span { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; }
+.raref-leyenda i { width: 22px; height: 4px; border-radius: 2px; display: inline-block; }
+
+/* ---------- Calidad del agua ---------- */
+.agua-parte { margin-top: 20px; }
+.agua-parte h3 { margin-top: 0; }
+.agua-base { max-width: 560px; }
+.agua-tabla td:nth-child(2) { white-space: normal; min-width: 240px; }
+.agua-como { display: block; font-weight: 400; margin-top: 4px; max-width: 52ch; line-height: 1.35; white-space: normal; }
+.agua-extra { display: block; margin-top: 4px; font-weight: 700; }
+.agua-extra:empty { display: none; }
+.agua-tabla td:first-child { white-space: nowrap; }
+@media (max-width: 560px) { .agua-tabla td:first-child { white-space: normal; } }
+.agua-entrada { display: flex; align-items: center; gap: 6px; min-width: 150px; }
+.agua-entrada input { width: 100px; }
+.agua-tabla td { vertical-align: top; }
+.agua-resultado { margin-top: 14px; }
+.agua-indice { display: flex; align-items: center; gap: 14px; padding: 12px 16px; border-radius: var(--radius); border: 2px solid var(--c); background: var(--surface-2); }
+.agua-indice strong { display: block; }
+.agua-valor {
+  flex: none; width: 70px; height: 80px; clip-path: var(--hex-v); background: var(--c); color: #fff;
+  display: grid; place-items: center; font-family: var(--font-title); font-size: 1.6rem; font-weight: 800;
+}
+.agua-buscar { max-width: 320px; margin-bottom: 12px; }
+.agua-familias { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+.agua-grupo { border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 12px 10px; margin: 0; }
+.agua-grupo legend { font-family: var(--font-title); font-weight: 800; padding: 0 6px; }
+.agua-fam { display: flex; align-items: center; gap: 8px; font-weight: 400; margin: 0; padding: 3px 4px; border-radius: 8px; cursor: pointer; }
+.agua-fam:hover { background: var(--surface-2); }
+.agua-fam span { flex: 1; }
+.agua-fam b { min-width: 26px; text-align: center; font-size: .8rem; background: var(--surface-2); border-radius: 999px; padding: 1px 6px; }
+.agua-fam input:checked ~ b { background: var(--miel); color: var(--abeja); }
+
+/* ---------- Juego: el laboratorio de las polillas ---------- */
+.evo-escena { width: 100%; height: auto; display: block; border-radius: var(--radius); margin: 8px 0 10px; touch-action: manipulation; }
+.evo-polilla { cursor: crosshair; transition: opacity .25s, transform .25s; }
+.evo-polilla.cazada { opacity: 0; }
+.evo-estado { margin: 6px 0; }
+.evo-acciones { justify-content: center; }
+.evo-opciones { margin-top: 10px; }
+.evo-preg { grid-column: 1 / -1; margin: 6px 0 0; }
+.evo-histo { display: flex; align-items: flex-end; height: 160px; gap: 6px; margin: 12px 0 4px; }
+.evo-col { display: flex; flex-direction: column; align-items: center; height: 100%; }
+.evo-col > .small { margin-top: 4px; color: var(--text-muted); text-align: center; line-height: 1.1; }
+.evo-barras { flex: 1; width: 100%; display: flex; align-items: flex-end; justify-content: center; gap: 4px; }
+.evo-barra { position: relative; width: 40%; min-height: 2px; background: var(--t); border: 2px solid var(--miel); border-radius: 6px 6px 0 0; }
+.evo-barra.ini { background: transparent; border-style: dashed; }
+.evo-barra b { position: absolute; top: -18px; left: 0; right: 0; text-align: center; font-size: .75rem; }
+.evo-leyenda { justify-content: center; }
+.evo-leyenda .evo-barra { width: 16px; height: 12px; display: inline-block; border-radius: 3px; }
+.evo-deriva { width: 100%; height: auto; display: block; margin-top: 8px; }
+.evo-deriva text { font-size: 12px; fill: var(--text-muted); font-family: inherit; }
+.evo-eje { font-weight: 700; fill: var(--text) !important; }
+.evo-grid { stroke: var(--border); }
+.evo-linea { fill: none; stroke-width: 2.2; opacity: .85; }
+.evo-linea.pequena, .evo-linea-ico.pequena { stroke: #b3401b; background: #b3401b; }
+.evo-linea.grande, .evo-linea-ico.grande { stroke: #2f6fae; background: #2f6fae; }
+.evo-linea-ico { width: 22px; height: 4px; border-radius: 2px; display: inline-block; }
+.evo-resumen { text-align: left; margin: 0 0 10px; }
+
+/* ---------- Juego: la red trófica del humedal ---------- */
+.red-figura { margin: 6px 0 10px; }
+.red-figura svg { width: 100%; height: auto; display: block; }
+.red-figura figcaption { margin-top: 6px; }
+.red-leyenda { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 6px; margin-bottom: 4px; font-weight: 700; }
+.red-leyenda i { width: 14px; height: 14px; border-radius: 4px; display: inline-block; margin-left: 8px; background: var(--n); }
+.nivel-1 { --n: #3f7d3a; } .nivel-2 { --n: #d9a400; } .nivel-3 { --n: #c25a1b; } .nivel-4 { --n: #2f6fae; }
+.red-flecha { stroke: var(--text-muted); stroke-width: 1.6; opacity: .7; }
+#red-punta path { fill: var(--text-muted); }
+.red-nodo rect { fill: var(--surface); stroke: var(--n); stroke-width: 3; }
+.red-nodo text { font-size: 15px; font-weight: 800; fill: var(--text); font-family: inherit; }
+.red-nodo.objetivo rect { stroke-width: 5; stroke-dasharray: 7 4; }
+.red-nodo.nuevo rect { fill: var(--surface-2); }
+.red-escala { transform-box: fill-box; transform-origin: center; transition: transform .5s; }
+.red-nodo.up .red-escala { transform: scale(1.16); }
+.red-nodo.down .red-escala { transform: scale(.82); }
+.red-nodo.down rect { opacity: .55; }
+.red-marca { opacity: 0; transition: opacity .3s; }
+.red-nodo.up .red-marca, .red-nodo.down .red-marca { opacity: 1; }
+.red-marca circle { fill: var(--hoja); }
+.red-nodo.down .red-marca circle { fill: var(--alerta); }
+.red-marca text { fill: #fff !important; font-size: 17px !important; }
+.red-kcal { font-size: 15px; font-weight: 800; fill: var(--miel-osc); paint-order: stroke; stroke: var(--surface); stroke-width: 4px; }
+.red-nodo.energia rect { fill: var(--surface-2); }
+:root[data-theme="dark"] .red-kcal { fill: var(--polen); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .red-kcal { fill: var(--polen); } }
+.red-preg { margin: 6px 0 10px; }
+.red-concepto { font-weight: 800; color: var(--miel-osc); }
+:root[data-theme="dark"] .red-concepto { color: var(--polen); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .red-concepto { color: var(--polen); } }
+
+/* ---------- Páginas legales ---------- */
+.texto-legal { max-width: 78ch; margin: 0 auto; }
+.texto-legal h2 { font-size: 1.35rem; margin: 32px 0 10px; }
+.texto-legal h3 { font-size: 1.1rem; margin: 22px 0 8px; }
+.texto-legal p, .texto-legal li { line-height: 1.65; }
+.texto-legal ul, .texto-legal ol { padding-left: 1.4em; }
+.texto-legal li { margin: 4px 0; }
+.texto-legal a { overflow-wrap: anywhere; }
+.texto-legal hr { border: 0; border-top: 1px solid var(--border); margin: 30px 0 18px; }

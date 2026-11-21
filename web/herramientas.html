@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="img/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 </head>
 <body>
   <main>
@@ -21,7 +22,12 @@
       </div>
     </section>
 
-    <section id="biomasa">
+    <div class="selector" aria-label="Elige una herramienta">
+    <section class="selector-zona" aria-label="Herramientas disponibles">
+      <div class="wrap"><div class="selector-barra"></div></div>
+    </section>
+
+    <section id="biomasa" class="selector-panel" data-sel-titulo="Calculadora de biomasa" data-sel-resumen="Estima la biomasa a partir de la abundancia y la longitud corporal.">
       <div class="wrap">
         <div class="titulo-seccion">
           <div>
@@ -74,7 +80,7 @@
       </div>
     </section>
 
-    <section class="seccion-alt" id="diversidad">
+    <section id="diversidad" class="selector-panel" data-sel-titulo="Índices de diversidad" data-sel-resumen="Números de Hill por sitio, con curvas de rarefacción y extrapolación.">
       <div class="wrap">
         <div class="titulo-seccion">
           <div>
@@ -114,27 +120,54 @@
           <div id="importar-hill"></div>
         </div>
 
-        <p class="small muted" style="margin-top:16px">Esta herramienta calcula los valores observados de la muestra. Para comparar sitios con distinto esfuerzo de muestreo se recomienda rarefacción y extrapolación (por ejemplo, el paquete iNEXT de R; Chao et al., 2014).</p>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap">
-        <div class="titulo-seccion"><div><span class="etiqueta">En construcción</span><h2>Próximas herramientas</h2></div></div>
-        <div class="grid grid-3">
-          <div class="tarjeta"><div class="hex-icon">📈</div><h3>Rarefacción y extrapolación</h3><p class="muted">Curvas de números de Hill comparables entre sitios con distinto esfuerzo de muestreo.</p></div>
-          <div class="tarjeta"><div class="hex-icon">🗺️</div><h3>Mapas de registros</h3><p class="muted">Visualiza registros de GBIF para Bogotá y Colombia.</p></div>
+        <div class="tarjeta" id="rarefaccion-extrapolacion" style="margin-top:24px">
+          <h3>Curvas de rarefacción y extrapolación</h3>
+          <p>Un sitio muestreado con más esfuerzo casi siempre tiene más especies, así que comparar los valores observados puede engañar. Las curvas de <strong>rarefacción</strong> estiman cuántas especies (o cuánta diversidad) habrías encontrado con <strong>menos</strong> individuos, y la <strong>extrapolación</strong> estima cuántas encontrarías con <strong>más</strong>, hasta el doble de la muestra. Así todos los sitios se comparan con el mismo esfuerzo (Chao et al., 2014).</p>
+          <div class="hill-q">
+            <div><div class="q">Rarefacción</div><div class="f">⁰D(m) = Σ [1 − C(n−X<sub>i</sub>, m) / C(n, m)]</div><p class="small" style="margin:0">Número esperado de especies en una submuestra de <em>m</em> individuos tomada al azar de los <em>n</em> observados. <em>X<sub>i</sub></em> es la abundancia de la especie <em>i</em>.</p></div>
+            <div><div class="q">Extrapolación</div><div class="f">⁰D(n+m*) = S + f̂<sub>0</sub> [1 − (1 − f<sub>1</sub> / (n f̂<sub>0</sub> + f<sub>1</sub>))<sup>m*</sup>]</div><p class="small" style="margin:0">Usa los <em>singletons</em> (f<sub>1</sub>, especies con un individuo) y <em>doubletons</em> (f<sub>2</sub>) para estimar las especies que faltan, f̂<sub>0</sub> = f<sub>1</sub>² / 2f<sub>2</sub> (Chao1).</p></div>
+            <div><div class="q">Cobertura</div><div class="f">Ĉ = 1 − (f<sub>1</sub>/n) · (n−1)f<sub>1</sub> / [(n−1)f<sub>1</sub> + 2f<sub>2</sub>]</div><p class="small" style="margin:0">Proporción de la comunidad que pertenece a especies ya registradas. Indica qué tan completo quedó el muestreo.</p></div>
+          </div>
+          <p class="small muted">Las curvas se calculan con los mismos datos de la tabla de arriba: si cargas tu archivo, se actualizan solas. Las fórmulas para q = 1 y q = 2 siguen a Chao et al. (2014), con el estimador de Shannon de Chao et al. (2013).</p>
+          <div id="rarefaccion"></div>
+          <p class="nota small">Esta herramienta no calcula intervalos de confianza. Para publicar, usa el paquete iNEXT de R (Hsieh et al., 2016), que los obtiene por <em>bootstrap</em>; con los mismos datos, sus curvas centrales deben coincidir con estas.</p>
         </div>
       </div>
     </section>
+
+    <section id="agua" class="selector-panel" data-sel-titulo="Calidad del agua" data-sel-resumen="Fisicoquímica (ICA-NSF) y bioindicadores (BMWP/Col) en un solo diagnóstico.">
+      <div class="wrap">
+        <div class="titulo-seccion">
+          <div>
+            <span class="etiqueta">Herramienta 03</span>
+            <h2>Calidad del agua: química y bioindicadores</h2>
+          </div>
+          <p class="muted">Combina dos miradas sobre una quebrada, un humedal o un río: lo que miden los kits del laboratorio escolar y lo que cuentan los insectos y otros macroinvertebrados que viven en el agua.</p>
+        </div>
+        <div class="hill-q">
+          <div><div class="q">ICA-NSF</div><div class="f">ICA = Σ w<sub>i</sub> · Q<sub>i</sub></div><p class="small" style="margin:0">Índice de Calidad del Agua de la National Sanitation Foundation (Brown et al., 1970). Cada parámetro se convierte en un subíndice <em>Q</em> de 0 a 100 y se pondera con su peso <em>w</em>.</p></div>
+          <div><div class="q">BMWP/Col</div><div class="f">BMWP = Σ puntajes de las familias</div><p class="small" style="margin:0">Índice biológico adaptado a Colombia por Roldán (2003). Cada familia de macroinvertebrados tiene un puntaje de 1 (tolerante) a 10 (sensible a la contaminación).</p></div>
+          <div><div class="q">ASPT</div><div class="f">ASPT = BMWP / n.º de familias</div><p class="small" style="margin:0">Promedio por familia. Depende menos del esfuerzo de muestreo que el BMWP total.</p></div>
+        </div>
+        <div id="agua-app"></div>
+        <p class="small muted" style="margin-top:16px">Las curvas de los subíndices <em>Q</em> son aproximaciones de las gráficas de la NSF. Para un estudio formal, usa los protocolos y laboratorios acreditados de la autoridad ambiental.</p>
+      </div>
+    </section>
+
+    </div>
+
     <section class="referencias" aria-labelledby="titulo-referencias">
       <div class="wrap">
         <h2 id="titulo-referencias">Referencias</h2>
         <ul class="lista-referencias">
+          <li>Brown, R. M., McClelland, N. I., Deininger, R. A., &amp; Tozer, R. G. (1970). A water quality index: Do we dare? <em>Water and Sewage Works, 117</em>(10), 339–343.</li>
           <li>Chao, A., Gotelli, N. J., Hsieh, T. C., Sander, E. L., Ma, K. H., Colwell, R. K., &amp; Ellison, A. M. (2014). Rarefaction and extrapolation with Hill numbers: A framework for sampling and estimation in species diversity studies. <em>Ecological Monographs, 84</em>(1), 45–67.</li>
+          <li>Chao, A., Wang, Y. T., &amp; Jost, L. (2013). Entropy and the species accumulation curve: A novel entropy estimator via discovery rates of new species. <em>Methods in Ecology and Evolution, 4</em>(11), 1091–1100.</li>
           <li>Hill, M. O. (1973). Diversity and evenness: A unifying notation and its consequences. <em>Ecology, 54</em>(2), 427–432.</li>
+          <li>Hsieh, T. C., Ma, K. H., &amp; Chao, A. (2016). iNEXT: An R package for rarefaction and extrapolation of species diversity (Hill numbers). <em>Methods in Ecology and Evolution, 7</em>(12), 1451–1456.</li>
           <li>Jost, L. (2006). Entropy and diversity. <em>Oikos, 113</em>(2), 363–375.</li>
           <li>Rogers, L. E., Hinds, W. T., &amp; Buschbom, R. L. (1976). A general weight vs. length relationship for insects. <em>Annals of the Entomological Society of America, 69</em>(2), 387–389.</li>
+          <li>Roldán Pérez, G. (2003). <em>Bioindicación de la calidad del agua en Colombia: Propuesta para el uso del método BMWP/Col</em>. Editorial Universidad de Antioquia.</li>
           <li>Stork, N. E., &amp; Blackburn, T. M. (1993). Abundance, body size and biomass of arthropods in tropical forest. <em>Oikos, 67</em>(3), 483–489.</li>
         </ul>
       </div>
@@ -144,6 +177,9 @@
   <script src="js/layout.js"></script>
   <script src="js/importar.js"></script>
   <script src="js/biomasa.js"></script>
+  <script src="js/rarefaccion.js"></script>
   <script src="js/diversidad.js"></script>
+  <script src="js/agua.js"></script>
+  <script src="js/selector.js"></script>
 </body>
 </html>

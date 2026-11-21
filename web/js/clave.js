@@ -104,7 +104,7 @@
 
   function mostrarOrden(o, ejemplo) {
     const d = ORDENES[o], ej = (window.ESPECIES || []).filter(e => e.orden === o);
-    const emoji = window.LEYENDA?.ordenes[o]?.emoji || "🐛";
+    const emoji = window.simboloOrden ? simboloOrden(o) : "🐛";
     const foto = ej.find(e => e.cientifico === (ejemplo || d.ejemplo)) || ej[0];
     $("clave-cuerpo").innerHTML = `
       <div class="clave-resultado">

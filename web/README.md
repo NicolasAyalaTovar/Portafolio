@@ -31,6 +31,14 @@ Sitio web didáctico de Nicolás Ayala Tovar. HTML, CSS y JavaScript puros: sin 
 - **Juego del ciclo de vida:** `js/ciclo.js` (arreglo `ETAPAS`, en orden correcto).
 - **La ruta del polen:** `js/polen.js` (`TIPOS` de flor, `SITIOS` del jardín y `POR_TIPO`). Fondo: `img/Fondo juego 3.jpg`.
 - **Detective del humedal:** `js/humedal.js` (`FAMILIAS` con puntajes BMWP/Col y `CASOS`).
+- **Íconos propios de los órdenes:** PNG cuadrado con fondo transparente en `img/emojis/Orden.png` y el campo `icono` en `LEYENDA.ordenes` (`js/especies.js`). Sin `icono` se usa el emoji.
+- **Rarefacción y extrapolación:** `js/rarefaccion.js` (Chao et al., 2014). Usa los datos de `js/diversidad.js` a través del evento `hill:datos`.
+- **Calidad del agua:** `js/agua.js` (`PARAMS` con pesos y curvas del ICA-NSF; `BMWP` con los puntajes de Roldán, 2003).
+- **El laboratorio de las polillas:** `js/evolucion.js` (`RETOS` de selección y el reto de deriva genética).
+- **La red trófica del humedal:** `js/redes.js` (`NODOS`, `ENLACES` y `RETOS` con sus efectos paso a paso).
+- **¿De qué orden soy?:** `js/orden.js` (usa las fotos de `ESPECIES`; `RASGOS` explica cada orden).
+- **Carrusel de herramientas, juegos y proyectos:** `js/selector.js`. Cada juego o proyecto es un `.selector-panel` con `id` y atributos `data-sel-titulo`, `data-sel-resumen`, `data-sel-etiqueta` y `data-sel-foto` (opcional). La dirección `juegos.html#orden` o `proyectos.html#jardin-abejas` abre ese panel.
+- **Plantas del jardín para abejas:** arreglo `PLANTAS` en `js/plantas.js`.
 - **Proyectos del inicio:** arreglo `PROYECTOS` en `js/datos.js` (carrusel).
 - **Tienda oculta:** en `js/layout.js` la página tiene `oculta: true`; en `js/buscador.js`, `TIENDA_VISIBLE`. Para mostrarla de nuevo, cambia ambos y vuelve a añadirla al sitemap.
 - **Referencias:** sección `<section class="referencias">` con `<ul class="lista-referencias">` al final de cada página (formato APA, orden alfabético).

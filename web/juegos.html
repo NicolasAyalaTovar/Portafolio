@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="img/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 </head>
 <body>
   <main>
@@ -17,7 +18,7 @@
       <div class="wrap">
         <span class="etiqueta">Aprender jugando</span>
         <h1>Juegos entomológicos</h1>
-        <p class="lead">Retos para aprender entomología en primaria, bachillerato y pregrado. Elige tu nivel: cada respuesta correcta llena una celda del panal.</p>
+        <p class="lead">Retos para aprender entomología en primaria y bachillerato. Elige tu nivel: cada respuesta correcta llena una celda del panal.</p>
       </div>
     </section>
 
@@ -31,14 +32,12 @@
           <button class="nivel" role="tab" id="tab-bachillerato" aria-controls="bachillerato" aria-selected="false">
             <span class="hex-icon" aria-hidden="true">🔬</span><span><strong>Bachillerato</strong><span class="small">12 a 17 años</span></span>
           </button>
-          <button class="nivel" role="tab" id="tab-pregrado" aria-controls="pregrado" aria-selected="false">
-            <span class="hex-icon" aria-hidden="true">🎓</span><span><strong>Pregrado</strong><span class="small">Universidad</span></span>
-          </button>
         </div>
 
         <!-- ===== PRIMARIA ===== -->
         <div class="panel-nivel" role="tabpanel" id="primaria" aria-labelledby="tab-primaria">
-          <div class="tarjeta juego" id="juego">
+          <div class="selector" aria-label="Juegos de primaria">
+          <div class="tarjeta juego selector-panel" id="juego" data-sel-titulo="¿Es un insecto?" data-sel-resumen="Descubre qué animales son insectos y cuáles no.">
             <span class="etiqueta">Primaria · Juego 01 · ¿Es un insecto?</span>
             <div class="marcador" id="marcador" aria-hidden="true"></div>
             <div class="emoji-grande" id="emoji"></div>
@@ -47,35 +46,32 @@
             <p class="explicacion muted" id="explicacion" aria-live="polite"></p>
             <button class="btn oscuro" id="siguiente" hidden>Siguiente →</button>
           </div>
-          <div class="tarjeta juego juego-ciclo" id="ciclo"></div>
-          <div class="tarjeta juego juego-polen" id="polen"></div>
+          <div class="tarjeta juego juego-ciclo selector-panel" id="ciclo" data-sel-titulo="Arma el ciclo de vida" data-sel-resumen="Ordena las etapas de la metamorfosis de una mariposa."></div>
+          <div class="tarjeta juego juego-polen selector-panel" id="polen" data-sel-titulo="La ruta del polen" data-sel-resumen="Lleva el polen de flor en flor, como una abeja."></div>
+          </div>
         </div>
 
         <!-- ===== BACHILLERATO ===== -->
         <div class="panel-nivel" role="tabpanel" id="bachillerato" aria-labelledby="tab-bachillerato" hidden>
-          <div class="tarjeta juego juego-humedal" id="humedal"></div>
+          <div class="selector" aria-label="Juegos de bachillerato">
+            <div class="tarjeta juego juego-humedal selector-panel" id="humedal" data-sel-titulo="Detective del humedal" data-sel-resumen="Usa bioindicadores para saber qué tan limpia está el agua."></div>
+            <div class="tarjeta juego juego-orden selector-panel" id="orden" data-sel-titulo="¿De qué orden soy?" data-sel-resumen="Reconoce el orden de los insectos del álbum por su foto."></div>
+            <div class="tarjeta juego juego-evolucion selector-panel" id="evolucion" data-sel-titulo="El laboratorio de las polillas" data-sel-resumen="Selección natural y deriva genética con polillas."></div>
+            <div class="tarjeta juego juego-redes selector-panel" id="redes" data-sel-titulo="La red trófica del humedal" data-sel-resumen="Predice cómo se propaga un cambio por la red de un humedal."></div>
+          </div>
           <h3 class="proximos">Próximamente en bachillerato</h3>
           <div class="grid grid-2">
-            <div class="tarjeta"><div class="hex-icon">🗝️</div><h3>¿De qué orden soy?</h3><p class="muted">Identifica órdenes de insectos con una clave dicotómica ilustrada.</p></div>
             <div class="tarjeta"><div class="hex-icon">🔄</div><h3>Metamorfosis al límite</h3><p class="muted">Clasifica especies en holometábolas, hemimetábolas y ametábolas.</p></div>
           </div>
         </div>
 
-        <!-- ===== PREGRADO ===== -->
-        <div class="panel-nivel" role="tabpanel" id="pregrado" aria-labelledby="tab-pregrado" hidden>
-          <h3 class="proximos">Próximamente en pregrado</h3>
-          <div class="grid grid-3">
-            <div class="tarjeta"><div class="hex-icon">🧬</div><h3>Reto taxonómico</h3><p class="muted">Identifica familias de insectos a partir de caracteres morfológicos.</p></div>
-            <div class="tarjeta"><div class="hex-icon">📈</div><h3>¿Qué comunidad es más diversa?</h3><p class="muted">Interpreta números de Hill y perfiles de diversidad con datos reales de muestreo.</p></div>
-            <div class="tarjeta"><div class="hex-icon">🌎</div><h3>Ecología en acción</h3><p class="muted">Resuelve casos de control biológico, invasiones y servicios ecosistémicos.</p></div>
-          </div>
-        </div>
       </div>
     </section>
     <section class="referencias" aria-labelledby="titulo-referencias">
       <div class="wrap">
         <h2 id="titulo-referencias">Referencias</h2>
         <ul class="lista-referencias">
+          <li>Cook, L. M., Grant, B. S., Saccheri, I. J., &amp; Mallet, J. (2012). Selective bird predation on the peppered moth: The last experiment of Michael Majerus. <em>Biology Letters, 8</em>(4), 609–612.</li>
           <li>Roldán Pérez, G. (2003). <em>Bioindicación de la calidad del agua en Colombia: Propuesta para el uso del método BMWP/Col</em>. Editorial Universidad de Antioquia.</li>
         </ul>
       </div>
@@ -87,12 +83,19 @@
   <script src="js/ciclo.js"></script>
   <script src="js/polen.js"></script>
   <script src="js/humedal.js"></script>
+  <script src="js/especies.js"></script>
+  <script src="js/orden.js"></script>
+  <script src="js/evolucion.js"></script>
+  <script src="js/redes.js"></script>
+  <script src="js/selector.js"></script>
   <script>
     // Pestañas de nivel (se recuerdan en la dirección: juegos.html#bachillerato)
     (function () {
       const tabs = [...document.querySelectorAll(".nivel")];
       function mostrar(id, enfocar) {
-        if (!document.getElementById(id)) id = "primaria";
+        const el = id && document.getElementById(id);
+        const panel = el && el.closest(".panel-nivel");
+        id = panel ? panel.id : "primaria";
         tabs.forEach(t => {
           const sel = t.getAttribute("aria-controls") === id;
           t.setAttribute("aria-selected", sel);

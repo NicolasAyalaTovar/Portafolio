@@ -11,15 +11,15 @@ window.LEYENDA = {
     Lepidoptera:  { emoji: "🦋", comun: "mariposas y polillas" },
     Coleoptera:   { emoji: "🪲", comun: "escarabajos" },
     Orthoptera:   { emoji: "🦗", comun: "saltamontes y grillos" },
-    Hemiptera:    { emoji: "🐛", comun: "chinches, pulgones, chicharritas y escamas" },
-    Thysanoptera: { emoji: "🐛", comun: "trips" },
-    Neuroptera:   { emoji: "🐛", comun: "crisopas" },
+    Hemiptera:    { emoji: "🐛", icono: "img/emojis/Hemiptera.png", comun: "chinches, pulgones, chicharritas y escamas" },
+    Thysanoptera: { emoji: "🐛", icono: "img/emojis/Thysanoptera.png", comun: "trips" },
+    Neuroptera:   { emoji: "🐛", icono: "img/emojis/Neuroptera.png", comun: "crisopas" },
     Diptera:      { emoji: "🪰", comun: "moscas y zancudos" },
-    Odonata:      { emoji: "🐛", comun: "libélulas y caballitos del diablo" },
-    Siphonaptera: { emoji: "🐛", comun: "pulgas" },
-    Phthiraptera: { emoji: "🐛", comun: "piojos" },
-    Dermaptera:   { emoji: "🐛", comun: "tijeretas" },
-    Zygentoma:    { emoji: "🐛", comun: "pececillos de plata" }
+    Odonata:      { emoji: "🐛", icono: "img/emojis/Odonata.png", comun: "libélulas y caballitos del diablo" },
+    Siphonaptera: { emoji: "🐛", icono: "img/emojis/Siphonaptera.png", comun: "pulgas" },
+    Phthiraptera: { emoji: "🐛", icono: "img/emojis/Phthiraptera.png", comun: "piojos" },
+    Dermaptera:   { emoji: "🐛", icono: "img/emojis/Dermaptera.png", comun: "tijeretas" },
+    Zygentoma:    { emoji: "🐛", icono: "img/emojis/Zygentoma.png", comun: "pececillos de plata" }
   },
   habitats: {
     parques:   { emoji: "🌳", nombre: "Parques y jardines" },
@@ -49,6 +49,13 @@ window.LEYENDA = {
   }
 };
 
+/* Símbolo de un orden: su ícono propio (img/emojis/Orden.png) si existe; si no, el emoji.
+   Para añadir un ícono: guarda un PNG cuadrado con fondo transparente y escribe icono: "img/emojis/Orden.png". */
+window.simboloOrden = function (o) {
+  const d = window.LEYENDA.ordenes[o] || {};
+  return d.icono ? `<img class="emoji-img" src="${encodeURI(d.icono)}" alt="" decoding="async">` : (d.emoji || "🐛");
+};
+
 /* Campos: nombre, cientifico, familia, orden, foto, habitats[], dieta[], dietaNota (opcional),
    desarrollo (holo | hemi | ameta), conservacion (LC | VU | EN | DD), descripcion */
 window.ESPECIES = [
@@ -76,6 +83,15 @@ window.ESPECIES = [
   { nombre: "Hormiga diminuta amarilla", cientifico: "Brachymyrmex sp.", familia: "Formicidae", orden: "Hymenoptera",
     foto: "img/Brachymyrmex sp.jpg", habitats: ["parques", "viviendas"], dieta: ["omnivoro"], desarrollo: "holo", conservacion: "LC",
     descripcion: "Una de las hormigas más pequeñas de la ciudad, de apenas dos milímetros. Anida en el suelo, bajo piedras y en grietas, y entra a las casas buscando migas dulces." },
+
+  { nombre: "Avispa papelera", cientifico: "Vespidae", familia: "Vespidae", orden: "Hymenoptera",
+    foto: "img/Vespidae.jpg", habitats: ["parques", "cerros", "viviendas"], dieta: ["depredador"], desarrollo: "holo", conservacion: "LC",
+    dietaNota: "Los adultos toman néctar; a sus larvas las alimentan con orugas y otros insectos que cazan.",
+    descripcion: "Avispas sociales, como Polistes y Mischocyttarus, que construyen nidos de papel con fibras de madera masticadas. Son grandes controladoras de orugas en jardines y cultivos, y solo pican si alguien amenaza su nido." },
+  { nombre: "Avispa caza arañas", cientifico: "Pompilidae", familia: "Pompilidae", orden: "Hymenoptera",
+    foto: "img/Pompilidae.jpg", habitats: ["parques", "cerros"], dieta: ["depredador"], desarrollo: "holo", conservacion: "LC",
+    dietaNota: "Los adultos toman néctar; las larvas se comen la araña que les dejó su madre.",
+    descripcion: "Avispas solitarias de patas largas que caminan rápido agitando las alas y las antenas. La hembra caza una araña, la paraliza con su aguijón y la entierra en un nido con un huevo encima." },
 
   // ---------- Lepidoptera ----------
   { nombre: "Mariposa blanca de la col", cientifico: "Leptophobia aripa", familia: "Pieridae", orden: "Lepidoptera",
@@ -154,6 +170,22 @@ window.ESPECIES = [
     foto: "img/Deretrachys juvencus.jpg", habitats: ["cerros", "parques"], dieta: ["herbivoro"], desarrollo: "holo", conservacion: "EN",
     dietaNota: "Sus larvas hacen túneles dentro de la madera.",
     descripcion: "Escarabajo de antenas muy largas, a veces más que su cuerpo. Sus larvas viven dentro de troncos y ramas, y ayudan a convertir la madera muerta en suelo." },
+
+  { nombre: "Escarabajo de tierra", cientifico: "Carabidae", familia: "Carabidae", orden: "Coleoptera",
+    foto: "img/Carabidae.jpeg", habitats: ["parques", "cerros", "cultivos"], dieta: ["depredador"], desarrollo: "holo", conservacion: "LC",
+    descripcion: "Escarabajos corredores, casi siempre oscuros y brillantes, que cazan de noche entre la hojarasca y bajo las piedras. Comen babosas, larvas y otros insectos, por eso son aliados de las huertas." },
+  { nombre: "Estafilínidos", cientifico: "Staphylinidae", familia: "Staphylinidae", orden: "Coleoptera",
+    foto: "img/Staphylinidae.jpg", habitats: ["parques", "humedales", "cultivos"], dieta: ["depredador"], desarrollo: "holo", conservacion: "LC",
+    descripcion: "Escarabajos de élitros tan cortos que dejan el abdomen al descubierto; cuando se sienten amenazados lo levantan como un escorpión. Con más de 60 000 especies descritas, es una de las familias más diversas del reino animal." },
+  { nombre: "Escarabajo payaso", cientifico: "Histeridae", familia: "Histeridae", orden: "Coleoptera",
+    foto: "img/Histeridae.jpg", habitats: ["parques", "cultivos"], dieta: ["depredador"], desarrollo: "holo", conservacion: "LC",
+    descripcion: "Escarabajos pequeños, negros, muy brillantes y compactos, con élitros cortos que dejan ver la punta del abdomen. Viven en estiércol, carroña y madera en descomposición, donde cazan larvas de moscas." },
+  { nombre: "Escarabajo de la savia", cientifico: "Nitidulidae", familia: "Nitidulidae", orden: "Coleoptera",
+    foto: "img/Nitidulidae.jpg", habitats: ["parques", "cultivos", "viviendas"], dieta: ["herbivoro", "detritivoro"], desarrollo: "holo", conservacion: "LC",
+    descripcion: "Escarabajos diminutos que se alimentan de frutas maduras, savia fermentada, flores y hongos. Algunas especies se vuelven plaga de las frutas y los granos almacenados." },
+  { nombre: "Escarabajo oscuro", cientifico: "Tenebrionidae", familia: "Tenebrionidae", orden: "Coleoptera",
+    foto: "img/Tenebrionidae.jpg", habitats: ["parques", "cultivos", "viviendas"], dieta: ["detritivoro"], desarrollo: "holo", conservacion: "LC",
+    descripcion: "Escarabajos negros y lentos que comen materia vegetal en descomposición. Su larva más famosa es el gusano de la harina (Tenebrio molitor), que se cría como alimento para aves y reptiles." },
 
   // ---------- Orthoptera ----------
   { nombre: "Saltamontes bogotano", cientifico: "Bogotacris sp.", familia: "Acrididae", orden: "Orthoptera",
@@ -249,6 +281,37 @@ window.ESPECIES = [
     foto: "img/Lejops ps.jpg", habitats: ["humedales"], dieta: ["detritivoro", "herbivoro"], desarrollo: "holo", conservacion: "DD",
     dietaNota: "Las larvas viven en el agua comiendo materia orgánica; los adultos visitan flores.",
     descripcion: "Mosca de las flores asociada a la vegetación acuática de los humedales. Sus larvas acuáticas respiran por un tubo, como un esnórquel." },
+
+  { nombre: "Mosca de marzo", cientifico: "Bibionidae", familia: "Bibionidae", orden: "Diptera",
+    foto: "img/Bibionidae.jpg", habitats: ["parques", "cultivos"], dieta: ["herbivoro", "detritivoro"], desarrollo: "holo", conservacion: "LC",
+    dietaNota: "Las larvas viven en el suelo y comen raíces y materia orgánica; los adultos visitan flores.",
+    descripcion: "Moscas negras, peludas y de vuelo torpe que aparecen en grandes números en ciertas épocas del año. Los machos tienen ojos enormes que les cubren casi toda la cabeza." },
+  { nombre: "Mosca de las ventanas", cientifico: "Sylvicola sp.", familia: "Anisopodidae", orden: "Diptera",
+    foto: "img/Sylvicola sp.jpg", habitats: ["viviendas", "parques"], dieta: ["detritivoro"], desarrollo: "holo", conservacion: "LC",
+    descripcion: "Mosquita de alas manchadas que suele posarse en ventanas y paredes. Sus larvas se crían en materia orgánica húmeda en descomposición, como el compost, las frutas podridas o los desagües." },
+  { nombre: "Mosquitas de las agallas", cientifico: "Cecidomyiidae", familia: "Cecidomyiidae", orden: "Diptera",
+    foto: "img/Cecidomyiidae.jpg", habitats: ["parques", "cultivos"], dieta: ["herbivoro", "depredador"], desarrollo: "holo", conservacion: "LC",
+    dietaNota: "Muchas larvas viven dentro de las plantas; otras, como las de Aphidoletes, comen pulgones.",
+    descripcion: "Mosquitas diminutas y frágiles, de patas y antenas largas. Las larvas de muchas especies hacen que la planta forme agallas: abultamientos donde viven protegidas mientras comen." },
+  { nombre: "Mosca de patas largas", cientifico: "Dolichopodidae", familia: "Dolichopodidae", orden: "Diptera",
+    foto: "img/Dolichopodidae.jpg", habitats: ["parques", "humedales"], dieta: ["depredador"], desarrollo: "holo", conservacion: "LC",
+    descripcion: "Moscas pequeñas de color verde metálico y patas largas que cazan insectos diminutos sobre las hojas. Los machos cortejan a las hembras con danzas en las que agitan las patas y las alas." },
+  { nombre: "Mosca de los pastos", cientifico: "Chloropidae", familia: "Chloropidae", orden: "Diptera",
+    foto: "img/Chloropidae.jpeg", habitats: ["parques", "cultivos"], dieta: ["herbivoro"], desarrollo: "holo", conservacion: "LC",
+    descripcion: "Moscas muy pequeñas, a menudo amarillas con negro y de ojos rojizos. Las larvas de muchas especies se desarrollan dentro de los tallos de pastos y cereales." },
+  { nombre: "Mosca de la fruta", cientifico: "Drosophilidae", familia: "Drosophilidae", orden: "Diptera",
+    foto: "img/Drosophilidae.jpg", habitats: ["viviendas", "parques"], dieta: ["detritivoro"], desarrollo: "holo", conservacion: "LC",
+    dietaNota: "Come las levaduras que crecen en la fruta que se fermenta.",
+    descripcion: "Mosquita de ojos rojos que aparece junto a las frutas maduras. Drosophila melanogaster es uno de los organismos más estudiados de la ciencia: con ella se descubrió cómo se heredan los genes." },
+  { nombre: "Mosca hormiga", cientifico: "Sepsidae", familia: "Sepsidae", orden: "Diptera",
+    foto: "img/Sepsidae.jpg", habitats: ["parques", "cultivos"], dieta: ["detritivoro"], desarrollo: "holo", conservacion: "LC",
+    descripcion: "Moscas negras y brillantes con aspecto de hormiga que agitan las alas mientras caminan. Sus larvas se desarrollan en el estiércol y ayudan a descomponerlo." },
+  { nombre: "Moscardón azul", cientifico: "Calliphora vicina", familia: "Calliphoridae", orden: "Diptera",
+    foto: "img/Calliphora vicina.jpg", habitats: ["viviendas", "parques"], dieta: ["detritivoro"], desarrollo: "holo", conservacion: "LC",
+    descripcion: "Mosca grande de abdomen azul metálico que zumba fuerte al volar. Pone sus huevos en animales muertos, y por eso la entomología forense la usa para calcular desde hace cuánto murió un animal o una persona." },
+  { nombre: "Mosca verde", cientifico: "Lucilia sericata", familia: "Calliphoridae", orden: "Diptera",
+    foto: "img/Lucilia sericata.jpg", habitats: ["parques", "viviendas"], dieta: ["detritivoro"], desarrollo: "holo", conservacion: "LC",
+    descripcion: "Mosca de color verde metálico que se cría en la carroña. Sus larvas, criadas en laboratorio, se usan en medicina para limpiar heridas que no sanan, porque solo comen el tejido muerto." },
 
   // ---------- Siphonaptera ----------
   { nombre: "Pulga del perro", cientifico: "Ctenocephalides canis", familia: "Pulicidae", orden: "Siphonaptera",

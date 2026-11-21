@@ -19,7 +19,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="img/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
   <script type="application/ld+json">
   { "@context": "https://schema.org", "@type": "WebSite", "name": "La Colmena", "alternateName": "La Colmena · Entomología para todos",
     "url": "https://lacolmena.site/", "inLanguage": "es-CO", "author": { "@type": "Person", "name": "Nicolás Ayala Tovar" } }
@@ -65,14 +66,12 @@
         </div>
         <div class="grid grid-2">
           <article class="tarjeta herramienta">
-            <div class="hex-icon" aria-hidden="true">🧮</div>
             <h3>Calculadora de biomasa</h3>
             <p class="muted">Estima la biomasa de los insectos a partir de su abundancia y longitud corporal con la fórmula de Rogers et al. (1976).</p>
             <div class="formula formula-chica">b = n × (0.0305 × l<sup>2.62</sup>)</div>
             <a class="btn" href="herramientas.html#biomasa">Calcular biomasa</a>
           </article>
           <article class="tarjeta herramienta">
-            <div class="hex-icon" aria-hidden="true">📈</div>
             <h3>Índices de diversidad</h3>
             <p class="muted">Números de Hill por sitio: riqueza (q0), exponencial de Shannon (q1) e inverso de Simpson (q2).</p>
             <div class="formula formula-chica"><sup>q</sup>D = ( Σ p<sub>i</sub><sup>q</sup> )<sup>1/(1−q)</sup></div>
@@ -93,15 +92,13 @@
         </div>
         <div class="grid grid-2">
           <article class="tarjeta herramienta">
-            <div class="hex-icon" aria-hidden="true">🔑</div>
             <h3>Clave dicotómica</h3>
             <p class="muted">Responde preguntas sencillas sobre las alas, las patas y la boca, y llega paso a paso al orden de tu insecto. Incluye un diccionario de raíces griegas y latinas.</p>
             <a class="btn" href="clave.html">Usar la clave</a>
           </article>
           <article class="tarjeta herramienta">
-            <div class="hex-icon" aria-hidden="true">🎮</div>
             <h3>Juegos entomológicos</h3>
-            <p class="muted">¿Es un insecto?, arma el ciclo de vida, la ruta del polen y el detective del humedal: retos para primaria, bachillerato y pregrado.</p>
+            <p class="muted">¿Es un insecto?, arma el ciclo de vida, la ruta del polen y el detective del humedal: retos para primaria y bachillerato.</p>
             <a class="btn" href="juegos.html">Ir a los juegos</a>
           </article>
         </div>
@@ -136,9 +133,12 @@
     (function () {
       const slug = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
       // Elige qué especies aparecen (por nombre científico). Cambia esta lista cuando quieras.
-      const ELEGIDAS = ["Bombus atratus", "Papilio polyxenes americus", "Cycloneda sanguinea", "Rhionaeschna marchali",
-        "Agesander ruficornis", "Vanessa carye", "Syrphus sp.", "Bombus rubicundus", "Harmonia axyridis",
-        "Dione glycera", "Mesamphiagrion laterale", "Ascalapha odorata"];
+      // Dos filas de 8: la primera y la última de cada fila quedan en los extremos
+      const ELEGIDAS = [
+        "Catasticta semiramis", "Bombus atratus", "Papilio polyxenes americus", "Cycloneda sanguinea", "Rhionaeschna marchali",
+        "Agesander ruficornis", "Vanessa carye", "Colias dimera",
+        "Ancognatha scarabaeoides", "Syrphus sp.", "Bombus rubicundus", "Harmonia axyridis",
+        "Dione glycera", "Mesamphiagrion laterale", "Ascalapha odorata", "Epilachna flavofasciata"];
       const lista = ELEGIDAS.map(c => ESPECIES.find(e => e.cientifico === c)).filter(Boolean);
       document.getElementById("collage").innerHTML = lista.map(e => `
         <a class="celda" href="entomofauna.html#${slug(e.cientifico)}" title="${e.nombre} (${e.cientifico})">

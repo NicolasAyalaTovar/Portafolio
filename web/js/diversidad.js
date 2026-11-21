@@ -70,6 +70,8 @@
 
     resultados = sitios.map((s, j) => ({ sitio: s, ...hill(columnas[j]) }));
     pintar();
+    // Las curvas de rarefacción (rarefaccion.js) usan estos mismos datos
+    document.dispatchEvent(new CustomEvent("hill:datos", { detail: sitios.map((s, j) => ({ sitio: s, x: columnas[j] })) }));
     const resumen = `${filas.length} especies × ${sitios.length} ${sitios.length === 1 ? "sitio" : "sitios"}`;
     document.getElementById("hill-resumen").textContent = "Matriz analizada: " + resumen + ".";
     return resumen + " analizados.";

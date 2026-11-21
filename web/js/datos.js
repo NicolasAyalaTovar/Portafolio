@@ -56,5 +56,12 @@ window.PROYECTOS = [
     foto: "img/Hotel para insectos.jpg",
     url: "proyectos.html#hotel-insectos",
     etiqueta: "Proyecto 01 · Material reutilizado"
+  },
+  {
+    titulo: "Un jardín para abejas",
+    resumen: "Siembra lavanda, borraja, romero, caléndula y otras plantas que dan néctar y polen a los polinizadores de la ciudad.",
+    foto: "img/Salvia bogotensis.jpg",
+    url: "proyectos.html#jardin-abejas",
+    etiqueta: "Proyecto 02 · Plantas para polinizadores"
   }
 ];

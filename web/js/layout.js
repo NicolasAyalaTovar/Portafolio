@@ -15,16 +15,7 @@
   const VISIBLES = PAGINAS.filter(p => !p.oculta);
   const actual = (location.pathname.split("/").pop() || "index.html").toLowerCase();
 
-  const logo = `
-    <svg viewBox="0 0 40 46" aria-hidden="true">
-      <defs><clipPath id="hx"><path d="M20 1 39 12v22L20 45 1 34V12z"/></clipPath></defs>
-      <g clip-path="url(#hx)">
-        <rect width="40" height="46" fill="#f2a900"/>
-        <rect y="15" width="40" height="6" fill="#1d1712"/>
-        <rect y="27" width="40" height="6" fill="#1d1712"/>
-      </g>
-      <path d="M20 1 39 12v22L20 45 1 34V12z" fill="none" stroke="#ffd23f" stroke-width="1.5"/>
-    </svg>`;
+  const logo = `<img src="img/logo-encabezado.png" alt="" width="44" height="44">`;
 
   const enlaces = VISIBLES.map(p =>
     `<a href="${p.href}"${p.href === actual ? ' aria-current="page"' : ""}>${p.texto}</a>`

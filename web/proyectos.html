@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Proyectos: hotel para abejas e insectos con material reutilizado · La Colmena</title>
-  <meta name="description" content="Construye un hotel para abejas e insectos con materiales reutilizados: botellas, latas, cajas y cañas. Paso a paso y beneficios de tener uno en casa o en la escuela.">
+  <title>Proyectos: hotel para insectos y jardín para abejas · La Colmena</title>
+  <meta name="description" content="Proyectos para la casa y la escuela: construye un hotel para insectos con materiales reutilizados y siembra un jardín para abejas con plantas que atraen polinizadores en Bogotá.">
   <meta name="author" content="Nicolás Ayala Tovar">
   <link rel="canonical" href="https://lacolmena.site/proyectos.html">
   <meta property="og:type" content="article">
@@ -18,7 +18,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="img/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org", "@type": "HowTo",
@@ -52,7 +53,13 @@
       </div>
     </section>
 
-    <article id="hotel-insectos" class="proyecto-articulo">
+    <div class="selector" aria-label="Elige un proyecto">
+    <section class="selector-zona" aria-label="Proyectos disponibles">
+      <div class="wrap"><div class="selector-barra"></div></div>
+    </section>
+
+    <article id="hotel-insectos" class="proyecto-articulo selector-panel" data-sel-etiqueta="Proyecto 01" data-sel-titulo="Hotel para abejas e insectos"
+             data-sel-resumen="Un refugio para polinizadores hecho con botellas, latas, cajas y cañas." data-sel-foto="img/Hotel para insectos.jpg">
       <section>
         <div class="wrap proyecto-intro">
           <div>
@@ -138,8 +145,85 @@
         </div>
       </section>
     </article>
+
+    <article id="jardin-abejas" class="proyecto-articulo selector-panel" data-sel-etiqueta="Proyecto 02" data-sel-titulo="Un jardín para abejas"
+             data-sel-resumen="Plantas que dan néctar y polen a los polinizadores de la ciudad." data-sel-foto="img/Salvia bogotensis.jpg">
+      <section>
+        <div class="wrap proyecto-intro">
+          <div>
+            <span class="etiqueta">Proyecto 02</span>
+            <h2>Un jardín para abejas</h2>
+            <p>Abejas, abejorros, sírfidos y mariposas necesitan flores con <strong>néctar</strong> (su energía) y <strong>polen</strong> (su proteína) durante todo el año. En la ciudad cada vez hay menos, pero un balcón, una terraza, un antejardín o la huerta del colegio pueden convertirse en una estación de recarga.</p>
+            <p>No hace falta mucho espacio: basta con unas materas, botellas cortadas o llantas viejas y las plantas adecuadas. Aquí te presentamos algunas que se dan bien en Bogotá y que los polinizadores visitan con frecuencia.</p>
+            <p class="nota small">Combina este proyecto con el <a href="#hotel-insectos">hotel para insectos</a>: el jardín les da comida y el hotel les da refugio. Juntos forman un hábitat completo.</p>
+          </div>
+          <figure class="foto-especie foto-proyecto">
+            <img src="img/Salvia%20bogotensis.jpg" alt="Flores azul violeta de lavanda, Salvia bogotensis">
+          </figure>
+        </div>
+      </section>
+
+      <section class="seccion-alt" aria-labelledby="titulo-plantas">
+        <div class="wrap">
+          <h2 id="titulo-plantas">Plantas que atraen polinizadores</h2>
+          <p class="muted">Cada ficha indica de dónde viene la planta, cuánta luz necesita y qué visitantes puedes esperar. Siempre que puedas, prefiere las plantas nativas: la flora local alimenta mejor a los polinizadores locales.</p>
+          <div class="album" id="plantas"></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <h2>Cómo armar tu jardín</h2>
+          <ol class="pasos">
+            <li><span class="paso-num" aria-hidden="true">1</span><div><h3>Busca el sol</h3><p>Elige un lugar que reciba sol directo al menos cinco o seis horas al día. Los polinizadores son más activos con calor y la mayoría de estas plantas florece mejor a pleno sol.</p></div></li>
+            <li><span class="paso-num" aria-hidden="true">2</span><div><h3>Mezcla formas y épocas de floración</h3><p>Combina flores tubulares, como la lavanda o el romero, para abejorros de lengua larga, con flores abiertas, como la manzanilla o la caléndula, para moscas y abejas pequeñas. Así habrá algo en flor casi todo el año.</p></div></li>
+            <li><span class="paso-num" aria-hidden="true">3</span><div><h3>Siembra en grupos</h3><p>Varias plantas de la misma especie juntas forman una mancha de color fácil de encontrar. A los polinizadores les rinde más visitar muchas flores iguales seguidas.</p></div></li>
+            <li><span class="paso-num" aria-hidden="true">4</span><div><h3>Nada de insecticidas</h3><p>Los insecticidas no distinguen entre plagas y polinizadores. Si aparecen pulgones, deja que mariquitas, crisopas y larvas de sírfidos hagan el trabajo.</p></div></li>
+            <li><span class="paso-num" aria-hidden="true">5</span><div><h3>Agua y tierra desnuda</h3><p>Pon un plato con agua poco profunda y piedras para que se posen a beber. Deja también un rincón de tierra sin cubrir: muchas abejas solitarias hacen su nido en el suelo.</p></div></li>
+            <li><span class="paso-num" aria-hidden="true">6</span><div><h3>Observa y registra</h3><p>Anota qué visitantes llegan a cada planta y a qué hora. Compara tus fotos con el <a href="entomofauna.html">álbum de entomofauna</a> y súbelas a <a href="https://colombia.inaturalist.org/" target="_blank" rel="noopener">iNaturalist Colombia</a>.</p></div></li>
+          </ol>
+        </div>
+      </section>
+    </article>
+    </div>
+
+    <section class="referencias" aria-labelledby="titulo-referencias">
+      <div class="wrap">
+        <h2 id="titulo-referencias">Referencias</h2>
+        <ul class="lista-referencias">
+          <li><a href="https://www.researchgate.net/publication/358929372_Hoteles_de_polinizadores_Guia_de_instalacion_y_manejo" target="_blank" rel="noopener"><em>Hoteles de polinizadores: Guía de instalación y manejo</em></a>. (s.f.). ResearchGate.</li>
+          <li>Jardín Botánico de Bogotá José Celestino Mutis. (s.f.). <a href="https://florabog.jbb.gov.co/#checklist" target="_blank" rel="noopener"><em>Flora de Bogotá: lista de especies</em></a>.</li>
+          <li>Mahecha, G., Cadena, H., Chaparro, J., &amp; Sánchez, F. (2010). <em>Arbolado urbano de Bogotá: Identificación, descripción y bases para su manejo</em>. Secretaría Distrital de Ambiente &amp; Jardín Botánico José Celestino Mutis.</li>
+          <li>Mahecha Vega, G. E. (2015). <em>Jardinería urbana de Bogotá: Guía ilustrada</em>. Jardín Botánico José Celestino Mutis.</li>
+          <li>Osorio, J., Uribe, E., &amp; Molina, F. (1998). <em>Las flores de los jardines de Santafé de Bogotá</em>. Departamento Técnico Administrativo del Medio Ambiente (DAMA).</li>
+          <li>Universidad de La Salle. (s.f.). <a href="https://ciencia.lasalle.edu.co/server/api/core/bitstreams/31dcbc6e-8f24-4987-b7cf-7dec94b8beeb/content" target="_blank" rel="noopener">[Tesis de pregrado sobre la utilidad de un hotel para insectos para la entomofauna del campus]</a>. Repositorio Ciencia Unisalle.</li>
+          <li>Universidad de los niños EAFIT. (s.f.). <a href="https://laaventuradeaprender.intef.es/wp-content/uploads/2023/07/Como-hacer-un-hotel-para-insectos-20-12-02_compressed.pdf" target="_blank" rel="noopener"><em>Cómo hacer un hotel para insectos</em></a>. La Aventura de Aprender, INTEF.</li>
+        </ul>
+      </div>
+    </section>
   </main>
 
   <script src="js/layout.js"></script>
+  <script src="js/plantas.js"></script>
+  <script>
+    // Fichas de plantas, con el mismo estilo de las láminas del álbum
+    document.getElementById("plantas").innerHTML = PLANTAS.map((p, i) => `
+      <article class="tarjeta lamina planta">
+        <header class="lamina-cabeza">
+          <span class="lamina-num" aria-label="Ficha ${i + 1}">#${String(i + 1).padStart(2, "0")}</span>
+          <span class="planta-origen ${p.origen}">${p.origen === "nativa" ? "Nativa" : "Introducida"}</span>
+        </header>
+        <h3 class="lamina-nombre">${p.nombre}</h3>
+        <p class="nombre-cientifico">${p.cientifico}</p>
+        <p class="lamina-taxo small">${p.familia} · ${p.procedencia}</p>
+        <p class="lamina-desc">${p.descripcion}</p>
+        <p class="small planta-atrae"><strong>Atrae a:</strong> ${p.atrae}</p>
+        <figure class="foto-especie">
+          <img src="${encodeURI(p.foto)}" alt="${p.nombre} (${p.cientifico})" loading="lazy" decoding="async">
+        </figure>
+        <footer class="planta-pie small">${p.luz}</footer>
+      </article>`).join("");
+  </script>
+  <script src="js/selector.js"></script>
 </body>
 </html>

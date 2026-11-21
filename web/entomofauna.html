@@ -25,7 +25,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="img/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 
   <script type="application/ld+json">
   {
@@ -55,7 +56,7 @@
         <nav class="migas small" aria-label="Ruta de navegación"><a href="index.html">Inicio</a> › <span aria-current="page">Entomofauna bogotana</span></nav>
         <span class="etiqueta">La ciudad donde hay espacio para todos</span>
         <h1>Entomofauna bogotana</h1>
-        <p class="lead">El álbum de los insectos de Bogotá. Parques, humedales, cerros orientales, cultivos y hasta nuestras casas están llenos de abejas, mariposas, escarabajos, chinches, libélulas y moscas. Colecciona las <span id="total-especies">60</span> láminas y descubre dónde viven, qué comen y cómo crecen.</p>
+        <p class="lead">El álbum de los insectos de Bogotá. Parques, humedales, cerros orientales, cultivos y hasta nuestras casas están llenos de abejas, mariposas, escarabajos, chinches, libélulas y moscas. Colecciona las <span id="total-especies">76</span> láminas y descubre dónde viven, qué comen y cómo crecen.</p>
       </div>
     </section>
 
@@ -86,6 +87,7 @@
         <ul class="lista-referencias">
           <li>Alcaldía de Bogotá, Secretaría de Cultura, Recreación y Deporte, y Empresa de Acueducto y Alcantarillado de Bogotá. (2019). <em>Vecinos inesperados: Relatos de la fauna silvestre en Bogotá: Guía de campo</em> (A. Ospina, Redacción literaria). Alcaldía de Bogotá.</li>
           <li>Andrade Correa, M. G., &amp; Amat García, G. D. (2000). <em>Guía preliminar de insectos de Santafé de Bogotá y sus alrededores</em>. Departamento Técnico Administrativo del Medio Ambiente (DAMA) &amp; Alcaldía Mayor de Bogotá.</li>
+          <li>Camero-R., E., Murcia-Betancourt, L. M., Zúñiga-Totena, M. A., &amp; García-Marín, S. (2022). Entomofauna del campus de la Universidad Nacional de Colombia, sede Bogotá: Parámetros descriptivos de su composición y su abundancia. <em>Revista Colombiana de Entomología, 48</em>(2), e11726. <a href="https://doi.org/10.25100/socolen.v48i2.11726" target="_blank" rel="noopener">https://doi.org/10.25100/socolen.v48i2.11726</a></li>
           <li>Jaramillo, J. (s.f.). <a href="https://es.scribd.com/document/830133663/Guia-de-Artropodos-Noroccidente-Sabana-Bogota" target="_blank" rel="noopener"><em>Guía de artrópodos de la zona nororiental de la Sabana de Bogotá</em></a>.</li>
           <li>Jardín Botánico de Bogotá José Celestino Mutis. <a href="https://jbb.gov.co/nosotros/publicaciones/insectos-del-arbolado-urbano-de-bogota/" target="_blank" rel="noopener"><em>Insectos del arbolado urbano de Bogotá</em></a>.</li>
           <li>Monroy Coy, S., &amp; Gómez Tobar, M. C. (2024). <a href="https://revistaelastrolabio.com/art2_23-1/" target="_blank" rel="noopener">Hormigas (Hymenoptera: Formicidae) del Gimnasio Campestre y sus alrededores (Bogotá, Colombia)</a>. <em>El Astrolabio, 23</em>(1).</li>
@@ -118,7 +120,7 @@
         </div>`;
       // Tres columnas: Orden (la más larga) | Hábitat + Desarrollo | Alimentación + Conservación
       document.getElementById("leyenda").innerHTML =
-        grupo("Orden", "orden", ordenesPresentes.map(o => [o, L.ordenes[o].emoji, o, L.ordenes[o].comun])) +
+        grupo("Orden", "orden", ordenesPresentes.map(o => [o, simboloOrden(o), o, L.ordenes[o].comun])) +
         `<div class="leyenda-col">` +
           grupo("Hábitat", "habitats", Object.entries(L.habitats).map(([k, v]) => [k, v.emoji, v.nombre])) +
           grupo("Desarrollo", "desarrollo", Object.entries(L.desarrollo).map(([k, v]) => [k, v.simbolo, v.nombre, v.desc, true])) +
@@ -136,7 +138,7 @@
         <article class="tarjeta lamina" id="${slug(e.cientifico)}" data-i="${i}" itemscope itemtype="https://schema.org/Taxon">
           <header class="lamina-cabeza">
             <span class="lamina-num" aria-label="Lámina ${num}">#${num}</span>
-            <span class="hex-icon lamina-orden" title="${e.orden} (${o.comun})" role="img" aria-label="Orden ${e.orden}">${o.emoji}</span>
+            <span class="hex-icon lamina-orden" title="${e.orden} (${o.comun})" role="img" aria-label="Orden ${e.orden}">${simboloOrden(e.orden)}</span>
           </header>
           <h2 class="lamina-nombre" itemprop="alternateName">${e.nombre}</h2>
           <p class="nombre-cientifico" itemprop="name">${e.cientifico}</p>
