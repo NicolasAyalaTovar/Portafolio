@@ -140,7 +140,7 @@ window.Importador = (function () {
     }));
 
     // Acciones
-    raiz.addEventListener("click", ev => {
+    function alClic(ev) {
       const a = ev.target.closest("[data-accion]"); if (!a) return;
       if (a.dataset.accion === "usar") procesar($(`#${id}-texto`).value, "Datos pegados");
       if (a.dataset.accion === "usar-ejemplo") {
@@ -149,7 +149,15 @@ window.Importador = (function () {
         procesar(aCSV(tablaEj), "Ejemplo");
       }
       if (a.dataset.accion === "bajar-ejemplo") descargar(cfg.archivo, aCSV(tablaEj));
-    });
+    }
+    raiz.addEventListener("click", alClic);
+
+    // Opcional: mostrar la guía de formato en otro lugar de la página (cfg.guia)
+    if (cfg.guia) {
+      const guia = raiz.querySelector("details.guia");
+      cfg.guia.append(guia);
+      guia.addEventListener("click", alClic);
+    }
 
     // Archivo: seleccionar o arrastrar
     const input = $(`#${id}-archivo`), zona = $(".zona-archivo");

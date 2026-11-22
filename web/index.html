@@ -216,7 +216,7 @@
 
     carrusel(document.getElementById("proyectos").closest("section"), PROYECTOS.map((p, i) => `
         <article class="tarjeta noticia proyecto-diapositiva diapositiva" aria-roledescription="diapositiva" aria-label="${i + 1} de ${PROYECTOS.length}">
-          <img src="${encodeURI(p.foto)}" alt="${p.titulo}" loading="lazy" decoding="async">
+          <a class="proyecto-foto" href="${p.url}" tabindex="-1" aria-hidden="true"><img src="${encodeURI(p.foto)}" alt="" loading="lazy" decoding="async"></a>
           <span class="meta">${p.etiqueta}</span>
           <h3>${p.titulo}</h3>
           <p>${p.resumen}</p>

@@ -68,6 +68,7 @@
   // ---- Importar: pegar datos o subir .csv ----
   Importador.crear(document.getElementById("importar-biomasa"), {
     id: "bio",
+    guia: document.getElementById("guia-biomasa"),   // la guía de formato va debajo de "¿Cómo funciona?"
     archivo: "ejemplo_biomasa.csv",
     columnas: [
       { nombre: "especie", desc: "nombre de la especie o morfoespecie." },

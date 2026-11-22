@@ -166,7 +166,7 @@ p { margin: 0 0 1em; }
 .heroe { padding: 72px 0 80px; position: relative; overflow: hidden; }
 .heroe .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center; }
 .heroe h1 em { font-style: normal; color: var(--miel); }
-.heroe p.lead { font-size: 1.2rem; color: #f3e4c2; max-width: 56ch; }
+.heroe p.lead { font-size: 1.2rem; color: #f3e4c2; max-width: none; }
 .heroe .acciones { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
 .heroe-mini { padding: 48px 0 52px; }
 .heroe-mini .wrap { display: block; }
@@ -316,7 +316,7 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 .aviso-tienda { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 18px; }
 
 /* ---------- Pie ---------- */
-.site-footer { background: var(--abeja); color: #d9c9a6; padding: 40px 0 24px; margin-top: 0; }
+.site-footer { background: var(--abeja); color: #d9c9a6; padding: 40px 0 24px; margin-top: 0; font-size: .85rem; }
 .site-footer .wrap { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 24px; }
 .site-footer a { color: var(--polen); text-decoration: none; }
 .site-footer a:hover { text-decoration: underline; }
@@ -957,3 +957,18 @@ figure.foto-hex { margin: 0; padding: 6px; }
 .texto-legal li { margin: 4px 0; }
 .texto-legal a { overflow-wrap: anywhere; }
 .texto-legal hr { border: 0; border-top: 1px solid var(--border); margin: 30px 0 18px; }
+
+/* ---------- Descripción de sección a todo el ancho (herramientas, diccionario) ---------- */
+.titulo-ancho p { max-width: none; flex: 1 1 100%; }
+
+/* ---------- Carrusel de proyectos del inicio: imagen de borde a borde y enlazada ---------- */
+.proyecto-diapositiva { padding: 0 0 22px; }
+.proyecto-diapositiva > :not(.proyecto-foto) { margin-left: 24px; margin-right: 24px; }
+.proyecto-foto { display: block; margin: 0 0 12px; overflow: hidden; }
+.proyecto-diapositiva .proyecto-foto img { display: block; width: 100%; margin: 0; aspect-ratio: 16 / 10; object-fit: cover; transition: transform .4s; }
+.proyecto-foto:hover img, .proyecto-foto:focus-visible img { transform: scale(1.05); }
+.proyecto-foto:focus-visible { outline: 3px solid var(--miel); outline-offset: -3px; }
+
+/* ---------- Herramienta 01: guía de formato debajo de "¿Cómo funciona?" ---------- */
+.calc-col { display: grid; gap: 24px; align-content: start; }
+.calc-col .guia { margin-top: 0; }
