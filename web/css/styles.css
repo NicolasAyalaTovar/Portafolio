@@ -972,3 +972,23 @@ figure.foto-hex { margin: 0; padding: 6px; }
 /* ---------- Herramienta 01: guía de formato debajo de "¿Cómo funciona?" ---------- */
 .calc-col { display: grid; gap: 24px; align-content: start; }
 .calc-col .guia { margin-top: 0; }
+
+/* ---------- Juego: científicos de hormigas ---------- */
+.metodo-paso { font-weight: 800; color: var(--miel-osc); text-transform: uppercase; letter-spacing: 1px; font-size: .85rem; margin: 10px 0 4px; }
+:root[data-theme="dark"] .metodo-paso { color: var(--polen); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .metodo-paso { color: var(--polen); } }
+.metodo-texto { max-width: 60ch; margin: 0 auto 6px; }
+.metodo-pregunta { font-size: 1.3rem !important; margin: 12px 0 16px !important; }
+.metodo-opciones { grid-template-columns: 1fr; }
+.metodo-opciones .btn { white-space: normal; text-align: left; justify-content: flex-start; padding: 12px 30px; line-height: 1.35; }
+.metodo-vars { display: grid; gap: 10px; text-align: left; margin: 10px 0 14px; }
+.metodo-var { border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 14px; background: var(--surface-2); }
+.metodo-var p { margin: 0 0 8px; font-weight: 700; }
+.metodo-elige { display: flex; flex-wrap: wrap; gap: 6px; }
+.metodo-elige .btn.correcta { background: var(--hoja); color: #fff; }
+.metodo-elige .btn.incorrecta { background: var(--alerta); color: #fff; }
+.metodo-tabla { margin: 8px 0; }
+.metodo-barras { display: grid; gap: 6px; margin: 10px auto 4px; max-width: 520px; text-align: left; }
+.metodo-barras div { display: grid; grid-template-columns: 120px 1fr 40px; align-items: center; gap: 8px; font-size: .9rem; font-weight: 700; }
+.metodo-barras i { height: 14px; border-radius: 7px; background: var(--miel); min-width: 3px; }
+.metodo-barras b { text-align: right; }

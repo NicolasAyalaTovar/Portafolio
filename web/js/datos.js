@@ -63,5 +63,19 @@ window.PROYECTOS = [
     foto: "img/Salvia bogotensis.jpg",
     url: "proyectos.html#jardin-abejas",
     etiqueta: "Proyecto 02 · Plantas para polinizadores"
+  },
+  {
+    titulo: "Jardín vertical reciclado",
+    resumen: "Convierte botellas plásticas en materas y llena una pared de aromáticas, flores y hortalizas.",
+    foto: "img/jardin2.jpg",
+    url: "proyectos.html#jardin-vertical",
+    etiqueta: "Proyecto 03 · Material reciclado"
+  },
+  {
+    titulo: "Una compostera",
+    resumen: "Transforma los restos de cocina en abono con ayuda de insectos y otros descomponedores, en caja de madera o en canecas.",
+    foto: "img/compostera2.jpg",
+    url: "proyectos.html#compostera",
+    etiqueta: "Proyecto 04 · Descomponedores"
   }
 ];
