@@ -37,6 +37,7 @@ Sitio web didáctico de Nicolás Ayala Tovar. HTML, CSS y JavaScript puros: sin 
 - **El laboratorio de las polillas:** `js/evolucion.js` (`RETOS` de selección y el reto de deriva genética).
 - **La red trófica del humedal:** `js/redes.js` (`NODOS`, `ENLACES` y `RETOS` con sus efectos paso a paso).
 - **Científicos de hormigas:** `js/metodo.js` (`RETOS` del método científico y `VARIABLES` del experimento).
+- **Redes tróficas y árboles filogenéticos:** `js/red-trofica.js` y `js/filogenia.js`; las dos descargan el diagrama con `js/exportar-svg.js` (el SVG usa colores escritos directamente para que la imagen salga igual).
 - **¿De qué orden soy?:** `js/orden.js` (usa las fotos de `ESPECIES`; `RASGOS` explica cada orden).
 - **Carrusel de herramientas, juegos y proyectos:** `js/selector.js`. Cada juego o proyecto es un `.selector-panel` con `id` y atributos `data-sel-titulo`, `data-sel-resumen`, `data-sel-etiqueta` y `data-sel-foto` (opcional). La dirección `juegos.html#orden` o `proyectos.html#jardin-abejas` abre ese panel.
 - **Plantas del jardín para abejas:** arreglo `PLANTAS` en `js/plantas.js`.

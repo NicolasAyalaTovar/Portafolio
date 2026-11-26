@@ -157,6 +157,44 @@
       </div>
     </section>
 
+    <section id="redes-troficas" class="selector-panel" data-sel-titulo="Redes tróficas" data-sel-resumen="Dibuja la red de un ecosistema y descárgala como imagen.">
+      <div class="wrap">
+        <div class="titulo-seccion titulo-ancho">
+          <div>
+            <span class="etiqueta">Herramienta 04</span>
+            <h2>Constructor de redes tróficas</h2>
+          </div>
+          <p class="muted">En la naturaleza, las cadenas alimenticias no van en una sola línea: se entrelazan en una <strong>red</strong>, porque un organismo puede ser alimento de varios consumidores. Pensar en redes, y no en cadenas sueltas, ayuda a entender cómo un cambio en una especie se propaga por todo el ecosistema (Hernández Serrato y González-Reyes, 2021).</p>
+        </div>
+        <div class="hill-q">
+          <div><div class="q">Cajas por niveles</div><p class="small" style="margin:0">Cada organismo va en una caja ubicada según su nivel trófico: productores abajo, consumidores arriba y descomponedores al final.</p></div>
+          <div><div class="q">Flechas = energía</div><p class="small" style="margin:0">La flecha sale de quien <strong>es comido</strong> y llega a quien <strong>se lo come</strong>. No indica «quién caza a quién», sino hacia dónde fluye la energía.</p></div>
+          <div><div class="q">No olvides a nadie</div><p class="small" style="margin:0">Los productores y los descomponedores suelen quedar por fuera de los dibujos escolares. La herramienta te avisa si faltan.</p></div>
+        </div>
+        <div id="red-app"></div>
+        <p class="nota small">Idea para clase: después de armar la red, quita una especie y pregunta qué les pasa a las demás. Puedes compararlo con el juego <a href="juegos.html#redes">La red trófica del humedal</a>.</p>
+      </div>
+    </section>
+
+    <section id="filogenia" class="selector-panel" data-sel-titulo="Árboles filogenéticos" data-sel-resumen="Construye un cladograma a partir de caracteres morfológicos.">
+      <div class="wrap">
+        <div class="titulo-seccion titulo-ancho">
+          <div>
+            <span class="etiqueta">Herramienta 05</span>
+            <h2>Árboles filogenéticos con caracteres morfológicos</h2>
+          </div>
+          <p class="muted">Un árbol filogenético es una hipótesis sobre el parentesco entre organismos. Leerlos bien no es fácil, ni siquiera para docentes de biología en formación (Niño-Sarmiento et al., 2024): construirlos uno mismo a partir de caracteres ayuda a entender qué significan los nodos y las ramas.</p>
+        </div>
+        <div class="hill-q">
+          <div><div class="q">Parsimonia</div><p class="small" style="margin:0">Se escoge el árbol que explica los caracteres con el <strong>menor número de cambios</strong> evolutivos (algoritmo de Fitch, con búsqueda exacta de todos los árboles posibles).</p></div>
+          <div><div class="q">Sinapomorfías</div><p class="small" style="margin:0">Los grupos se definen por <strong>caracteres derivados compartidos</strong>, no por el parecido general. En el árbol aparecen como marcas sobre las ramas.</p></div>
+          <div><div class="q">Cómo leerlo</div><p class="small" style="margin:0">Lee los <strong>nodos</strong>, no el orden de las puntas: girar las ramas no cambia el parentesco. Ningún grupo actual es el ancestro de otro; comparten un ancestro común en el nodo que los une.</p></div>
+        </div>
+        <div id="filo-app"></div>
+        <p class="nota small">Para explorar la <strong>homoplasia</strong>, agrega al ejemplo el carácter «boca chupadora en el adulto» con 1 en Hemiptera, Lepidoptera y Diptera, y observa cómo cambian el árbol y el índice de consistencia.</p>
+      </div>
+    </section>
+
     </div>
 
     <section class="referencias" aria-labelledby="titulo-referencias">
@@ -166,9 +204,12 @@
           <li>Brown, R. M., McClelland, N. I., Deininger, R. A., &amp; Tozer, R. G. (1970). A water quality index: Do we dare? <em>Water and Sewage Works, 117</em>(10), 339–343.</li>
           <li>Chao, A., Gotelli, N. J., Hsieh, T. C., Sander, E. L., Ma, K. H., Colwell, R. K., &amp; Ellison, A. M. (2014). Rarefaction and extrapolation with Hill numbers: A framework for sampling and estimation in species diversity studies. <em>Ecological Monographs, 84</em>(1), 45–67.</li>
           <li>Chao, A., Wang, Y. T., &amp; Jost, L. (2013). Entropy and the species accumulation curve: A novel entropy estimator via discovery rates of new species. <em>Methods in Ecology and Evolution, 4</em>(11), 1091–1100.</li>
+          <li>Fitch, W. M. (1971). Toward defining the course of evolution: Minimum change for a specific tree topology. <em>Systematic Zoology, 20</em>(4), 406–416.</li>
+          <li>Hernández Serrato, C., &amp; González-Reyes, R. A. (2021). Aprendizaje del concepto de red trófica. Un análisis desde el pensamiento lineal y sistémico. <em>Revista Boletín Redipe, 10</em>(1). <a href="https://doi.org/10.36260/rbr.v10i1.1179" target="_blank" rel="noopener">https://doi.org/10.36260/rbr.v10i1.1179</a></li>
           <li>Hill, M. O. (1973). Diversity and evenness: A unifying notation and its consequences. <em>Ecology, 54</em>(2), 427–432.</li>
           <li>Hsieh, T. C., Ma, K. H., &amp; Chao, A. (2016). iNEXT: An R package for rarefaction and extrapolation of species diversity (Hill numbers). <em>Methods in Ecology and Evolution, 7</em>(12), 1451–1456.</li>
           <li>Jost, L. (2006). Entropy and diversity. <em>Oikos, 113</em>(2), 363–375.</li>
+          <li>Niño-Sarmiento, L. C., Guerrero-Pérez, D. A., Gómez-Cuadrado, H. T., &amp; Garcia-Reinel, L. A. (2024). Identificación de habilidades de lectura e interpretación de árboles filogenéticos con docentes de Biología en formación de la Universidad Distrital Francisco José de Caldas. <em>Bio-grafía, 17</em>(33), 129–143. <a href="https://doi.org/10.17227/bio-grafia.vol.17.num33-21789" target="_blank" rel="noopener">https://doi.org/10.17227/bio-grafia.vol.17.num33-21789</a></li>
           <li>Rogers, L. E., Hinds, W. T., &amp; Buschbom, R. L. (1976). A general weight vs. length relationship for insects. <em>Annals of the Entomological Society of America, 69</em>(2), 387–389.</li>
           <li>Roldán Pérez, G. (2003). <em>Bioindicación de la calidad del agua en Colombia: Propuesta para el uso del método BMWP/Col</em>. Editorial Universidad de Antioquia.</li>
           <li>Stork, N. E., &amp; Blackburn, T. M. (1993). Abundance, body size and biomass of arthropods in tropical forest. <em>Oikos, 67</em>(3), 483–489.</li>
@@ -183,6 +224,9 @@
   <script src="js/rarefaccion.js"></script>
   <script src="js/diversidad.js"></script>
   <script src="js/agua.js"></script>
+  <script src="js/exportar-svg.js"></script>
+  <script src="js/red-trofica.js"></script>
+  <script src="js/filogenia.js"></script>
   <script src="js/selector.js"></script>
 </body>
 </html>

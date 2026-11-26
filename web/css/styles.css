@@ -992,3 +992,43 @@ figure.foto-hex { margin: 0; padding: 6px; }
 .metodo-barras div { display: grid; grid-template-columns: 120px 1fr 40px; align-items: center; gap: 8px; font-size: .9rem; font-weight: 700; }
 .metodo-barras i { height: 14px; border-radius: 7px; background: var(--miel); min-width: 3px; }
 .metodo-barras b { text-align: right; }
+
+/* ---------- Herramienta 04: redes tróficas ---------- */
+.red-editor { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 18px; }
+@media (max-width: 860px) { .red-editor { grid-template-columns: 1fr; } }
+.red-editor h3, .red-lienzo-tarjeta h3, .filo-resultado h3 { margin-top: 0; }
+.red-form { display: grid; grid-template-columns: 1fr 1fr auto; gap: 10px; align-items: end; }
+@media (max-width: 520px) { .red-form { grid-template-columns: 1fr; } }
+.red-form label { font-size: .85rem; }
+.red-lista { list-style: none; padding: 0; margin: 14px 0 0; display: flex; flex-wrap: wrap; gap: 6px; max-height: 210px; overflow: auto; }
+.red-lista li { display: inline-flex; align-items: center; gap: 6px; padding: 4px 6px 4px 10px; border: 1px solid var(--border); border-radius: 999px; font-size: .88rem; background: var(--surface-2); }
+.red-lista i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+.red-quitar { border: 0; background: transparent; color: var(--alerta); font-size: 1.15rem; line-height: 1; cursor: pointer; padding: 0 4px; font-weight: 800; }
+.red-lienzo-tarjeta { margin-top: 20px; }
+.red-titulo { grid-template-columns: 1fr; max-width: 520px; margin-bottom: 4px; }
+.red-lienzo { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--border); touch-action: none; }
+.red-caja { cursor: grab; }
+.red-caja:active { cursor: grabbing; }
+.red-analisis { margin-top: 12px; }
+.red-avisos { margin: 6px 0 0; padding-left: 1.2em; color: var(--alerta); }
+:root[data-theme="dark"] .red-avisos { color: #ff9b7a; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .red-avisos { color: #ff9b7a; } }
+.red-ok { color: var(--hoja); font-weight: 700; }
+
+/* ---------- Herramienta 05: árboles filogenéticos ---------- */
+#filo-app > .tarjeta { margin-top: 20px; }
+.filo-matriz th, .filo-matriz td { padding: 4px; text-align: center; vertical-align: bottom; }
+.filo-matriz td:first-child { text-align: left; white-space: nowrap; }
+.filo-matriz input[type="text"] { padding: 6px 8px; font-size: .9rem; }
+.filo-matriz td:first-child input { width: 140px; }
+.filo-car { min-width: 96px; }
+.filo-car input { width: 100%; font-size: .78rem !important; font-weight: 400; }
+.filo-num { display: block; font-weight: 800; color: var(--miel-osc); }
+:root[data-theme="dark"] .filo-num { color: var(--polen); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .filo-num { color: var(--polen); } }
+.filo-celda { width: 42px; text-align: center; font-weight: 800; }
+.filo-externo td { background: var(--surface-2); }
+.filo-etq { display: block; color: var(--text-muted); }
+.filo-titulo { grid-template-columns: 1fr; max-width: 520px; }
+.filo-datos { margin: 14px 0 4px; }
+.filo-lienzo { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--border); margin-top: 10px; }
