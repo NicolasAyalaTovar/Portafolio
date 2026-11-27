@@ -68,6 +68,16 @@
       .then(() => window.Buscador && Buscador.crear(header.querySelector("#buscador")));
   });
 
+  // Estadísticas de visitas con GoatCounter: sin cookies ni datos personales.
+  // Solo cuenta en el sitio publicado, no al probar en el computador (localhost).
+  if (location.hostname.endsWith("lacolmena.site")) {
+    const gc = document.createElement("script");
+    gc.async = true;
+    gc.src = "https://gc.zgo.at/count.js";
+    gc.dataset.goatcounter = "https://lacolmenaoficial.goatcounter.com/count";
+    document.head.append(gc);
+  }
+
   // Menú desplegable
   const btn = header.querySelector(".menu-btn");
   const nav = header.querySelector(".nav");
